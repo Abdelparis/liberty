@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -280,7 +281,7 @@ puts "Ending creating 6 fake skills..."
 
 puts "Creating 10 fake missions..."
 
-Mission.create!(
+yoga = Mission.create!(
   name: "Cours de Yoga",
   description: "La société Health&Sens est un cabinet de professionnels dans le domaine du sport et du bien-être en entreprise depuis plus de 10 ans, sur Paris et la région parisienne. Nous recherchons des professeurs sur Paris et la région Parisienne ( 77-78-91-92-93-94-95), afin de dispenser des cours auprès de nos clients le vendredi de 12h30 à 13h30. Vous êtes diplômé en Pilates et/ou Yoga? N’hésitez pas à nous contacter.",
   address: "14 rue crespin du gast, paris",
@@ -290,9 +291,10 @@ Mission.create!(
   job_category_id: JobCategory.minimum(:id),
   user_id: User.minimum(:id) + 10
   )
+  file = URI.open("https://images.unsplash.com/photo-1552196563-55cd4e45efb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")
+  yoga.photos.attach(io: file, filename: 'yoga_1.jpeg', content_type: 'image/jpeg')
 
-
-Mission.create!(
+pilate = Mission.create!(
   name: "Cours de Pilate",
   description: "Cours dans notre coworking. Yuji est une jeune entreprise spécialisé dans le yoga urban. Nous possédons trois salles dans Paris et nous avons pensé nos espaces comme de vrais refuges urbans où calme, silence et détente sont nos crédos. Nous sommes à la recherche d'un professeur de yoga spécialisé dans le Yin & Vinyasa et qui est rompu à la pratique de séances sous infrarouge. Une sensibilité à la musique inspirante mais contemporaine serait grandement appréciée. Nous avons besoin en priorité de remplir notre créneau du samedi de 11h à 12h.",
   address: "64 rue des Archives",
@@ -303,9 +305,13 @@ Mission.create!(
   user_id: User.minimum(:id) + 10
   )
 
-Mission.create!(
-  name: "Séance de coiffures pour nos salariés",
-  description: "Séance coiffure pour nos salariés. Cabinet de naturopathie installé dans le 8e à deux pas de Saint-Augustin depuis 15 ans, nous nous développons et nous souhaitons offrir des services complémentaires (atelier, espace de discussion...) à nos clients. Nous sommes à la recherche d'un reflexologue. Descriptif. Plusieurs ateliers thérapeutiques, validés par les deux fondatrices du cabinet, sont construits et animés par l’équipe et par des intervenants de qualité extérieurs aux compétences multiples. Dans ce cadre nous cherchons un réflexologue si possible praticien en Chi Nei Tsang pour le jeudi de 14h à 15h.",
+  file = URI.open("https://images.unsplash.com/photo-1518609571773-39b7d303a87b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80")
+  pilate.photos.attach(io: file, filename: 'pilate_1.jpeg', content_type: 'image/jpeg')
+
+coiffure = Mission.create!(
+  name: "Séance de coiffures pour nos clientes",
+  description: "Le salon Hair&Beauté est un salon de coiffure installé depuis 5 ans dans le 4e à Paris. Nous avons une clientèle jeune, dynamique à la recherche du chic, de l'innovation et des dernières tendances. Nous ouvrons un créneau horaire spécialisé en coiffure de soirée pour nos clientes le vendredi de 18h à 20h. Nous recherchons donc un coiffeur ou une coiffeuse spécialisé(e) dans les coiffures de soirée : chignon à la française, chignon banane, tresses, wavy, coiffure accessoirisé ... rien n'a de secret pour vous.
+N’hésitez pas à nous contacter.",
   address: "23 rue goerges bizet, paris",
   price_by_hour: 40,
   start_date_time: "20200925123000",
@@ -314,7 +320,11 @@ Mission.create!(
   user_id: User.minimum(:id) + 10
   )
 
-Mission.create!(
+ file = URI.open("https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")
+ coiffure.photos.attach(io: file, filename: 'coiffure_1.jpeg', content_type: 'image/jpeg')
+
+
+barbier = Mission.create!(
   name: "Atelier barbier",
   description: "En complément pour animer notre salon de coiffure. Salon de coiffure et de beauté de standing spécialisé dans le bio et la responsabilité environnementale, nous cherchons une esthéticienne spécialisée dans les soins du visage avec des produits bio et responsables pour compléter le planning de notre dernière cabine-bulle, concept innovant dessiné par notre expert. Une connaissance approfondie des protocles de soins avec les gammes Nucléa et Pulpe de Vie serait très appréciée. Le créneau horaire que nous proposons pour l'instant est le mardi de 18h à 19h. Des horaires complémentaires pourraient être proposés par la suite.",
   address: "10 boulevard Raspail, paris",
@@ -325,9 +335,13 @@ Mission.create!(
   user_id: User.minimum(:id) + 10
   )
 
-Mission.create!(
+ file = URI.open("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")
+ barbier.photos.attach(io: file, filename: 'barbier_1.jpeg', content_type: 'image/jpeg')
+
+
+massage = Mission.create!(
   name: "Séances de massage",
-  description: "Séances de massage pour nos équipes. MamaPam est une nouvelle petite chaîne d'hôtel française souhaitant proposé une expérience différente et nouvelle à ses clients. Pour nos hotels parisiens, nous souhaitons mettre en place des séances de massage avec les soins concoctés à base de miel des toits de Paris et d'huile naturelle locale. Nous sommes à la recherche d'une masseuse ou d'un masseur expérimenté spécialisée dans les messages détentes sous infrarouge. Nous avons besoin en priori de remplir notre créneau du samedi de 17h à 20h.",
+  description: "Séances de massage pour nos clients. MamaPam est une nouvelle petite chaîne d'hôtel française souhaitant proposé une expérience différente et nouvelle à ses clients. Pour nos hotels parisiens, nous souhaitons mettre en place des séances de massage avec les soins concoctés à base de miel des toits de Paris et d'huile naturelle locale. Nous sommes à la recherche d'une masseuse ou d'un masseur expérimenté spécialisée dans les messages détentes sous infrarouge. Nous avons besoin en priori de remplir notre créneau du samedi de 17h à 20h.",
   address: "104 rue michel ange, paris",
   price_by_hour: 30,
   start_date_time: "20201027123000",
@@ -336,6 +350,8 @@ Mission.create!(
   user_id: User.minimum(:id) + 10
   )
 
+  file = URI.open("https://images.unsplash.com/photo-1591343395082-e120087004b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")
+  massage.photos.attach(io: file, filename: 'massage_1.jpeg', content_type: 'image/jpeg')
 puts "Ending creating 6 fake missions..."
 
 
