@@ -48,6 +48,7 @@ class MissionsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @mission.errors, status: :unprocessable_entity }
       end
+    end
   end
 
   private
