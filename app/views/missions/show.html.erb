@@ -1,44 +1,20 @@
-<div class = "t_container">
+<div class="small-container pt-5">
+  <h2 class="pt-3 "><%= @mission.name %></h2>
+  <h3 class="pb-3"><%= @mission.name %></h3>
 
-    <div class ="row">
-      <div class = "col-lg-6">
-          <%= cl_image_tag @mission.photos.first.key, height: 300, width: 400, crop: :fill %>
-      </div>
-
-      <div class='col-lg-6 justify-content-center'>
-        <div class= "margin-t">
-
-          <div class = "d-flex justify-content-between border-bottom">
-            <h1></h1>
-          </div>
-
-              <div id = "price" class ="d-flex">
-                <h2>€</h2>
-                <p>  /day</p>
-            </div>
-            <div>
-              <h3> Description :</h3>
-
-              <h4 class= "margin-t">Le commentaire du gamer</h4>
-              <p><1></p>
-
-            </div>
+  <div class="row">
+    <div class="col-8">
+        <%= cl_image_tag @mission.photos.first.key, width: 700, height: 400, crop: :fill, class:"center" %>
     </div>
+    <div class="col-4">
+      <div class="border-left p-3">
+          <h5>Détails</h5>
+          <h6><%= "#{@mission.start_date_time.strftime("%d/%m/%Y")}   - #{@mission.end_date_time.strftime("%d/%m/%Y")} "%></h6>
+          <h6><%= "#{@mission.start_date_time.strftime("%k:%M")}   - #{@mission.end_date_time.strftime("%k:%M")} "%></h6>
+      </div>
     </div>
   </div>
 
+  </div>
 
-
-<div class="review">
-  <div class = "card-product">
-        <ul class = "no-li-style">
-
-        </ul>
-         <div class = "avatar_review"  >
-                  <div class="card-user-infos">
-      </div>
-</div>
-
-
- </div>
 </div>
