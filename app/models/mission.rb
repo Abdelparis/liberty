@@ -3,4 +3,5 @@ class Mission < ApplicationRecord
   belongs_to :user
   has_many :bookings
   validates :name, :description, :address, :price_by_hour, :start_date_time, :end_date_time, presence: true
+  has_many_attached :photos
 end
