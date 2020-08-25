@@ -1,6 +1,6 @@
 <div class="small-container pt-5">
-  <h2 class="pt-3 "><%= @mission.name %></h2>
-  <h3 class="pb-3"><%= @mission.name %></h3>
+  <h2 class="pt-3 "><%= "#{@mission.name} à #{@mission.user.address.split(",")[1]},"%></h2>
+  <h4 class="pb-3"><%= @mission.user.company_name%></h4>
 
   <div class="row">
     <div class="col-8">
@@ -9,12 +9,19 @@
     <div class="col-4">
       <div class="border-left p-3">
           <h5>Détails</h5>
-          <h6><%= "#{@mission.start_date_time.strftime("%d/%m/%Y")}   - #{@mission.end_date_time.strftime("%d/%m/%Y")} "%></h6>
-          <h6><%= "#{@mission.start_date_time.strftime("%k:%M")}   - #{@mission.end_date_time.strftime("%k:%M")} "%></h6>
+          <h6><%= "#{@mission.start_date_time.strftime("%d/%m/%Y")} - #{@mission.end_date_time.strftime("%d/%m/%Y")} "%></h6>
+          <h6 class="pb-1"><%= "#{@mission.start_date_time.strftime("%k:%M")} - #{@mission.end_date_time.strftime("%k:%M")} "%></h6>
+          <h6><%= "Salaire horaire : #{@mission.price_by_hour} €/heure" %></h6>
+          <h6><%= "Salaire TTC : #{@price} €" %></h6>
       </div>
     </div>
   </div>
-
+  <div class="row">
+    <div class="col-12">
+      <h2 class="pt-5 pb-3"> À propos</h2>
+      <p><%=@mission.description%></p>
+      p
+    </div>
   </div>
 
 </div>
