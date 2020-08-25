@@ -1,5 +1,5 @@
 class MissionsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_mission, only: [:show]
 
   def index
