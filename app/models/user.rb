@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookings
   has_many :missions
-  validates :role, inclusion: { in: ['freelancer', "company"] }
+  validates :role, inclusion: { in: ["freelancer", "company"] }
   validates :first_name, :last_name, :email, :phone_number, :address, presence: true
 end
