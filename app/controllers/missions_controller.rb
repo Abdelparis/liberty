@@ -1,7 +1,6 @@
 class MissionsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_mission, only: [:show]
-  before_action :mission_params, only: []
 
   def index
     @missions = policy_scope(Mission).order(created_at: :desc)
