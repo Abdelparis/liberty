@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
 
   def show
     @mission = @booking.mission
+    @markers = [{ lat: @mission.latitude, lng: @mission.longitude }]
     authorize @booking
   end
 

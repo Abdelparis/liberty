@@ -64,7 +64,11 @@
    <div class="row">
     <div class="col-12">
       <h3 class="pt-3 pb-3 mt-4 border-top" id="show-loc"></i>Localisation</h3>
-      <img src="https://img-0.journaldunet.com/TUIoMZoSVMCDMXl0WUNfotBBS8U=/1280x/smart/2b7b473c1ebe416ead81f3f6179a1d75/ccmcms-jdn/11436203.jpg" class="map-show" alt="" width="80%" height="75%">
+        <div id="map"
+          style="width: 100%; height: 600px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
     </div>
   </div>
 

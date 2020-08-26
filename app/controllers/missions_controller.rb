@@ -4,14 +4,15 @@ class MissionsController < ApplicationController
 
   def index
     @missions = policy_scope(Mission).order(created_at: :desc)
-    
+
     @missions = Mission.geocoded
     @markers = @missions.map do |mission|
       {
         lat: mission.latitude,
         lng: mission.longitude
       }
-      
+    end
+
     @params = params[:search]
     if !@params.present?
       @missions = Mission.all
@@ -32,6 +33,7 @@ class MissionsController < ApplicationController
   def show
     authorize @mission
     @price = total_price(@mission.price_by_hour, @mission.start_date_time, @mission.end_date_time)
+    @markers = [{ lat: @mission.latitude, lng: @mission.longitude }]
   end
 
   def new
