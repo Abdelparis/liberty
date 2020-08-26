@@ -9,7 +9,8 @@ class MissionsController < ApplicationController
     @markers = @missions.map do |mission|
       {
         lat: mission.latitude,
-        lng: mission.longitude
+        lng: mission.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { mission: mission })
       }
     end
 
@@ -33,7 +34,10 @@ class MissionsController < ApplicationController
   def show
     authorize @mission
     @price = total_price(@mission.price_by_hour, @mission.start_date_time, @mission.end_date_time)
-    @markers = [{ lat: @mission.latitude, lng: @mission.longitude }]
+    @markers = [{ lat: @mission.latitude,
+                  lng: @mission.longitude,
+                  infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission })
+                }]
   end
 
   def new

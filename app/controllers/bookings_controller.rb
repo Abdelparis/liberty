@@ -4,7 +4,10 @@ class BookingsController < ApplicationController
 
   def show
     @mission = @booking.mission
-    @markers = [{ lat: @mission.latitude, lng: @mission.longitude }]
+    @markers = [{ lat: @mission.latitude,
+                  lng: @mission.longitude,
+                  infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission })
+                   }]
     authorize @booking
   end
 
