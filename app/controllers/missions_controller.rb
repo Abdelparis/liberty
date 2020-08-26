@@ -4,7 +4,14 @@ class MissionsController < ApplicationController
 
   def index
     @missions = policy_scope(Mission).order(created_at: :desc)
-
+    
+    @missions = Mission.geocoded
+    @markers = @missions.map do |mission|
+      {
+        lat: mission.latitude,
+        lng: mission.longitude
+      }
+      
     @params = params[:search]
     if !@params.present?
       @missions = Mission.all
