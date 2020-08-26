@@ -147,7 +147,7 @@ User.create!(
   price_by_hour: 30
   )
 
-User.create!(
+health_sens = User.create!(
   first_name: "Jean",
   last_name: "Pomme",
   company_name: "Health Sens",
@@ -158,6 +158,10 @@ User.create!(
   address: "5 rue des saint pères, paris",
   description: "Cabinet de professionnels dans le domaine du sport et du bien-être en entreprise",
   )
+
+  file_2 = URI.open("https://image.freepik.com/vecteurs-libre/conception-du-yoga-creer-logo-vectoriel-equilibre_53876-40844.jpg")
+  health_sens.avatar.attach(io: file_2, filename: 'avatar.jpeg', content_type: 'image/jpeg')
+
 
 User.create!(
   first_name: "Pierre",
@@ -291,8 +295,10 @@ yoga = Mission.create!(
   job_category_id: JobCategory.minimum(:id),
   user_id: User.minimum(:id) + 10
   )
-  file = URI.open("https://images.unsplash.com/photo-1552196563-55cd4e45efb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60")
+  file = URI.open("https://media-cdn.tripadvisor.com/media/photo-s/05/b7/63/52/pranamaya-yoga-studio.jpg")
+  file_1 = URI.open("https://www.anousparis.fr/app/uploads/2018/02/yay-yoga-paris-17-studio-cardinet-7-1024x681.jpg")
   yoga.photos.attach(io: file, filename: 'yoga_1.jpeg', content_type: 'image/jpeg')
+  yoga.photos.attach(io: file_1, filename: 'yoga_2.jpeg', content_type: 'image/jpeg')
 
 pilate = Mission.create!(
   name: "Cours de Pilate",
@@ -364,7 +370,7 @@ Booking.create!(
   accepted: true,
   freelancer_review: "",
   freelancer_rating: 4,
-  company_review: "",
+  company_review: "Très bonne expérience chez Health Sens, j'ai adoré le personnel",
   company_rating: 5
   )
 
