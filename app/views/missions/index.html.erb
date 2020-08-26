@@ -2,7 +2,8 @@
   <%= render 'shared/search' %>
 </div>
 <div class="container_card">
-  <h1 class="title">All missions</h1>
+  <h1 class="title">Missions trouvées</h1>
+  <p><%= @missions.ids.length %> mission(s) de <%= @params[:name].capitalize %> à <%= @params[:address].capitalize %></p>
   <div class="row">
     <div class="col-7">
       <div class="card_container">
@@ -28,7 +29,7 @@
                     <p class="text_mission"><%= mission.description.truncate(380) %></p>
                     <div class="card-user-price">
                     <p id="date"><%= mission.start_date_time.strftime("%d/%m/%Y/ - %I:%M%p") %> to <%= mission.end_date_time.strftime("%d/%m/%Y - %I:%M%p") %></p>
-                    <p id="price"> <%= mission.price_by_hour%>€</p>
+                    <p id="price"><%= mission.price_by_hour%>€</p>
                     </div>
 
                   </div>
