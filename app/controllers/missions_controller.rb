@@ -8,6 +8,7 @@ class MissionsController < ApplicationController
 
   def show
     authorize @mission
+    @price = total_price(@mission.price_by_hour, @mission.start_date_time, @mission.end_date_time)
   end
 
   def new
@@ -36,7 +37,7 @@ class MissionsController < ApplicationController
   end
 
   def update
-    record.user == user
+    record.user = user
     authorize @mission
 
     respond_to do |format|
@@ -60,5 +61,9 @@ class MissionsController < ApplicationController
     params.require(:mission).permit(
       :first_name, :last_name, :email, :phone_number, :address, :description, :photos, :role, :avatar, :portfolio_url, :price_by_hour
     )
+  end
+
+  def total_price(price, start_time, end_time)
+    price * (end_time - start_time) / 3600
   end
 end
