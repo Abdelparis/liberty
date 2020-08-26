@@ -4,6 +4,15 @@ class MissionsController < ApplicationController
 
   def index
     @missions = policy_scope(Mission).order(created_at: :desc)
+
+    @params = params[:search]
+    if !@params.present?
+      @missions = Mission.all
+    elsif @params[:name] && @params[:address] && @params[:start_date_time] && @params[:end_date_time]
+      @missions = Mission.where("name ILIKE ?", "%#{@params[:name]}%") && Mission.where("address ILIKE ?", "%#{@params[:address]}%") && Mission.where("start_date_time ILIKE ?", "%#{@params[:start_date_time]}%") && Mission.where("end_date_time ILIKE ?", "%#{@params[:end_date_time]}%")
+    else
+      @missions = Mission.all
+    end
   end
 
   def show
