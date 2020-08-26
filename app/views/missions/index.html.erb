@@ -1,19 +1,18 @@
 <div class="search">
   <%= render 'shared/search' %>
 </div>
-<div class="t_container">
+<div class="container_card">
+  <h1 class="title">All missions</h1>
   <div class="row">
-    <div class="col-8">
-    <h1 class="title">All missions</h1>
+    <div class="col-7">
     <div class="card_container">
       <% @missions.each do |mission| %>
         <div class="card-product">
            <h2><%= mission.name %></h2>
           <div class="card-information" >
             <div class="card-description">
-
               <% if mission.photos.attached? %>
-                <%= cl_image_tag mission.photo.key %>
+                <%= cl_image_tag mission.photos.first.key %>
               <% else %>
                 <%= image_tag("mission.jpg") %>
               <% end %>
@@ -26,10 +25,10 @@
                 <h3><%= mission.job_category.name %></h3>
                 <div class="card-user_description">
                   <h4> Mission :</h4>
-                  <p><%= mission.description %></p>
+                  <p class="text_mission"><%= mission.description.truncate(380) %></p>
                   <div class="card-user-price">
-                  <p id="date">10 days From 12/09/2019 to 20/09/2019</p>
-                  <p id="price"> Price: 20 €</p>
+                  <p id="date"><%= mission.start_date_time.strftime("%d/%m/%Y/ - %I:%M%p") %> to <%= mission.end_date_time.strftime("%d/%m/%Y - %I:%M%p") %></p>
+                  <p id="price"> <%= mission.price_by_hour%>€</p>
                   </div>
 
                 </div>
@@ -40,7 +39,7 @@
       <% end %>
       </div>
     </div>
-      <div class="col-4">
+      <div class="col-5">
       <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1Ijoia3Jpc3MzMTc1IiwiYSI6ImNrZGE4c2JmdTBmemMzNm1oa3N1M2p1aHMifQ.pcV1CKhLToxaFTlo9TAm_w'>
     </div>
     </div>
