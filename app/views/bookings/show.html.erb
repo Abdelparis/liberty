@@ -57,6 +57,16 @@
     </div>
   </div>
 </div>
+<% if @booking.freelancer_review = "" %>
+  <div class="container">
+    <p></p>
+    <%= simple_form_for(@booking) do |f| %>
+      <%= f.input :freelancer_review %>
+      <%= f.input :freelancer_rating, collection: 1..5 %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+<% end %>
 <div class="container">
   <h4>Localisation de la mission</h4>
   <div id="map"

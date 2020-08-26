@@ -6,7 +6,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    user_is_owner_or_admin?
+    true
   end
 
   def create?
@@ -14,7 +14,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner_or_admin?
+    true
   end
 
   private

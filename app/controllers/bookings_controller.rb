@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :update]
   before_action :set_booking, only: [:show]
 
   def show
@@ -29,6 +29,13 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    set_booking
+    authorize @booking
+    @booking.update(booking_params)
+    redirect_to booking_path, notice: "L'avis a bien été pris en compte !"
+  end
+
   private
 
   def set_booking
@@ -37,6 +44,7 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(
-      :first_name, :last_name, :email, :phone_number, :address, :description, :photos, :role, :avatar, :portfolio_url, :price_by_hour)
+      :freelancer_review, :freelancer_rating, :company_review, :company_rating
+    )
   end
 end
