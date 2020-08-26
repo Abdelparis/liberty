@@ -1,4 +1,17 @@
-.center {
+.carousel-indicators  {
+  bottom: 3em;
+}
+
+.carousel-indicators .active {
+  background-color: #white;
+}
+
+#star {
+  font-size:11px
+}
+
+.map-show{
   margin-left: auto;
   margin-right: auto;
+  display: block;
 }
