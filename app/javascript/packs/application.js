@@ -33,7 +33,9 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 import { initMapbox } from '../plugins/init_mapbox';
+import { initNavbar } from '../plugins/navbar';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initNavbar();
 })
