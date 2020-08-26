@@ -13,7 +13,7 @@
             <div class="card-description">
 
               <% if mission.photos.attached? %>
-                <%= cl_image_tag mission.photo.key %>
+                <%= cl_image_tag mission.photos.first.key %>
               <% else %>
                 <%= image_tag("mission.jpg") %>
               <% end %>
