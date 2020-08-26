@@ -32,12 +32,18 @@ class MissionsController < ApplicationController
   end
 
   def show
-    authorize @mission
     @price = total_price(@mission.price_by_hour, @mission.start_date_time, @mission.end_date_time)
     @markers = [{ lat: @mission.latitude,
                   lng: @mission.longitude,
                   infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission })
                 }]
+
+    # @booking = @mission.bookings.find_by mission_id: params[:id]
+
+    authorize @mission
+    @booking = Booking.new
+    @mission = Mission.find(params[:id])
+    @bookings = Booking.where(mission: @mission)
   end
 
   def new
