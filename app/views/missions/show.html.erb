@@ -1,27 +1,95 @@
 <div class="small-container pt-5">
-  <h2 class="pt-3 "><%= "#{@mission.name} à #{@mission.user.address.split(",")[1]},"%></h2>
-  <h4 class="pb-3"><%= @mission.user.company_name%></h4>
+  <div style = "position:relative"  >
+    <% if !@mission.user.avatar.nil? %>
+        <%= cl_image_tag @mission.user.avatar.key, style:"position:absolute; left:0" ,class:"avatar-xlarge"%>
+    <% end %>
+        <a href="#show-loc" style = "position:absolute; right:0" class="btn btn-ghost"><i class="far fa-map"></i> Voir la carte</a>
+  </div>
+
+      <h2 class="pt-3 pr-5 pl-5 ml-5"><%= "#{@mission.name} à #{@mission.user.address.split(",")[1]},"%></h2>
+      <div style = "display: flex; justify-content:left;">
+        <h4 class = "pl-5 ml-5"><%= "#{@mission.user.company_name}"%></h4>
+        <h6 class = "ml-2 mt-1" >4,2 <i class="fas fa-star"></i></h6>
+      </div>
 
   <div class="row">
     <div class="col-8">
-        <%= cl_image_tag @mission.photos.first.key, width: 700, height: 400, crop: :fill, class:"center" %>
-    </div>
+
+      <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="0">
+          <% if @mission.photos.size > 1%>
+          <ol class="carousel-indicators">
+            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+            <% i = 0 %>
+            <%for i in 0..@mission.photos.size-2%>
+            <li data-target="#carouselIndicators" data-slide-to= <%=i+1 %>></li>
+            <%end%>
+          </ol>
+          <% end %>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%= cl_image_tag @mission.photos.first.key, width: 700, height:450, class:"center mb-5 d-block w-100"%>
+            </div>
+          <%for i in 1..@mission.photos.size-1%>
+            <div class="carousel-item">
+              <%= cl_image_tag @mission.photos[i].key, width: 700, height:450, class:"center mb-5 d-block w-100"%>
+            </div>
+          <%end%>
+        </div>
+      </div>
+  </div>
     <div class="col-4">
-      <div class="border-left p-3">
-          <h5>Détails</h5>
-          <h6><%= "#{@mission.start_date_time.strftime("%d/%m/%Y")} - #{@mission.end_date_time.strftime("%d/%m/%Y")} "%></h6>
-          <h6 class="pb-1"><%= "#{@mission.start_date_time.strftime("%k:%M")} - #{@mission.end_date_time.strftime("%k:%M")} "%></h6>
+      <div class="card-product p-3">
+          <h5 class="mb-3" style="text-align:center"><i class="fas fa-square" style="color:pink"></i>  Détails</h5>
+          <h6><strong>Quand ?</strong></h6>
+          <h6><%= "Du #{@mission.start_date_time.strftime("%d/%m/%Y")} au #{@mission.end_date_time.strftime("%d/%m/%Y")} "%></h6>
+          <h6 class="pb-3 border-bottom"><%= "De #{@mission.start_date_time.strftime("%k:%M")}h à #{@mission.end_date_time.strftime("%k:%M")}h "%></h6>
+          <h6><strong>Où ?</strong></h6>
+          <h6 class="pb-3 border-bottom"><i class="fas fa-map-marker-alt"></i><%=@mission.user.address.split(",")[1]%></h6>
+          <h6><strong>Rémunération :</strong></h6>
           <h6><%= "Salaire horaire : #{@mission.price_by_hour} €/heure" %></h6>
-          <h6><%= "Salaire TTC : #{@price} €" %></h6>
+          <h6 class="pb-3 border-bottom"><%= "Salaire TTC : #{@price} €" %></h6>
+          <%= link_to "Je postule !", booking_path(@mission), class:"btn btn-flat text-center mt-2", style:"margin-left: 33%;"%>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      <h2 class="pt-5 pb-3"> À propos</h2>
-      <p><%=@mission.description%></p>
-      p
+      <h3 class="pt-3 pb-3 mt-4 border-top"><i class="fas fa-square" style="color:pink"></i> Mission :</h3>
+      <p style="color:grey"><%=@mission.description%></p>
+      <p style="color:grey"><strong><%="#{@mission.user.company_name}"%></strong><%=" : #{@mission.user.description}"%></p>
+      <button style="text-align:center" type="button" class="btn btn-dark mb-5">+ d'infos sur l'entreprise</button>
     </div>
   </div>
 
+   <div class="row">
+    <div class="col-12">
+      <h3 class="pt-3 pb-3 mt-4 border-top" id="show-loc"></i>Localisation</h3>
+      <img src="https://img-0.journaldunet.com/TUIoMZoSVMCDMXl0WUNfotBBS8U=/1280x/smart/2b7b473c1ebe416ead81f3f6179a1d75/ccmcms-jdn/11436203.jpg" class="map-show" alt="" width="80%" height="75%">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="pt-3 border-top">
+        <h3><%=@mission.user.missions.count%> autres missions de <%=@mission.job_category.name%> à <%=@mission.user.address.split(",")[1]%></h3>
+        <div class="cards pb-5">
+          <% 3.times do %>
+            <div class = "card-trip">
+              <div style = "background-color: grey; height: 200px; width:100%;" ></div>
+                <div class="card-trip-infos">
+                  <div>
+                    <h4>< Info ></h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem neque debitis enim nulla voluptates repudiandae recusandae rerum dolorem voluptatum? Error, dolores. Soluta inventore eum ipsa quae repellendus in aliquam odit!</p>
+                    <div class="flexbox">
+                      <p class="card-trip-pricing"></p>
+                      <h5> another info</h5>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
