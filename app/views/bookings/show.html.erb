@@ -1,34 +1,39 @@
-<div class="container">
+<div class="container py-3">
 <h1> <%= @booking.mission.name %> </h1>
-
-
-
-<div class="container">
   <div class="row">
     <div class="col-12 col-lg-8">
       <div class="booking-image">
-        <%= cl_image_tag @mission.photos.first.key, height: 600, width: 600 %>
+        <%= cl_image_tag @mission.photos.first.key, height: 400, width: 600 %>
       </div>
     </div>
     <div class="col-12 col-lg-4">
       <div class="booking-card">
-        <ul>
+        <ul style="list-style-type:none;">
+          <li><%= "Date de début de mission :" %></li>
           <li><%= @mission.start_date_time %></li>
+          <li><%= "Date de fin de mission :" %></li>
           <li><%= @mission.end_date_time %></li>
+          <li><%= "Statut de la mission :" %></li>
           <li><%= @booking.accepted %></li>
+          <li><%= "Prix total de la mission :" %></li>
           <li><%= @booking.total_price %><%= " EUR" %></li>
         </ul>
       </div>
     </div>
   </div>
 </div>
-
+<div class="container">
+  <div class="booking-description-mission">
+    <h4>Description de la mission</h4>
+      <p><%= @mission.description %></p>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-6">
       <div class="booking-freelancer-infos">
-        <h2>Infos freelancer</h2>
-        <ul>
+        <h4>Coordonnées du freelance</h4>
+        <ul style="list-style-type:none;">
           <li><%= @booking.user.first_name %></li>
           <li><%= @booking.user.last_name %></li>
           <li><%= @booking.user.email %></li>
@@ -40,8 +45,8 @@
     </div>
     <div class="col-6">
       <div class="booking-company-infos">
-        <h2>Infos entreprise</h2>
-        <ul>
+        <h4>Coordonnées du client</h4>
+        <ul style="list-style-type:none;">
           <li><%= @mission.user.company_name %></li>
           <li><%= @mission.user.email %></li>
           <li><%= @mission.user.phone_number %></li>
@@ -52,32 +57,21 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="booking-description-mission">
-    <h2>Infos mission</h2>
-      <ul>
-        <li><%= @mission.name %></li>
-        <li><%= @mission.description %></li>
-        <li><%= @mission.start_date_time %></li>
-        <li><%= @mission.end_date_time %></li>
-      </ul>
+    <h4>Description de la mission</h4>
+      <p><%= @mission.description %></p>
+  </div>
+</div>
+
+<div class="container">
+  <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
 
 
-
-<h2>Infos booking</h2>
-<ul>
-  <li><%= @booking.total_price %></li>
-  <li><%= @booking.accepted %></li>
-  <li><%= @booking.freelancer_review %></li>
-  <li><%= @booking.freelancer_rating %></li>
-  <li><%= @booking.company_review %></li>
-  <li><%= @booking.company_rating %></li>
-
-</ul>
-
-</div>
 
 
