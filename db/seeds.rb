@@ -387,7 +387,7 @@ Booking.create!(
 
 Booking.create!(
   mission_id: Mission.minimum(:id) + 2,
-  user_id: User.minimum(:id),
+  user_id: User.minimum(:id) + 1,
   total_price: 120,
   accepted: true,
   freelancer_review: "super expérience",
@@ -398,7 +398,7 @@ Booking.create!(
 
 Booking.create!(
   mission_id: Mission.minimum(:id) + 3,
-  user_id: User.minimum(:id),
+  user_id: User.minimum(:id) ,
   total_price: 60,
   accepted: true,
   freelancer_review: "",

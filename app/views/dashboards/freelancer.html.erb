@@ -1,0 +1,60 @@
+<div class="small-container pt-5">
+  <div class="row">
+    <div class="col-8">
+      <div class = "d-flex justify-content-left dashboard-buttons">
+        <a href="freelancer?status=currently" class="btn btn-ghost"><%="En cours "%><i class="far fa-calendar"></i></a>
+        <a href="freelancer?status=history" class="btn btn-ghost"><%="Passées "%><i class="fas fa-history"></i></a>
+        <a href="freelancer?status=rejected" class="btn btn-ghost"><%="En attente "%><i class="far fa-clock"></i></a>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class = "container d-flex justify-content-center pb-5">
+        <%= simple_form_for(:query, method: "GET", html: { class: 'inline d-flex align-content-center rounded' }) do |f| %>
+        <%= f.input "", required: false, wrapper_html: { class: 'float-container', style:"width:300px" }, input_html: {value: "", placeholder: "Ex : nom de la mission, du client...", id: "left-corner-input"} %>
+        <button type="submit" id="search-btn" title="" class="float-container">
+          <i class="fas fa-search"></i>
+        </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+    <div class="card_container">
+      <% @bookings.each do |booking| %>
+        <div class="card-product">
+           <h2><%= booking.mission.name %></h2>
+          <div class="card-information" >
+            <div class="card-description">
+
+              <% if booking.mission.photos.attached? %>
+                <%= cl_image_tag booking.mission.photos.first.key %>
+              <% else %>
+                <%= image_tag("mission.jpg") %>
+              <% end %>
+                <div class ="card-validation">
+                <a href="#" class="btn btn-ok">En savoir plus</a>
+                </div>
+            </div>
+            <div class="card-user">
+              <div class="card-user-infos">
+                <h3><%= booking.mission.name %></h3>
+                <div class="card-user_description">
+                  <h4> Mission :</h4>
+                  <p><%= booking.mission.description %></p>
+                  <div class="card-user-price">
+                  <p id="date">10 days From 12/09/2019 to 20/09/2019</p>
+                  <p id="price"> Price: 20 €</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
