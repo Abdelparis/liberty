@@ -1,5 +1,8 @@
 
-.card_container {
+
+.container_card {
+  margin-left: 3em;
+  margin-right:3em;
 }
 
 .card-product {
@@ -92,12 +95,17 @@
 }
 
 #map {
-  margin-right : 20px;
+  height: 100vh;
+  width : 100%;
+  position: sticky;
+  top: 0;
+  margin-bottom: 30px;
 }
 
 .card-description img {
   object-fit: contain;
   width: 170px;
+  height: 130px;
   margin-top: 10px;
   border-radius: 4px
 
