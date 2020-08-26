@@ -5,14 +5,7 @@ class MissionsController < ApplicationController
   def index
     @missions = policy_scope(Mission).order(created_at: :desc)
 
-    @missions = Mission.geocoded
-    @markers = @missions.map do |mission|
-      {
-        lat: mission.latitude,
-        lng: mission.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { mission: mission })
-      }
-    end
+    # @missions = Mission.geocoded
 
     @params = params[:search]
     if !@params.present?
@@ -28,6 +21,14 @@ class MissionsController < ApplicationController
       # @missions = Mission.where("start_date_time ILIKE ?", "%#{@params[:start_date_time]}%") && Mission.where("end_date_time ILIKE ?", "%#{@params[:end_date_time]}%")
     else
       @missions = Mission.all
+    end
+
+    @markers = @missions.map do |mission|
+      {
+        lat: mission.latitude,
+        lng: mission.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { mission: mission })
+      }
     end
   end
 
