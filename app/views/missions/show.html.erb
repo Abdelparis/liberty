@@ -57,8 +57,8 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <div>
-                  <h5 class="modal-title" id="exampleModalLabel">Postuler à l'offre</h5>
-                  <p>Les informations ci-dessous seront visibles par les recruteurs</p>
+                    <h5 class="modal-title" id="exampleModalLabel">Postuler à l'offre</h5>
+                    <p>Les informations ci-dessous seront visibles par les recruteurs</p>
                   </div>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -82,17 +82,15 @@
                       <% if @user.avatar.attached? %>
                         <%= cl_image_tag @user.avatar.key, style:"position:absolute; left:0; top:0" ,class:"avatar-xlarge"%>
                       <% else %>
-                          <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-large">
+                        <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-large">
                         <% end %>
-                      <div class="d-flex justify-content-between pb-5">
-                        <div>
-                          <h4 style="padding-left:60px; padding-top:10px"><%=@user.first_name%> <%=@user.last_name%></h4>
-                          <p style="padding-left:60px; margin-top:-10px"><%=@user.email%></p>
-                        </div>
-                        <div>
-                          <%= link_to "Modifier mon profil","#", class:"btn btn-dark" %>
-                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between pb-5">
+                      <div>
+                        <h4 style="padding-left:60px; padding-top:10px"><%=@user.first_name%> <%=@user.last_name%></h4>
+                        <p style="padding-left:60px; margin-top:-10px"><%=@user.email%></p>
                       </div>
+                          <%= link_to "Modifier mon profil","#", class:"btn btn-dark" %>
                     </div>
                     <%= simple_form_for [@mission, @booking] do |f| %>
                       <%= f.input :freelancer_description, as: :text , :label => "Vos motivations",  :input_html => { :rows => 10}%>
