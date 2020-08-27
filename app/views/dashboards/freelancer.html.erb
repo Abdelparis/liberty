@@ -1,13 +1,24 @@
-<div class="xsmall-container pt-5">
+<div class="small-container pt-5">
   <div class="row">
     <div class="col-8">
       <div class = "d-flex justify-content-left dashboard-buttons">
-        <a href="freelancer?status=currently" class="btn btn-ghost"><%="En cours "%><i class="far fa-calendar"></i></a>
-        <a href="freelancer?status=history" class="btn btn-ghost"><%="Passées "%><i class="fas fa-history"></i></a>
-        <a href="freelancer?status=rejected" class="btn btn-ghost"><%="En attente "%><i class="far fa-clock"></i></a>
+        <% if params[:status]== "currently" %>
+            <a href="freelancer?status=currently" class="btn btn-ghost active"><%="En cours "%><i class="far fa-calendar"></i></a>
+          <% else %>
+            <a href="freelancer?status=currently" class="btn btn-ghost"><%="En cours "%><i class="far fa-calendar"></i></a>
+          <% end %>
+          <% if params[:status]== "pending" %>
+            <a href="freelancer?status=pending" class="btn btn-ghost active"><%="En attente "%><i class="fas fa-history"></i></a>
+          <% else %>
+            <a href="freelancer?status=pending" class="btn btn-ghost"><%="En attente "%><i class="fas fa-history"></i></a>
+          <% end %>
+          <% if params[:status]== "history" %>
+            <a href="freelancer?status=history" class="btn btn-ghost active"><%="Passées "%><i class="fas fa-history"></i></a>
+          <% else %>
+            <a href="freelancer?status=history" class="btn btn-ghost"><%="Passées "%><i class="fas fa-history"></i></a>
+          <% end %>
       </div>
     </div>
-
     <div class="col-4">
       <div class = "container d-flex justify-content-center pb-5">
         <%= simple_form_for(:query, method: "GET", html: { class: 'inline d-flex align-content-center rounded' }) do |f| %>
@@ -55,7 +66,6 @@
                     <li>Solde TTC : <strong><%= booking.total_price %>EUR</strong></li>
                     </ul>
                 </div>
-
                 <div>
                   <ul style="list-style-type:none; margin-top:10px">
                   <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:140px">Facture</a></li>
