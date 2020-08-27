@@ -38,8 +38,8 @@
           <li><%= @booking.user.last_name %></li>
           <li><%= @booking.user.email %></li>
           <li><%= @booking.user.phone_number %></li>
-          <li><%= "Commentaire :" %><%= @booking.freelancer_review %></li>
-          <li><%= "Notation :" %><%= @booking.freelancer_rating %></li>
+     <!--      <li><%= %><%= @booking.freelancer_review %></li>
+          <li><%= %><%= @booking.freelancer_rating %></li> -->
         </ul>
       </div>
     </div>
@@ -50,23 +50,13 @@
           <li><%= @mission.user.company_name %></li>
           <li><%= @mission.user.email %></li>
           <li><%= @mission.user.phone_number %></li>
-          <li><%= "Commentaire :" %><%= @booking.company_review %></li>
-          <li><%= "Notation :" %><%= @booking.company_rating %></li>
+<!--           <li <%@booking.company_review %></li>
+          <li><%=%><%= @booking.company_rating %></li> -->
         </ul>
       </div>
     </div>
   </div>
 </div>
-<% if @booking.freelancer_review = "" %>
-  <div class="container">
-    <p></p>
-    <%= simple_form_for(@booking) do |f| %>
-      <%= f.input :freelancer_review %>
-      <%= f.input :freelancer_rating, collection: 1..5 %>
-      <%= f.submit %>
-    <% end %>
-  </div>
-<% end %>
 <div class="container">
   <h4>Localisation de la mission</h4>
   <div id="map"
