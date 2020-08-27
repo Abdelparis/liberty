@@ -1,9 +1,9 @@
 <div class = "container d-flex justify-content-center mt-4">
     <%= simple_form_for(:search, url: missions_path, method: "GET", html: { class: 'inline d-flex align-content-center rounded' }) do |f| %>
-      <%= f.input :name, required: false, wrapper_html: { class: 'float-container' }, input_html: {value: "", placeholder: " Yoga, Massage, Coiffeur...", id: "left-corner-input"} %>
-      <%= f.input :address, required: false, wrapper_html: { class: 'float-container' }, input_html: {value: "", placeholder: "Paris, Lyon, Nantes...", id: "address-input"}%>
-      <%= f.input :start_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container'} %>
-      <%= f.input :end_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container' } %>
+      <%= f.input :name, required: false, wrapper_html: { class: 'float-container' }, input_html: {value: "", placeholder: " Yoga, Massage, Coiffeur...", id: "left-corner-input"}, :label => "Métiers" %>
+      <%= f.input :address, required: false, wrapper_html: { class: 'float-container' }, input_html: {value: "", placeholder: "Paris, Lyon, Nantes...", id: "address-input" }, :label => "Adresse" %>
+      <%= f.input :start_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container'}, :label => "Date de début" %>
+      <%= f.input :end_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container' }, :label => "Date de fin" %>
       <button type="submit" id="search-btn" title="" class="float-container">
         <i class="fas fa-search"></i>
       </button>
