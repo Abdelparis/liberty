@@ -14,10 +14,21 @@
           <li><%= "Date de fin de mission :" %></li>
           <li><%= @mission.end_date_time %></li>
           <li><%= "Statut de la mission :" %></li>
-          <li><%= @booking.status %></li>
+
+          <% if @booking.status == "pending"%>
+            <li>En attente</li>
+          <% elsif @booking.status == "canceled"%>
+            <li>Annulé</li>
+          <% elsif @booking.status == "rejected"%>
+            <li>Rejeté</li>
+          <% elsif @booking.status == "accepted" && @mission.booking.end_date_time < Date.today %>
+            <li>Effectué</li>
+          <% elsif @booking.status == "accepted" && @mission.booking.end_date_time >= Date.today %>
+            <li>En cours</li>
+          <%end%>
+          </li>
           <li><%= "Prix total de la mission :" %></li>
           <li><%= @booking.total_price %><%= " EUR" %></li>
-          <%=@booking.freelancer_review %>
         </ul>
       </div>
     </div>

@@ -115,7 +115,7 @@
       <button style="text-align:center" type="button" class="btn btn-dark mb-5">+ d'infos sur l'entreprise</button>
     </div>
   </div>
-   <div class="row">
+  <div class="row">
     <div class="col-12">
       <h3 class="pt-3 pb-3 mt-4 border-top" id="show-loc"></i>Localisation</h3>
         <div id="map"
@@ -123,30 +123,90 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <div class="pt-3 border-top">
-        <h3><%=@mission.user.missions.count%> autres missions de <%=@mission.job_category.name%> à <%=@mission.user.address.split(",")[1]%></h3>
-        <div class="cards pb-5">
-          <% 3.times do %>
-            <div class = "card-trip">
-              <div style = "background-color: grey; height: 200px; width:100%;" ></div>
-                <div class="card-trip-infos">
-                  <div>
-                    <h4>< Info ></h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem neque debitis enim nulla voluptates repudiandae recusandae rerum dolorem voluptatum? Error, dolores. Soluta inventore eum ipsa quae repellendus in aliquam odit!</p>
-                    <div class="flexbox">
-                      <p class="card-trip-pricing"></p>
-                      <h5> another info</h5>
-                    </div>
-                  </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="big-blog-container">
+  <div class="container">
+    <div class = "row">
+      <h3 class="pt-5"><%=@mission.user.missions.count%> autres missions de <%=@mission.job_category.name%> à <%=@mission.user.address.split(",")[1]%></h3>
+    </div>
+    <div class="blog_container row">
+
+      <div class="col-4">
+        <div id="blog">
+          <div class='content'>
+            <div class="cards">
+              <div class = "card-trip">
+                <div class= "height: 180px; width:100%;" >
+                  <%= link_to image_tag "christin-hume-Hcfwew744z4-unsplash.jpg", class:"center d-block w-100"%>
+                </div>
+                <div class="card-trip-infos">
+                  <div>
+                    <h4>Gestion & Freelance</h4>
+                    <p>Apprenez à conjuguer votre statut de freelance avec l'agilité d'un comptable expérimenté. Pour cela, des solutions pour automatiser toute votre gestion comptable & financière existent. Tour rapide des logiciels avec notre webinar ce lundi soir.</p>
+                    <div class="flexbox">
+                      <p class="card-trip-pricing"> 14 € </p>
+                      <h5> En savoir plus</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div id="blog">
+          <div class='content'>
+            <div class="cards">
+              <div class = "card-trip">
+                <div class= "height: 180px; width:100%;" >
+                  <%= link_to image_tag "fistbump-over-desk.jpg", class:"center d-block w-100"%>
+                </div>
+                <div class="card-trip-infos">
+                  <div>
+                    <h4>Employer des freelances</h4>
+                    <p>A l'heure où on deande aux entreprises de la souplesse, la tentation de recruter des freelances pour une mission, un créneau horaire particulier ou encore une période d'activité intense est de plus en plus grande. Comprenez avec nous les avantages et eviter les aléas.</p>
+                    <div class="flexbox">
+                      <p class="card-trip-pricing"> 14 € </p>
+                      <h5>Free avec votre compte</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div id="blog">
+          <div class='content'>
+            <div class="cards">
+              <div class = "card-trip">
+                <div class= "height: 180px; width:100%;" >
+                  <%= link_to image_tag "hands_top.jpg", class:"center d-block w-100"%>
+                </div>
+                <div class="card-trip-infos">
+                  <div>
+                    <h4>Freelance ou Portage</h4>
+                    <p>Petit tour de la situation des freelances avec des témoignages. Nous avons réalisé une étude des solutions de portage existantes : avantages, inconvénients, coûts. Tous les outils pour comprendre quand ces solutions sont de vraies aides. Tuto avec notre expert comptable.</p>
+                    <div class="flexbox">
+                      <p class="card-trip-pricing"> Free avec votre compte  </p>
+                      <h5> En savoir plus</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </div>
