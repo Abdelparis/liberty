@@ -44,6 +44,7 @@ class MissionsController < ApplicationController
     @booking = Booking.new
     @mission = Mission.find(params[:id])
     @bookings = Booking.where(mission: @mission)
+    @user = current_user
   end
 
   def new

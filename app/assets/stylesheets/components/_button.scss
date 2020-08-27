@@ -4,6 +4,7 @@
   border-radius: 4px;
   background: #1BCB7F;
   transition: background 0.3s ease;
+  margin-bottom:6em !important
 }
 
 .btn-flat:hover {
@@ -28,10 +29,10 @@
 }
 
 .btn-ghost {
-  color:white;
+  color: rgba(0,0,0,0.6);
   border: 1px solid #4A4A4A;
-  padding-bottom: 25px;
-  width: 130px;
+  padding-bottom: 25px 10px;
+  width: 160px;
   height: 30px;
   border-radius: 50px;
   font-weight: lighter;

@@ -3,12 +3,13 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
 
   def show
+    authorize @booking
     @mission = @booking.mission
     @markers = [{ lat: @mission.latitude,
                   lng: @mission.longitude,
                   infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission })
                    }]
-    authorize @booking
+
   end
 
   def create
