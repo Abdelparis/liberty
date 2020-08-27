@@ -1,4 +1,8 @@
 
+.border{
+  color:#15353D
+}
+
 .fullscreen-bg {
   position: relative;
   z-index: 0;
@@ -47,7 +51,7 @@
 
 #blog {
   padding-bottom: 100px;
-  padding-top: 15px;
+  padding-top: 30px;
 }
 
 .carousel-control-prev-icon {
@@ -62,3 +66,15 @@
 .carousel img {
   object-fit: cover;
 }
+
+.category_jobs {
+  color:#00353D;
+  font-size: 16px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.category_jobs a {
+  color:#00353D;
+  margin-bottom: 15px
+}
+
