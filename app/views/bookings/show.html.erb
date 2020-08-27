@@ -14,9 +14,10 @@
           <li><%= "Date de fin de mission :" %></li>
           <li><%= @mission.end_date_time %></li>
           <li><%= "Statut de la mission :" %></li>
-          <li><%= @booking.accepted %></li>
+          <li><%= @booking.status %></li>
           <li><%= "Prix total de la mission :" %></li>
           <li><%= @booking.total_price %><%= " EUR" %></li>
+          <%=@booking.freelancer_review %>
         </ul>
       </div>
     </div>
