@@ -1,42 +1,41 @@
 <div class="small-container pt-5">
   <div style = "position:relative"  >
-    <% if !@mission.user.avatar.nil? %>
-        <%= cl_image_tag @mission.user.avatar.key, style:"position:absolute; left:0" ,class:"avatar-xlarge"%>
+    <% if @mission.user.avatar.attached? %>
+      <%= cl_image_tag @mission.user.avatar.key, style:"position:absolute; left:0" ,class:"avatar-xlarge"%>
     <% end %>
-        <a href="#show-loc" style = "position:absolute; right:0" class="btn btn-ghost"><i class="far fa-map"></i> Voir la carte</a>
+    <a href="#show-loc" style = "position:absolute; right:0" class="btn btn-ghost"><i class="far fa-map"></i> Voir la carte</a>
   </div>
 
-      <h2 class="pt-3 pr-5 pl-5 ml-5"><%= "#{@mission.name} à #{@mission.user.address.split(",")[1]},"%></h2>
-      <div style = "display: flex; justify-content:left;">
-        <h4 class = "pl-5 ml-5"><%= "#{@mission.user.company_name}"%></h4>
-        <h6 class = "ml-2 mt-1" >4,2 <i class="fas fa-star"></i></h6>
-      </div>
+  <h2 class="pt-3 pr-5 pl-5 ml-5"><%= "#{@mission.name} à #{@mission.user.address.split(",")[1]},"%></h2>
+  <div style = "display: flex; justify-content:left;">
+    <h4 class = "pl-5 ml-5"><%= "#{@mission.user.company_name}"%></h4>
+    <h6 class = "ml-2 mt-1" >4,2 <i class="fas fa-star"></i></h6>
+  </div>
 
   <div class="row">
     <div class="col-8">
-
       <div id="carouselIndicators" class="carousel slide" data-ride="carousel" data-interval="0">
-          <% if @mission.photos.size > 1%>
+        <% if @mission.photos.size > 1%>
           <ol class="carousel-indicators">
             <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
             <% i = 0 %>
             <%for i in 0..@mission.photos.size-2%>
-            <li data-target="#carouselIndicators" data-slide-to= <%=i+1 %>></li>
+              <li data-target="#carouselIndicators" data-slide-to= <%=i+1 %>></li>
             <%end%>
           </ol>
-          <% end %>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <%= cl_image_tag @mission.photos.first.key, width: 700, height:450, class:"center mb-5 d-block w-100"%>
-            </div>
+        <% end %>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= cl_image_tag @mission.photos.first.key, width: 700, height:450, class:"center mb-5 d-block w-100"%>
+          </div>
           <%for i in 1..@mission.photos.size-1%>
-            <div class="carousel-item">
-              <%= cl_image_tag @mission.photos[i].key, width: 700, height:450, class:"center mb-5 d-block w-100"%>
-            </div>
+          <div class="carousel-item">
+            <%= cl_image_tag @mission.photos[i].key, width: 700, height:450, class:"center mb-5 d-block w-100"%>
+          </div>
           <%end%>
         </div>
       </div>
-  </div>
+    </div>
     <div class="col-4">
       <div class="card-product p-3">
           <h5 class="mb-3" style="text-align:center"><i class="fas fa-square" style="color:pink"></i>  Détails</h5>
@@ -50,31 +49,63 @@
           <h6 class="pb-3 border-bottom"><%= "Salaire TTC : #{@price} €" %></h6>
 
           <!-- Button trigger modal -->
-<button type="button" class="btn btn-flat text-center mt-2 mb-4" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
+          <button type="button" class="btn btn-flat text-center mt-2 mb-4 center-item" data-toggle="modal" data-target="#exampleModal">Je postule !</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Apply now</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for [@mission, @booking] do |f| %>
-          <%= f.submit class: "btn btn-game"%>
-        <%end%>
-      </div>
-      <div class="modal-footer">
-
-      </div>
-    </div>
-  </div>
-</div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div>
+                  <h5 class="modal-title" id="exampleModalLabel">Postuler à l'offre</h5>
+                  <p>Les informations ci-dessous seront visibles par les recruteurs</p>
+                  </div>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="d-flex justify-content-between border-bottom">
+                    <div>
+                      <h4><%= "#{@mission.name} à #{@mission.user.address.split(",")[1]} chez #{@mission.user.company_name}"%></h4>
+                      <p><%= "Du #{@mission.start_date_time.strftime("%d/%m/%Y")} au #{@mission.end_date_time.strftime("%d/%m/%Y")} "%></p>
+                      <p class="pb-3"><%= "De #{@mission.start_date_time.strftime("%k:%M")}h à #{@mission.end_date_time.strftime("%k:%M")}h "%></p>
+                    </div>
+                    <div>
+                      <h4><%= "#{@mission.price_by_hour} €/h" %></h4>
+                      <h4><%= "TTC : #{@price} €" %></h4>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="pt-2" style = "position:relative">
+                      <h6> Votre profil</h6>
+                      <% if @user.avatar.attached? %>
+                        <%= cl_image_tag @user.avatar.key, style:"position:absolute; left:0; top:0" ,class:"avatar-xlarge"%>
+                      <% else %>
+                          <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-large">
+                        <% end %>
+                      <div class="d-flex justify-content-between pb-5">
+                        <div>
+                          <h4 style="padding-left:60px; padding-top:10px"><%=@user.first_name%> <%=@user.last_name%></h4>
+                          <p style="padding-left:60px; margin-top:-10px"><%=@user.email%></p>
+                        </div>
+                        <div>
+                          <%= link_to "Modifier mon profil","#", class:"btn btn-dark" %>
+                        </div>
+                      </div>
+                    </div>
+                    <%= simple_form_for [@mission, @booking] do |f| %>
+                      <%= f.input :freelancer_description, as: :text , :label => "Vos motivations",  :input_html => { :rows => 10}%>
+                      <%= f.submit "Postulez", class: "btn btn-danger", onclick:"return confirm('Êtes-vous sûr ?')"%>
+                    <%end%>
+                  </div>
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -86,7 +117,6 @@
       <button style="text-align:center" type="button" class="btn btn-dark mb-5">+ d'infos sur l'entreprise</button>
     </div>
   </div>
-
    <div class="row">
     <div class="col-12">
       <h3 class="pt-3 pb-3 mt-4 border-top" id="show-loc"></i>Localisation</h3>
@@ -97,7 +127,6 @@
         </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-12">
       <div class="pt-3 border-top">

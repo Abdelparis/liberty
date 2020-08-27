@@ -1,4 +1,4 @@
-<div class="small-container pt-5">
+<div class="xsmall-container pt-5">
   <div class="row">
     <div class="col-8">
       <div class = "d-flex justify-content-left dashboard-buttons">
@@ -19,41 +19,54 @@
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-12">
-    <div class="card_container">
-      <% @bookings.each do |booking| %>
-        <div class="card-product">
-           <h2><%= booking.mission.name %></h2>
-          <div class="card-information" >
-            <div class="card-description">
-
-              <% if booking.mission.photos.attached? %>
-                <%= cl_image_tag booking.mission.photos.first.key %>
-              <% else %>
-                <%= image_tag("mission.jpg") %>
-              <% end %>
-                <div class ="card-validation">
-                <a href="#" class="btn btn-ok">En savoir plus</a>
-                </div>
-            </div>
-            <div class="card-user">
-              <div class="card-user-infos">
-                <h3><%= booking.mission.name %></h3>
+      <div class="card_container">
+        <% @bookings.each do |booking| %>
+          <div class="card-product">
+            <p>En cours</p>
+            <div class="card-information" >
+              <div class="card-description">
+                <% if booking.mission.photos.attached? %>
+                  <%= cl_image_tag booking.mission.photos.first.key, widht: "100%" %>
+                <% else %>
+                  <%= image_tag("mission.jpg") %>
+                <% end %>
+                <h6 class="center-item"><%=booking.mission.name %></h5>
+              </div>
+              <div class="card-user">
                 <div class="card-user_description">
-                  <h4> Mission :</h4>
-                  <p><%= booking.mission.description %></p>
-                  <div class="card-user-price">
-                  <p id="date">10 days From 12/09/2019 to 20/09/2019</p>
-                  <p id="price"> Price: 20 €</p>
-                  </div>
+                  <ul style="list-style-type:none;" >
+                    <li><strong>Client :</strong></li>
+                    <li><strong><I><%= booking.mission.user.company_name %></I></strong> </li>
+                    <li>mail : <%= booking.mission.user.email %></li>
+                    <li>tél : <%= booking.mission.user.phone_number %></li>
+                    <li>Adresse : <%= booking.mission.address %></li>
+                    <li><a href="#" class="btn btn-ok mt-1">Voir le détail</a></li>
+
+                  </ul>
+                </div>
+                <div class="card-user_description">
+                  <ul style="list-style-type:none;">
+                    <li><strong>Détails :</strong></li>
+                    <li>Date de début de mission : <%= booking.mission.start_date_time %></li>
+                    <li>Date de fin de mission : <%= booking.mission.end_date_time %></li>
+                    <li>Statut de la mission : <%= booking.accepted %></li>
+                    <li>Solde TTC : <strong><%= booking.total_price %>EUR</strong></li>
+                    </ul>
+                </div>
+
+                <div>
+                  <ul style="list-style-type:none; margin-top:10px">
+                  <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:100px">Facture</a></li>
+                  <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:100px">Détails</a></li>
+                  <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:100px">Add review</a></li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
       </div>
     </div>
   </div>
