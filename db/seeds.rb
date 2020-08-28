@@ -368,7 +368,7 @@ puts "Creating 10 fake missions..."
 pilate = Mission.create!(
   name: "Cours de Pilate",
   description: "La société Health&Sens est un cabinet de professionnels dans le domaine du sport et du bien-être en entreprise depuis plus de 10 ans, sur Paris et la région parisienne. Nous recherchons des professeurs de pilate ou de yoga sur Paris et la région Parisienne ( 77-78-91-92-93-94-95), afin de dispenser des cours auprès de nos clients le vendredi de 12h30 à 13h30. Vous êtes diplômé en Pilates et/ou Yoga? N’hésitez pas à nous contacter.",
-  address: "14 Rue Crespin du Gast, Paris",
+  address: "14 rue Crespin du Gast, 75011 paris",
   price_by_hour: 30,
   start_date_time: "20200929123000",
   end_date_time: "20200929133000",
@@ -383,7 +383,7 @@ pilate = Mission.create!(
 yoga = Mission.create!(
   name: "Cours de Yoga",
   description: "Yuji est une jeune entreprise spécialisée dans le yoga urban. Nous possédons trois salles dans Paris et nous avons pensé nos espaces comme de vrais refuges urbans où calme, silence et détente sont nos crédos. Nous sommes à la recherche d'un professeur de yoga spécialisé dans le Yin & Vinyasa et qui est rompu à la pratique de séances sous infrarouge. Une sensibilité à la musique inspirante mais contemporaine serait grandement appréciée. Nous avons besoin en priorité de remplir notre créneau du samedi de 11h à 12h.",
-  address: "64 Rue des Archives, Paris",
+  address: "64 Rue des Archives, 75004 Paris",
   price_by_hour: 35,
   start_date_time: "20200928123000",
   end_date_time: "20200928133000",
@@ -400,7 +400,7 @@ coiffure = Mission.create!(
   name: "Séance de coiffures",
   description: "Le salon Hair&Beauté est un salon de coiffure installé depuis 5 ans dans le 4e à Paris. Nous avons une clientèle jeune, dynamique à la recherche du chic, de l'innovation et des dernières tendances. Nous ouvrons un créneau horaire spécialisé en coiffure de soirée pour nos clientes le vendredi de 18h à 20h. Nous recherchons donc un coiffeur ou une coiffeuse spécialisé(e) dans les coiffures de soirée : chignon à la française, chignon banane, tresses, wavy, coiffure accessoirisé ... rien n'a de secret pour vous.
 N’hésitez pas à nous contacter.",
-  address: "3 Rue du Roi de Sicile, Paris",
+  address: "3 Rue du Roi de Sicile, 75004 Paris",
   price_by_hour: 40,
   start_date_time: "20200925123000",
   end_date_time: "20200925133000",
@@ -415,7 +415,7 @@ N’hésitez pas à nous contacter.",
 barbier = Mission.create!(
   name: "Atelier barbier",
   description: "En complément pour animer notre salon de coiffure. Salon de coiffure masculine de standing spécialisé dans l'art de la barbe et des produits bio, nous cherchons un artiste de la barbe pour satisfaire nos clients les plus pointus pour compléter le planning du vendredi soir. Une connaissance approfondie des protocles de soins avec les gammes masculines Mr Moustache serait très appréciée. Le créneau horaire que nous proposons pour l'instant est le vendredi de 18h à 19h. Des horaires complémentaires pourraient être proposés par la suite.",
-  address: "4 Boulevard de Sébastopol, Paris",
+  address: "4 Boulevard de Sébastopol, 75004 Paris",
   price_by_hour: 30,
   start_date_time: "20201025123000",
   end_date_time: "20201025133000",
@@ -430,7 +430,7 @@ barbier = Mission.create!(
 massage = Mission.create!(
   name: "Séances de massage",
   description: "Séances de massage pour nos clients. MamaPam est une nouvelle petite chaîne d'hôtel française souhaitant proposé une expérience différente et nouvelle à ses clients. Pour nos hotels parisiens, nous souhaitons mettre en place des séances de massage avec les soins concoctés à base de miel des toits de Paris et d'huile naturelle locale. Nous sommes à la recherche d'une masseuse ou d'un masseur expérimenté spécialisée dans les messages détentes sous infrarouge. Nous avons besoin en priori de remplir notre créneau du samedi de 17h à 20h.",
-  address: "109 Rue de Bagnolet, Paris",
+  address: "109 Rue de Bagnolet, 75020 Paris",
   price_by_hour: 30,
   start_date_time: "20201027123000",
   end_date_time: "20201027133000",
@@ -445,7 +445,7 @@ puts "Ending creating 6 fake missions..."
 yoga_1 = Mission.create!(
   name: "Cours de Yoga",
   description: "Dans la plus pure tradition des enseignements de Maria Montessori, notre école revendique pour l’enfant, dès sa naissance, est une éducation à la liberté, à l’autonomie dans un environnement préparé avec soin. Entre tradition et modernité, notre école Montessori a pour objectif de donner, en douceur et respect de l’enfant, une éducation d’éducation d’excellence, active & bilingue. L’enfant prend confiance, gagne en autonomie, pratique l'anglais dès le plus jeune âge. Dans la continuité de notre pédagogie et nos méthodologies, nous souhaitons mettre en place un cours de yoga pour nos enfants entre 5 et 6 ans. Nous cherchons donc un professeur de yoga formé à l’enseignement auprès des plus petits. En adéquation avec le planning de nos enseignants, nous avons deux créneaux de disponible pour une grande salle : le mardi entre 14h et 15h ou le jeudi entre 9h et 10h.",
-  address: "146 Boulevard Pereire, Paris",
+  address: "146 Boulevard Pereire, 75017 Paris",
   price_by_hour: 35,
   start_date_time: Date.today-6,
   end_date_time: Date.today-4,
@@ -459,7 +459,7 @@ yoga_1 = Mission.create!(
   yoga_2 = Mission.create!(
   name: "Cours de Yoga",
   description: "Dédiée au bien-être de l’enfant et de la mère, notre maison de maternité souhaite mettre en place un cours de yoga pour femmes enceintes dans le cadre de la préparation à la naissance. Nous aimerions leur offrir un refuge de sérénité pour relâcher leurs angoisses et leurs craintes. Nous disposons d’un joli local au calme avec tout le matériel adéquat : matelas, briques de mousse... Il ne nous manque plus qu’un professeur de yoga pour mettre en place un cours de relaxation et un cours de yoga soft pour permettre à notre future maman de se détendre et d’appréhender les futurs changements dans leur vie et leur corps avec calme et sérénité. ",
-  address: "43 Rue Saint-Maur, Paris",
+  address: "43 Rue Saint-Maur, 75011 Paris",
   price_by_hour: 35,
   start_date_time: Date.today-8,
   end_date_time: Date.today-7,
@@ -473,7 +473,7 @@ yoga_1 = Mission.create!(
   yoga_3 = Mission.create!(
   name: "Cours de Yoga",
   description: "Le wagon est une école de code qui a pour ambition de former des développeurs en 9 semaines. Pour accompagner cette formation intensive, nous cherchons un professeur de yoga pour proposer des ateliers de yoga. Nous disposons d’une belle salle en sous-sol extrêmement bien équipée pouvant accueillir une quinzaine de participants. Envie de rencontrer de jeunes amateurs motivés et à la recherche de détente et d’évasion mentale, joignez-nous à nous !",
-  address: "16 Villa Gaudelet, Paris",
+  address: "16 Villa Gaudelet, 75011 Paris",
   price_by_hour: 35,
   start_date_time: Date.today+5,
   end_date_time: Date.today+6,
@@ -488,7 +488,7 @@ yoga_1 = Mission.create!(
   yoga_4 = Mission.create!(
   name: "Cours de Yoga",
   description: "Yoj-Omh est un havre urban calme et serein offrant des cours de yoga. Nous avons pensé nos salles comme de vrais refuges et nous sommes à la recherche d'un professeur de yoga expérimenté et très calme pour des séances de Yin Soft. Une sensibilité à la musique inspirante et apaisante contemporaine serait un plus. Notre créaneau horaire prioritaire est le jeudi de 20h à 21h.",
-  address: "46 Rue Lamartine, Paris",
+  address: "46 Rue Lamartine, 75009 Paris",
   price_by_hour: 35,
   start_date_time: Date.today+8,
   end_date_time: Date.today+10,
@@ -503,7 +503,7 @@ yoga_1 = Mission.create!(
   yoga_5 = Mission.create!(
   name: "Cours de Yoga",
   description: "Yoga&Sens est une entreprise spécialisée dans le yoga urban et tendance. Nous possédons de nombreuses salles dans Paris et nous avons pensé chaque adresse comme de vrais ilôts de paix. Nous cherchons un professeur de yoga polyvalent et fiable. Nous avons besoin en priorité de remplir notre créneau du mardi de 11h à 12h.",
-  address: "74 rue du Moulin Vert, Paris",
+  address: "74 rue du Moulin Vert, 75014 Paris",
   price_by_hour: 35,
   start_date_time: Date.today+10,
   end_date_time: Date.today+13,
