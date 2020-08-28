@@ -21,9 +21,9 @@
             <li>Annulé</li>
           <% elsif @booking.status == "rejected"%>
             <li>Rejeté</li>
-          <% elsif @booking.status == "accepted" && @mission.booking.end_date_time < Date.today %>
+          <% elsif @booking.status == "accepted" && @mission.end_date_time < Date.today %>
             <li>Effectué</li>
-          <% elsif @booking.status == "accepted" && @mission.booking.end_date_time >= Date.today %>
+          <% elsif @booking.status == "accepted" && @mission.end_date_time >= Date.today %>
             <li>En cours</li>
           <%end%>
           </li>

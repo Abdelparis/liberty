@@ -80,7 +80,7 @@
                     <div class="pt-2" style = "position:relative">
                       <h6> Votre profil</h6>
                       <% if @user.avatar.attached? %>
-                        <%= cl_image_tag @user.avatar.key, style:"position:absolute; left:0; top:0" ,class:"avatar-xlarge"%>
+                        <%= cl_image_tag @user.avatar.key, style:"position:absolute; left:0; top: 35px" ,class:"avatar-nav"%>
                       <% else %>
                         <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-large">
                         <% end %>

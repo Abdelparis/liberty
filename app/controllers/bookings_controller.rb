@@ -20,15 +20,15 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.mission = Mission.find(params[:mission_id])
 
-    respond_to do |format|
-      if @booking.save
-        format.html { redirect_to booking_path(@booking.mission), notice: 'Votre candidature a bien été enregistrée.' }
-        # format.json { render :show, status: :created_at, location: @board_game }
-      else
-        format.html { render template: "missions/show" }
-        # format.json { render json: @renting.errors, status: :unprocessable_entity }
-      end
+
+    if @booking.save
+      redirect_to booking_path(@booking), notice: 'Votre candidature a bien été enregistrée.'
+      # format.json { render :show, status: :created_at, location: @board_game }
+    else
+      render "missions/show"
+      # format.json { render json: @renting.errors, status: :unprocessable_entity }
     end
+
   end
 
   def update
