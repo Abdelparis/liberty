@@ -1,5 +1,7 @@
 <div class="container">
-  <%= cl_image_tag mission.photos.first.key, height: 80, width: 80%>
+  <% if mission.photos.attached? %>
+    <%= cl_image_tag mission.photos.first.key, height: 80, width: 80%>
+  <% end %>
   <h5><%= mission.name %></h5>
   <p><%= mission.address %></p>
 </div>
