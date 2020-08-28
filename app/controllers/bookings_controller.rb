@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to booking_path(@booking.mission), notice: 'Renting was successfully created.' }
+        format.html { redirect_to booking_path(@booking.mission), notice: 'Votre candidature a bien été enregistrée.' }
         # format.json { render :show, status: :created_at, location: @board_game }
       else
         format.html { render template: "missions/show" }
