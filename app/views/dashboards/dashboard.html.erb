@@ -1,0 +1,117 @@
+<div class="small-container">
+  <div class="row pt-5">
+    <div class="col-3">
+      <div class="card_container">
+        <div class="card-product">
+          <div class="pt-2" style = "position:relative">
+            <h6> Votre profil</h6>
+            <% if @user.avatar.attached? %>
+              <%= cl_image_tag @user.avatar.key, style:"position:absolute; left:0; top:0" ,class:"avatar-xlarge"%>
+            <% else %>
+              <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-square">
+            <% end %>
+          </div>
+            <div class="pl-2">
+              <h5 style="padding-left:80px; padding-top:10px"><%=@user.first_name%> <%=@user.last_name%>,</h5>
+              <h4 style="padding-left:80px; margin-top:-10px"><%=@user.skills.first.job_category.name%></h4>
+              <p style="padding-left:80px; margin-top:-10px"><%=@user.address.split(",")[1]%></p>
+            </div>
+            <%= link_to " Modifier mon profil","#", class:"btn btn-dark mt-4 pr-2 pt-0 pb-0 pl-2 ml-5" %>
+        </div>
+        <div class="card-product">
+        <h2 style="text-align:center" class="pb-3">Ma visibilité</h2>
+          <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="far fa-eye"></i>  0 vue</div>
+          <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="fas fa-search"></i>  0 apparitions</div>
+          <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="fas fa-heart"></i>  0 favoris</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="card_container">
+        <div class = "card-product">
+          <div class = "d-flex justify-content-between">
+            <h2 class="pb-4">Notifications missions (7 derniers jours)</h2>
+            <%= link_to "Toutes mes missions", dashboard_freelancer_path  %>
+          </div>
+          <h4 style="font-size:18px; font-weight: lighter" class="border-bottom pb-2">Missions en cours</h3>
+            <% @bookings = @current_bookings %>
+          <% @bookings.each do |booking| %>
+          <div class="card-user_description pb-4" style ="margin-right: 80px;width:80%">
+            <div class=d-flex>
+              <% if booking.mission.photos.attached? %>
+                <%= cl_image_tag booking.mission.photos.first.key, width: "150px", height:"100px"%>
+              <% else %>
+                <%= image_tag("mission.jpg") %>
+              <% end %>
+              <ul style="list-style-type:none;" >
+                <li><h6><%=booking.mission.user.company_name%></h6></li>
+                <li>Mail : <%= booking.mission.user.email %></li>
+                <li>Tél : <%= booking.mission.user.phone_number %></li>
+                <li> Adresse : <%= booking.mission.address %></li>
+                <li>Du <%= booking.mission.start_date_time%> au <%= booking.mission.end_date_time %></li>
+              </ul>
+            </div>
+          </div>
+          <% end %>
+          <h4 style="font-size:18px; font-weight: lighter" class="border-bottom pb-2">Missions achevées</h4>
+          <% @bookings = @past_bookings %>
+          <% @bookings.each do |booking| %>
+          <div class="card-user_description pb-4" style ="margin-right: 80px;width:100%">
+            <div class=d-flex>
+              <% if booking.mission.photos.attached? %>
+                <%= cl_image_tag booking.mission.photos.first.key, width: "150px", height:"100px"%>
+              <% else %>
+                <%= image_tag("mission.jpg") %>
+              <% end %>
+              <div class="d-flex justify-content-between">
+                <ul style="list-style-type:none;" >
+                  <li><h6><%=booking.mission.user.company_name%></h6></li>
+                  <li>Mail : <%= booking.mission.user.email %></li>
+                  <li>Tél : <%= booking.mission.user.phone_number %></li>
+                  <li> Adresse : <%= booking.mission.address %></li>
+                  <li>Du <%= booking.mission.start_date_time%> au <%= booking.mission.end_date_time %></li>
+                </ul>
+                <% if booking.status == "pending" && booking.mission.end_date_time >= Date.today && (booking.freelancer_review == "" || booking.freelancer_review.nil?) %>
+                <button type="button" class="btn btn-success text-center mt-2 mb-4 center-item" style="width:140px; margin-left:150px; height:40px" data-toggle="modal" data-target="#exampleModal">Donner un avis !</button><!-- Conditional Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <div class="d-flex">
+                            <div>
+                              <% if booking.mission.user.avatar.attached? %>
+                                <%= cl_image_tag booking.mission.user.avatar.key ,class:"avatar-xlarge"%>
+                              <% else %>
+                                <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" class="avatar-large">
+                              <% end %>
+                            </div>
+                            <h5 class="modal-title mt-2 ml-2" id="exampleModalLabel"><%= "Qu'avez-vous pensé devotre mission chez #{booking.mission.user.company_name}"%></h5>
+                          </div>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <%= simple_form_for(booking) do |f| %>
+                            <%= f.input :freelancer_rating, collection: 1..5 %>
+                            <%= f.input :freelancer_review %>
+                            <%= f.submit %>
+                          <% end %>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

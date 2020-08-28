@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :bookings
+  has_many :skills
   has_many :missions
   validates :role, inclusion: { in: ["freelancer", "company"] }
   validates :first_name, :last_name, :email, :phone_number, :address, presence: true
