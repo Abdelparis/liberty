@@ -1,7 +1,7 @@
 <div class="small-container pt-5">
   <div style = "position:relative"  >
     <% if @mission.user.avatar.attached? %>
-      <%= cl_image_tag @mission.user.avatar.key, style:"position:absolute; left:0" ,class:"avatar-xlarge"%>
+      <%= cl_image_tag @mission.user.avatar.key, style:"position:absolute; left:-15px" ,class:"avatar-xlarge"%>
     <% end %>
     <a href="#show-loc" style = "position:absolute; right:0; width:180px" class="btn btn-ghost"><i class="far fa-map"></i> Voir la carte</a>
   </div>
