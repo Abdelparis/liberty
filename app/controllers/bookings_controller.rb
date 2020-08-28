@@ -7,8 +7,10 @@ class BookingsController < ApplicationController
     @mission = @booking.mission
     @markers = [{ lat: @mission.latitude,
                   lng: @mission.longitude,
-                  infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission })
-                   }]
+                  infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission }),
+                  image_url: helpers.asset_url('Logo_Liberty_Rond.png'),
+                  price: @mission.price_by_hour
+                }]
   end
 
   def create
@@ -20,7 +22,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to booking_path(@booking.mission), notice: 'Renting was successfully created.' }
+        format.html { redirect_to booking_path(@booking.mission), notice: 'Votre candidature a bien été enregistrée.' }
         # format.json { render :show, status: :created_at, location: @board_game }
       else
         format.html { render template: "missions/show" }
