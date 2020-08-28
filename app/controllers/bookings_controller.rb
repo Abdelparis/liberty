@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
     set_booking
     authorize @booking
     @booking.update(booking_params)
-    redirect_to booking_path, notice: "L'avis a bien été pris en compte !"
+    redirect_to dashboard_freelancer_path, notice: "L'avis a bien été pris en compte !"
   end
 
   private
