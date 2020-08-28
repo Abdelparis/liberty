@@ -38,7 +38,9 @@ class MissionsController < ApplicationController
     @price = total_price(@mission.price_by_hour, @mission.start_date_time, @mission.end_date_time)
     @markers = [{ lat: @mission.latitude,
                   lng: @mission.longitude,
-                  infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission })
+                  infoWindow: render_to_string(partial: "info_window", locals: { mission: @mission }),
+                  image_url: helpers.asset_url('Logo_Liberty_Rond.png'),
+                  price: @mission.price_by_hour
                 }]
 
     # @booking = @mission.bookings.find_by mission_id: params[:id]
