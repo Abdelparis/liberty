@@ -14,7 +14,7 @@ class DashboardsController < ApplicationController
     elsif @params == "history"
       @bookings = current_user.bookings.select { |booking| booking.mission.end_date_time < Date.today }
     elsif @params == "pending"
-      @bookings = current_user.bookings.select { |booking| booking.mission.end_date_time >= Date.today || booking.status == "pending" }
+      @bookings = current_user.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "pending" }
     end
   end
 

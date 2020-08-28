@@ -6,7 +6,7 @@
           <div class="pt-2" style = "position:relative">
             <h6> Votre profil</h6>
             <% if @user.avatar.attached? %>
-              <%= cl_image_tag @user.avatar.key, style:"position:absolute; left:0; top:0" ,class:"avatar-xlarge"%>
+              <%= cl_image_tag @user.avatar.key, style:"position:absolute; left:0; top:0, " ,class:"avatar-nav"%>
             <% else %>
               <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-square">
             <% end %>
@@ -41,7 +41,7 @@
               <% if booking.mission.photos.attached? %>
                 <%= cl_image_tag booking.mission.photos.first.key, width: "150px", height:"100px"%>
               <% else %>
-                <%= image_tag("mission.jpg") %>
+                <%= image_tag "mission.jpg", width: "150px", height:"100px" %>
               <% end %>
               <ul style="list-style-type:none;" >
                 <li><h6><%=booking.mission.user.company_name%></h6></li>
@@ -82,7 +82,7 @@
                               <% if booking.mission.user.avatar.attached? %>
                                 <%= cl_image_tag booking.mission.user.avatar.key ,class:"avatar-xlarge"%>
                               <% else %>
-                                <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" class="avatar-large">
+                              <% "" %>
                               <% end %>
                             </div>
                             <h5 class="modal-title mt-2 ml-2" id="exampleModalLabel"><%= "Qu'avez-vous pensé devotre mission chez #{booking.mission.user.company_name}"%></h5>
