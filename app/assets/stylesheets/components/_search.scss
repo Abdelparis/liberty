@@ -11,7 +11,7 @@
 
 .float-container input {
   background-color: #F9F9FC;
-  font-size: 12px;
+  font-size: 13px;
   padding: 20px 10px 15px;
   width: 100%;
   margin-left: 0px !important;
@@ -21,7 +21,13 @@
   color:grey
 }
 
-
+#search_category{
+  background-color: #F9F9FC;
+  height: 100%;
+  font-size: 13px;
+  padding: 20px 10px 15px;
+  color:grey
+}
 
 #left-corner-input {
   border-radius: 15px 0px 0px 15px;
@@ -52,20 +58,18 @@
   width:50px
 }
 
-
-
-
 .float-container label {
   font-size: 14px;
   font-weight: 500;
   position: absolute;
-  text-align: center;
-  padding-left: 10px;
-  width:150px;
+  /* text-align: center; */
+  /* padding-left: 10px; */
+  width: 150px;
   z-index: 1000;
+  margin-left: 10px;
+  margin-right: 200px;
+  margin-top: 7px;
 }
-
-
 
 @media (max-width: 800px) {
   .inline input {
