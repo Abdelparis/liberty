@@ -18,11 +18,11 @@
           <li> Adresse : <%= booking.mission.address %></li>
         </ul>
       </div>
-      <div class="card-user_description">
+      <div class="card-user_description" style ="margin-right: 80px;width:300px">
         <ul style="list-style-type:none;">
           <li><strong>Détails :</strong></li>
-          <li>Date de début de mission : <%= booking.mission.start_date_time %></li>
-          <li>Date de fin de mission : <%= booking.mission.end_date_time %></li>
+          <li>Date de début de mission : <br> <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.start_date_time.strftime("%k:%Mh") %></li>
+          <li>Date de fin de mission : <br> <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %> à <%= booking.mission.end_date_time.strftime("%k:%Mh") %></li>
 <!--           <li>Statut de la mission : <%= booking.status %></li> -->
           <li>Solde TTC : <strong><%= booking.total_price %>EUR</strong></li>
         </ul>
