@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon top" id="navbar">
+<div class="navbar navbar-expand-sm navbar-lewagon top" id="navbar">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
     <% end %>
@@ -13,8 +13,8 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
           <div class="d-flex">
-            <%= link_to "Dashboard", dashboard_path, class: "nav-link", style:"padding-top:17px; color:#0C1F23" %>
-            <%= link_to "Mes missions", dashboard_freelancer_path, class: "nav-link", style:"padding-top:17px; color:#0C1F23" %>
+            <%= link_to "Dashboard", dashboard_path, class: "nav-link #{'barnav_active' if params[:action] == 'dashboard'}", style:"padding-top:17px" %>
+            <%= link_to "Mes missions", dashboard_freelancer_path, class: "nav-link #{'barnav_active' if params[:controller] == "dashboards" && params[:action] == "freelancer"}", style:"padding-top:17px" %>
          </div>
         </li>
         <li class="nav-item">

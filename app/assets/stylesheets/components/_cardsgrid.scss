@@ -2,7 +2,7 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
   width: 350px;
   border-radius: 10px;
 }
@@ -56,7 +56,7 @@ padding :20px;
 
 .btn-game {
   color : white;
-  background-color: #DE9720;
+  background-color: #15353D;
   font-weight: lighter;
   letter-spacing: 1px;
   padding: 8px;
@@ -67,9 +67,9 @@ padding :20px;
 }
 
 .btn-game:hover {
-  border: 1px solid #DE9720;
+  border: 1px solid #15353D;
   background: transparent;
-  color: #DE9720;
+  color: #15353D;
 }
 
 .flexbox {
@@ -78,6 +78,4 @@ padding :20px;
   align-items: flex-start;
 }
 
-.big-blog-container {
 
-}
