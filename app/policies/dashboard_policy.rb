@@ -13,4 +13,7 @@ class DashboardPolicy < ApplicationPolicy
     true if user.role == "freelancer"
   end
 
+  def company?
+    true if user.role == "company"
+  end
 end
