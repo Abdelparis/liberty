@@ -11,30 +11,32 @@
                   input_html: { autocomplete: "email" }%>
       <%= f.input :password,
                   required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  hint: ("#{@minimum_password_length} caractères minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" },
+                  :label => "Mot de passe" %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { autocomplete: "new-password" },
+                  :label => "confirmation de mot de passe" %>
       <%= f.input :phone_number,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "06 XX XX XX XX" }%>
+                  input_html: { autocomplete: "06 XX XX XX XX" },
+                  :label => "Numéro de téléphone" %>
       <%= f.input :address,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "address" }%>
-      <%= f.input :price_by_hour,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "XX €" }%>
+                  input_html: { autocomplete: "address" },
+                  :label => "Adresse" %>
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Créer mon profil" %>
     </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
 </div>
+
+
 

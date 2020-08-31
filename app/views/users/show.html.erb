@@ -1,0 +1,78 @@
+<div class="container py-3">
+  <h1>Mon profil</h1>
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <%= @user.first_name %>
+      <%= @user.last_name %>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="profile-image">
+        <% if @user.avatar.attached? %>
+          <%= cl_image_tag @user.avatar, class: "avatar", height: 40, width: 40 %>
+        <% else %>
+          <%= image_tag "avatar_prof_yogi.png", class: "avatar" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <h3>Mes coordonées personnelles</h3>
+  </div>
+  <div class="row">
+    <ul>
+      <li><%= @user.email %></li>
+      <li><%= @user.address %></li>
+      <li><%= @user.phone_number %></li>
+    </ul>
+  </div>
+</div>
+<div class="container py-3">
+  <div class="row">
+    <h3>Mes informations professionnelles</h3>
+  </div>
+  <div class="row">
+    <ul>
+      <li><%= @user.description %></li>
+      <li><%= @user.price_by_hour %></li>
+      <% @user.job_categories.each do |i| %>
+      <li><%= i.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<button type="button" class="btn btn-flat text-center mt-2 mb-4 center-item" data-toggle="modal" data-target="#exampleModal">Modifier mon prfil</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h5 class="modal-title" id="exampleModalLabel">Modifier mon profil</h5>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <div class="formulaire_container">
+            <div class="formulaire">
+              <div class="col-8">
+                <%= simple_form_for(@user) do |f| %>
+                  <%= f.input :first_name %>
+                  <%= f.input :last_name %>
+                  <%= f.input :phone_number %>
+                  <%= f.input :email %>
+                  <%= f.input :address %>
+                  <%= f.submit class: "btn btn-primary"%>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
