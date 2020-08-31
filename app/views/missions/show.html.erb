@@ -38,7 +38,7 @@
     </div>
     <div class="col-4">
       <div class="card-product p-3">
-          <h5 class="mb-3" style="text-align:center"><i class="fas fa-square" style="color:pink"></i>  Détails</h5>
+          <h5 class="mb-3" style="text-align:center"><i class="fas fa-square" style="color:#EE9595"></i>  Détails</h5>
           <h6><strong>Quand ?</strong></h6>
           <h6><%= "Du #{@mission.start_date_time.strftime("%d/%m/%Y")} au #{@mission.end_date_time.strftime("%d/%m/%Y")} "%></h6>
           <h6 class="pb-3 border-bottom"><%= "De #{@mission.start_date_time.strftime("%k:%M")}h à #{@mission.end_date_time.strftime("%k:%M")}h "%></h6>
@@ -90,7 +90,7 @@
                         <h4 style="padding-left:60px; padding-top:10px"><%=@user.first_name%> <%=@user.last_name%></h4>
                         <p style="padding-left:60px; margin-top:-10px"><%=@user.email%></p>
                       </div>
-                          <%= link_to "Modifier mon profil","#", class:"btn btn-dark" %>
+                          <%= link_to "Modifier mon profil","#" %>
                     </div>
                     <%= simple_form_for [@mission, @booking] do |f| %>
                       <%= f.input :freelancer_description, as: :text , :label => "Vos motivations",  :input_html => { :rows => 10}%>
@@ -98,9 +98,6 @@
                     <%end%>
                   </div>
                 </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
             </div>
           </div>
         </div>
@@ -109,10 +106,10 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <h3 class="pt-3 pb-3 mt-4 border-top"><i class="fas fa-square" style="color:pink"></i> Mission :</h3>
+      <h3 class="pt-3 pb-3 mt-4 border-top"><i class="fas fa-square" style="color:#EE9595"></i> Mission :</h3>
       <p style="color:grey"><%=@mission.description%></p>
       <p style="color:grey"><strong><%="#{@mission.user.company_name}"%></strong><%=" : #{@mission.user.description}"%></p>
-      <button style="text-align:center" type="button" class="btn btn-dark mb-5">+ d'infos sur l'entreprise</button>
+      <%= link_to "+ d'infos sur l'entreprise","#" %>
     </div>
   </div>
   <div class="row">

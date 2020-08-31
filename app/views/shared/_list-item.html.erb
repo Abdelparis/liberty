@@ -29,7 +29,7 @@
       </div>
       <ul style="list-style-type:none; margin-top:10px">
         <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:140px">Facture</a></li>
-        <li><%= link_to "Détails", booking_path(booking), class:"btn btn-ok", style:"margin-bottom:20px; width:140px" %></li>
+        <li><%= link_to "Détails", booking_path(booking), class:"btn btn-second", style:"margin-bottom:20px; width:140px" %></li>
         <% if booking.mission.end_date_time <= Date.today %>
           <li><button type="button" class="btn btn-success text-center mt-2 mb-4 center-item" style="margin-right: 10px; width:140px" data-toggle="modal" data-target="#exampleModal">Donner un avis !</button></li><!-- Conditional Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

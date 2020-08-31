@@ -6,6 +6,7 @@
   width:100%;
   z-index: 1000;
   height: 70px;
+  color: grey;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,3 +21,26 @@
 .body-pages-home .navbar-lewagon.top {
   background-color: transparent;
 }
+
+.navbar-lewagon a {
+  color: grey;
+}
+
+.navbar-lewagon a:hover {
+  color:#73A3A5;
+}
+
+
+.nav-link a {
+  color: grey;
+}
+
+.nav-link a:hover {
+  color:#73A3A5;
+}
+
+.barnav_active {border-bottom: 2px;
+    border-bottom-color:#E97171!important;
+    border-bottom-style: solid;
+    color: #E97171!important;
+  }
