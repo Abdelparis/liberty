@@ -5,8 +5,10 @@
       <%= f.input :start_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container'}, :label => "Date de début" %>
       <%= f.input :end_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container' }, :label => "Date de fin" %>
       <%= f.input :category, as: :select, collection: JobCategory::CATEGORY, required: false, html5: true, required: false, wrapper_html: { class: 'float-container' }, :label => "Catégorie"%>
-      <button type="submit" id="search-btn" title="" class="float-container">
-        <i class="fas fa-search"></i>
-      </button>
+      <div class="search-submit">
+        <button type="submit" id="search-btn" title="" class="float-container">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
     <% end %>
 </div>

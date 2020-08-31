@@ -1,15 +1,18 @@
-
 <div class="fullscreen-bg">
-    <video loop muted autoplay poster="<%= image_path "videoframe.png" %>" class="fullscreen-bg__video">
-        <!-- <source src="video/big_buck_bunny.webm" type="video/webm"> -->
-        <source src="https://res.cloudinary.com/dzao5ujoq/video/upload/v1598452416/work_zen_wkihnu.mp4" type="video/mp4">
-      <!--   <source src="video/big_buck_bunny.ogv" type="video/ogg"> -->
-    </video>
-    <div class="text_banner">
-      <h1>Une mission près de chez vous ?</h1>
-      <p>Liberty au service des freelances du bien-être et de la beauté</p>
+  <div class="container_video"></div>
+  <video loop muted autoplay poster="<%= image_path "videoframe.png" %>" class="fullscreen-bg__video">
+      <!-- <source src="video/big_buck_bunny.webm" type="video/webm"> -->
+      <source src="https://res.cloudinary.com/dzao5ujoq/video/upload/v1598452416/work_zen_wkihnu.mp4" type="video/mp4">
+    <!--   <source src="video/big_buck_bunny.ogv" type="video/ogg"> -->
+  </video>
+  <div class="text_banner">
+    <h1>Une mission près de chez vous ?</h1>
+    <p>Liberty au service des freelances du bien-être et de la beauté</p>
+    <div class="search_home_container">
       <%= render 'shared/search' %>
     </div>
+
+  </div>
 </div>
 
 
