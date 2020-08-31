@@ -26,7 +26,11 @@
         <% end %>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <%= cl_image_tag @mission.photos.first.key, width: 700, height:450, class:"center mb-5 d-block w-100"%>
+            <% if @mission.photos.attached? %>
+              <%= cl_image_tag @mission.photos.first.key, width: 700, height:450, class:"center mb-5 d-block w-100"%>
+            <% else %>
+              <%= image_tag("mission.jpg", width: 700, height:450, class:"center mb-5 d-block w-100")%>
+            <% end %>
           </div>
           <%for i in 1..@mission.photos.size-1%>
           <div class="carousel-item">

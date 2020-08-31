@@ -28,7 +28,7 @@
 
 .float-container input {
   background-color: #F9F9FC;
-  font-size: 12px;
+  font-size: 13px;
   padding: 20px 10px 15px;
   width: 100%;
   margin-left: 0px !important;
@@ -39,32 +39,38 @@
 }
 
 
-
 #left-corner-input {
   border-radius: 15px 0px 0px 15px;
   margin-left: 0px !important;
-  min-width: 300px;
+  min-width: 250px;
   height: 55px;
   border: 1px solid #F9F9FC;
 
 }
 
 #address-input {
-  width: 300px;
+  width: 250px;
   height: 55px;
   border: 1px solid #F9F9FC;
   border-radius: 0px 0px 0px 0px;
 }
 
+#search_category{
+  background-color: #F9F9FC;
+  border-radius: 0px 0px 0px 0px;
+  height: 55px;
+  border: 1px solid #F9F9FC;
+}
+
 #search_start_date_time {
-  width: 150px;
+  width: 180px;
   height: 55px;
   border: 1px solid #F9F9FC;
   border-radius: 0px 0px 0px 0px;
 }
 
 #search_end_date_time {
-  width: 150px;
+  width: 180px;
   height: 55px;
   border: 1px solid #F9F9FC;
   border-radius: 0px 0px 0px 0px;
@@ -82,7 +88,6 @@
   margin-top: 5px;
 }
 
-
 .search_home_container {
   .form-control {
     border-radius: 0px;
@@ -97,7 +102,6 @@
 }
 
 
-
 .float-container label {
   font-size: 14px;
   font-weight: 500;
@@ -106,9 +110,10 @@
   padding-left: 15px;
   width:150px;
   z-index: 1000;
+  margin-left: 10px;
+  margin-right: 200px;
+  margin-top: 7px;
 }
-
-
 
 @media (max-width: 800px) {
   .inline input {
