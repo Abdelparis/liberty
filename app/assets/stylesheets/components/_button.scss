@@ -67,3 +67,17 @@ padding: 8px 24px!important;
   background: transparent;
   border-color: #15353D;
 }
+
+.btn-danger {
+  color: white;
+  padding: 0px 24px;
+  border-radius: 4px;
+  background: #EC8384;
+  transition: background 0.3s ease;
+  padding: 8px 24px!important;
+}
+
+.btn-danger:hover {
+  background: white;
+  color: #EC8384;
+}

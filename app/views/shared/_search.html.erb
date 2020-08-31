@@ -4,8 +4,10 @@
       <%= f.input :address, required: false, wrapper_html: { class: 'float-container' }, input_html: {value: "", placeholder: "Paris, Lyon, Nantes...", id: "address-input" }, :label => "Adresse" %>
       <%= f.input :start_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container'}, :label => "Date de début" %>
       <%= f.input :end_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container' }, :label => "Date de fin" %>
-      <button type="submit" id="search-btn" title="" class="float-container">
-        <i class="fas fa-search"></i>
-      </button>
+      <div class="search-submit">
+        <button type="submit" id="search-btn" title="" class="float-container">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
     <% end %>
 </div>

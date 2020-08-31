@@ -1,5 +1,7 @@
-<div class="search">
-  <%= render 'shared/search' %>
+<div class="container_search_index">
+  <div class="search_index_container">
+    <%= render 'shared/search' %>
+  </div>
 </div>
 <div class="container_card">
   <h1 class="title">Missions trouvées</h1>
@@ -28,7 +30,8 @@
                     <h4> Mission :</h4>
                     <p class="text_mission"><%= mission.description.truncate(380) %></p>
                     <div class="card-user-price">
-                    <p id="date"><%= mission.start_date_time.strftime("%d/%m/%Y/ - %I:%M%p") %> to <%= mission.end_date_time.strftime("%d/%m/%Y - %I:%M%p") %></p>
+                    <p id="date"> Du <%= mission.start_date_time.strftime("%d/%m/%Y/") %> au <%= mission.end_date_time.strftime("%d/%m/%Y") %></p>
+                    <p id="date"> De <%= mission.start_date_time.strftime("%k:%Mh") %> à <%= mission.end_date_time.strftime("%k:%Mh") %></p>
                     <p id="price"><%= mission.price_by_hour%>€</p>
                     </div>
 

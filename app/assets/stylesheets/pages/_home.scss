@@ -3,6 +3,17 @@
   color:#15353D
 }
 
+.container_video {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(150,150,150,0.1);
+  z-index: -1;
+}
+
 .fullscreen-bg {
   position: relative;
   z-index: 0;
@@ -14,18 +25,21 @@
   align-items: center;
   justify-content: center;
   h1 {
-    color: rgba(12,31,35,1);
-    text-shadow: 2px 4px 0px rgba(255,255,255,0.5);
+    color: white;
     font-size: 52px;
     font-weight: bold;
     text-align: left;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    padding-left: 18px;
+    font-family: 'Playfair Display', serif;
   }
   p {
     font-size: 26px;
-    color: rgba(12,31,35,1);
+    color: white;
     opacity: .8;
-    text-shadow: 1px 2px 2px rgba(255,255,255,0.5);
-    text-align: center;
+    text-align: left;
+    text-shadow: 1px 1px 3px rgba(50,50,50,0.92);
+    padding-left: 18px;
   }
 }
 
@@ -37,8 +51,7 @@
   left: 0;
   right: 0;
   width: 100%;
-  opacity: 0.75;
-  z-index: -1;
+  z-index: -2;
 }
 
 .about_liberty{
