@@ -1,0 +1,143 @@
+<div class="row pt-5">
+  <div class="col-3">
+    <div class="card_container">
+      <div class="card-product">
+        <h2 style="text-align:center" class="pb-3">Mon entreprise</h2>
+        <div class="pt-2" style = "position:relative">
+          <% if @user.avatar.attached? %>
+            <%= cl_image_tag @user.avatar.key, style:"position:absolute; left:0; top:0, " ,class:"avatar-square"%>
+          <% else %>
+            <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-square">
+          <% end %>
+        </div>
+        <div class="pl-2 pb-4">
+          <h5 style="padding-left:80px; padding-top:10px"><%=@user.company_name%>,</h5>
+          <p style="padding-left:80px; margin-top:-10px; margin-bottom: 20px !important "><%=@user.address.split(",")[1]%></p>
+        </div>
+        <h6>Nom</h6>
+        <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)">
+         <% if @user.company_name == "" %>
+            <%= link_to "A compléter" %>
+          <% else %>
+            <h8><%=@user.company_name.upcase%></h8>
+          <% end %>
+        </div>
+        <h6>Forme juridique</h6>
+        <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)">
+            <%= link_to "A compléter" %>
+        </div>
+        <h6>Coordonnées bancaires</h6>
+         <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)">
+            <%= link_to "A compléter" %>
+        </div>
+      </div>
+
+      <div class="card-product">
+        <h2 style="text-align:center" class="pb-3">Ma visibilité</h2>
+        <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="far fa-eye"></i>  0 vue</div>
+        <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="fas fa-search"></i>  0 apparitions</div>
+        <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="fas fa-heart"></i>  0 favoris</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-9">
+    <div class="card_container">
+      <div class = "card-product">
+        <h2 class="pb-4">Notifications</h2>
+      </div>
+
+      <div class = "card-product" style="padding-bottom:0">
+        <h2 class="">Candidatures</h2>
+        <% @pending_missions.each do |mission| %>
+          <div class="card-user_description pb-4" style ="margin-right: 80px;width:80%">
+            <div class=d-flex justify-content-between>
+              <div>
+              <h6><%= mission.name%></h6>
+              <% if mission.photos.attached? %>
+                <%= cl_image_tag mission.photos.first.key, width: "150px", height:"100px"%>
+              <% else %>
+                <%= image_tag "mission.jpg", width: "150px", height:"100px" %>
+              <% end %>
+              </div>
+              <div class="mt-4 ml-3">
+                <h8 class="pt-5"><strong>Dates :</strong> du <%= mission.start_date_time%> au <%= mission.end_date_time %></h8>
+                <div class="d-flex">
+                  <% bookings = mission.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "pending" } %>
+                <% if bookings.size == 0%>
+                  <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" class="avatar-large">
+                <% end %>
+                <% bookings.each do |booking| %>
+                  <% if booking.user.avatar.attached? %>
+                    <%= cl_image_tag booking.user.avatar.key,class:"avatar-large"%>
+                  <% end %>
+                <% end%>
+                </div>
+                <%= link_to dashboard_company_path(status: "pending", mission_id: mission.id, anchor: "mission_#{mission.id}") do %>
+                  <%= bookings.size%> personnes attendent une réponse à votre offre !
+                <% end %>
+              </div>
+              </div>
+          </div>
+        <% end %>
+      </div>
+      <div class = "card-product">
+        <div class = "d-flex justify-content-between">
+          <h2 class="pb-4">Missions validées</h2>
+          <%= link_to "Toutes mes missions", dashboard_freelancer_path  %>
+        </div>
+        <h4 style="font-size:18px; font-weight: lighter" class="border-bottom pb-2">Missions en cours</h4>
+        <% if @current_missions.size == 0 %>
+          <h7>Vous n'avez aucune mission en cours</h7>
+        <% end %>
+        <% @current_missions.each do |mission| %>
+          <div class="card-user_description pb-4" style ="margin-right: 80px;width:80%">
+            <div class=d-flex>
+              <% if mission.photos.attached? %>
+                <%= cl_image_tag mission.photos.first.key, width: "150px", height:"100px"%>
+              <% else %>
+                <%= image_tag "mission.jpg", width: "150px", height:"100px" %>
+              <% end %>
+              <ul style="list-style-type:none;" >
+                <li><h6><%= mission.user.company_name%></h6></li>
+                <li>Mail : <%= mission.user.email %></li>
+                <li>Tél : <%= mission.user.phone_number %></li>
+                <li> Adresse : <%= mission.address %></li>
+                <li>Du <%= mission.start_date_time%> au <%= mission.end_date_time %></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+        <h4 style="font-size:18px; font-weight: lighter" class="border-bottom pt-4 pb-2">Missions futures</h4>
+        <% if @future_missions.size == 0 %>
+          <h7>Vous n'avez aucune mission à venir</h7>
+        <% end %>
+        <% @future_missions.each do |mission| %>
+          <div class="card-user_description pb-4" style ="margin-right: 80px;width:100%">
+            <div class=d-flex>
+              <% if mission.photos.attached? %>
+                <%= cl_image_tag mission.photos.first.key, width: "150px", height:"100px"%>
+              <% else %>
+                <%= image_tag "mission.jpg", width: "150px", height:"100px" %>
+              <% end %>
+              <div class="d-flex justify-content-between">
+                <ul style="list-style-type:none;" >
+                  <li><h6><%=mission.user.company_name%></h6></li>
+                  <li>Mail : <%= mission.user.email %></li>
+                  <li>Tél : <%= mission.user.phone_number %></li>
+                  <li> Adresse : <%= mission.address %></li>
+                  <li>Du <%= mission.start_date_time%> au <%= mission.end_date_time %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+       <div class="card-product">
+        <h2  class="pb-3">Ajouter une mission</h2>
+        <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="far fa-eye"></i>  0 vue</div>
+        <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="fas fa-search"></i>  0 apparitions</div>
+        <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="fas fa-heart"></i>  0 favoris</div>
+      </div>
+    </div>
+  </div>
+</div>

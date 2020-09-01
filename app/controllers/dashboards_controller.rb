@@ -4,6 +4,9 @@ class DashboardsController < ApplicationController
     @user = current_user
     @current_bookings = current_user.bookings.select { |booking| booking.mission.start_date_time <= Date.today && booking.mission.end_date_time <= Date.today && booking.status == "accepted" }
     @future_bookings = current_user.bookings.select { |booking| booking.mission.start_date_time >= Date.today && booking.status == "accepted" }
+    @current_missions = current_user.missions.joins(:bookings).where(bookings: { status: "accepted" }).where("start_date_time::date <=  '#{Date.today}'").where("end_date_time::date >=  '#{Date.today}'").distinct
+    @pending_missions = current_user.missions.joins(:bookings).where(bookings: { status: "pending" }).where("start_date_time::date >=  '#{Date.today}'").distinct
+    @future_missions = current_user.missions.joins(:bookings).where(bookings: { status: "accepted" }).where("start_date_time::date >=  '#{Date.today}'").distinct
   end
 
   def freelancer
