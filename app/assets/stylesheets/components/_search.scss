@@ -10,6 +10,7 @@
     background-clip: unset;
     padding-top : 30px;
     z-index : 0;
+    font-family: 'Poppins', sans-serif;
   }
   .search-submit {
     background-color: #F9F9FC;
@@ -37,7 +38,6 @@
   height:55px !important;
   border-right-style: none;
   color:grey;
-  border-left-color: black;
 }
 
 
@@ -59,8 +59,8 @@
 }
 
 #search_category{
-  background-color: #F9F9FC;
-  border-radius: 0px 0px 0px 0px;
+  width: 150px;
+  border-radius: 0px 0px 0px 0px !important;
   height: 55px;
   border: 1px solid #F9F9FC;
   border-left-color: black;
@@ -84,14 +84,15 @@
 
 #search-btn {
   background-color: black;
-  padding: 8px;
+  padding: 5px;
   color:#F9F9FC;
   border-radius: 15px;
   margin-left: 10px !important;
-  height: 80%;
+  height: 70%;
   font-size: 20px;
-  width: 80%;
-  margin-top: 5px;
+  width: 90%;
+  margin-top: 8px;
+  border-color: black;
 }
 
 .search_home_container {
@@ -101,9 +102,10 @@
   }
   .search-submit {
     background-color: #F9F9FC;
-    height:55px;
-    width:110px;
-    border-radius: 0px 15px 15px 0px;
+    height: 55px;
+    width: 110px;
+    border-radius: 0px 20px 20px 0px;
+    padding-right: 10px;
   }
 }
 
