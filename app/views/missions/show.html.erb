@@ -89,16 +89,19 @@
                         <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-large">
                         <% end %>
                     </div>
-                    <div class="d-flex justify-content-between pb-5">
+                    <div class="d-flex justify-content-between pb-5 box_profil">
                       <div>
                         <h4 style="padding-left:60px; padding-top:10px"><%=@user.first_name%> <%=@user.last_name%></h4>
                         <p style="padding-left:60px; margin-top:-10px"><%=@user.email%></p>
                       </div>
-                          <%= link_to "Modifier mon profil","#" %>
+                      <div class="link_profil">
+                        <%= link_to "Modifier mon profil","#" %>
+                      </div>
+
                     </div>
                     <%= simple_form_for [@mission, @booking] do |f| %>
                       <%= f.input :freelancer_description, as: :text , :label => "Vos motivations",  :input_html => { :rows => 10}%>
-                      <%= f.submit "Postulez", class: "btn btn-danger", onclick:"return confirm('Êtes-vous sûr ?')"%>
+                      <%= f.submit "Postulez", class: "btn btn-danger", style:"float: right", onclick:"return confirm('Êtes-vous sûr ?')"%>
                     <%end%>
                   </div>
                 </div>
@@ -125,20 +128,20 @@
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
       </div>
+      <div class="another_missions">
+      <i class="fas fa-square" style="color:#AED5D4"></i> <h8>Il existe <%=@mission.user.missions.count%> autres missions de <%=@mission.job_category.name%> à <%=@mission.user.address.split(",")[1].capitalize %></h8>
+      </div>
     </div>
   </div>
 </div>
 <div class="big-blog-container">
   <div class="container">
-    <div class = "row">
-      <h3 class="pt-5"><%=@mission.user.missions.count%> autres missions de <%=@mission.job_category.name%> à <%=@mission.user.address.split(",")[1]%></h3>
-    </div>
     <div class="blog_container row">
-
       <div class="col-4">
         <div id="blog">
           <div class='content'>
             <div class="cards">
+            <h2> Webinar </h2>
               <div class = "card-trip">
                 <div class= "height: 180px; width:100%;" >
                   <%= link_to image_tag "christin-hume-Hcfwew744z4-unsplash.jpg", class:"center d-block w-100"%>
@@ -148,7 +151,7 @@
                     <h4>Gestion & Freelance</h4>
                     <p>Apprenez à conjuguer votre statut de freelance avec l'agilité d'un comptable expérimenté. Pour cela, des solutions pour automatiser toute votre gestion comptable & financière existent. Tour rapide des logiciels avec notre webinar ce lundi soir.</p>
                     <div class="flexbox">
-                      <h5>En savoir plus</h5>
+                      <h5><a href="#"> En savoir plus</a></h5>
                     </div>
                   </div>
                 </div>
@@ -162,6 +165,7 @@
         <div id="blog">
           <div class='content'>
             <div class="cards">
+            <h2> Blog </h2>
               <div class = "card-trip">
                 <div class= "height: 180px; width:100%;" >
                   <%= link_to image_tag "fistbump-over-desk.jpg", class:"center d-block w-100"%>
@@ -169,9 +173,9 @@
                 <div class="card-trip-infos">
                   <div>
                     <h4>Employer des freelances</h4>
-                    <p>A l'heure où on deande aux entreprises de la souplesse, la tentation de recruter des freelances pour une mission, un créneau horaire particulier ou encore une période d'activité intense est de plus en plus grande. Comprenez avec nous les avantages et eviter les aléas.</p>
+                    <p>A l'heure où la souplesse devient primordiale pour les entreprises, le recrutement des freelances pour une mission, un créneau horaire particulier ou pour une période d'activité intense devient de plus en plus évident. Comprenez avec nous les avantages et eviter les aléas.</p>
                     <div class="flexbox">
-                      <h5>En savoir plus</h5>
+                      <h5><a href="#">En savoir plus</a></h5>
                     </div>
                   </div>
                 </div>
@@ -184,7 +188,8 @@
       <div class="col-4">
         <div id="blog">
           <div class='content'>
-            <div class="cards">
+           <div class="cards">
+            <h2> Tuto </h2>
               <div class = "card-trip">
                 <div class= "height: 180px; width:100%;" >
                   <%= link_to image_tag "hands_top.jpg", class:"center d-block w-100"%>
@@ -194,7 +199,7 @@
                     <h4>Freelance ou Portage</h4>
                     <p>Petit tour de la situation des freelances avec des témoignages. Nous avons réalisé une étude des solutions de portage existantes : avantages, inconvénients, coûts. Tous les outils pour comprendre quand ces solutions sont de vraies aides. Tuto avec notre expert comptable.</p>
                     <div class="flexbox">
-                      <h5>En savoir plus</h5>
+                      <h5><a href="#">En savoir plus</a></h5>
                     </div>
                   </div>
                 </div>
@@ -203,8 +208,8 @@
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
+</div>
+

@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
 
     @booking.mission = Mission.find(params[:mission_id])
     if @booking.save
-      redirect_to booking_path(@booking), notice: 'Votre candidature a bien été enregistrée.'
+      redirect_to dashboard_freelancer_path, notice: 'Votre candidature a bien été enregistrée.'
       # format.json { render :show, status: :created_at, location: @board_game }
     else
       render "missions/show"
