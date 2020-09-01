@@ -16,9 +16,9 @@
 </div>
 
 
-<div class="about_liberty" style = "background-color: #F9F9FC; padding-bottom: 50px">
-  <div class = "t_container" style = "padding-bottom: 20px; padding-top: 20px">
-     <div class = "d-flex justify-content-around align-items-center icons">
+<div class="about_liberty" style= "padding-bottom: 50px">
+  <div class= "t_container" style= "padding-bottom: 20px; padding-top: 20px">
+     <div class= "d-flex justify-content-around align-items-center icons">
       <div class= "p-5" >
         <i class="fas fa-map-marker-alt"></i>
         <h3 class = "pt-2"> Près de chez vous</h3>
@@ -37,7 +37,75 @@
   </div>
 </div>
 
-<div style = "background-color: white; padding-top:50px">
+<div style= "background-color: white; padding-top:50px">
+  <h2 style= "text-align: center; font-weight:bold; padding-top:15px">Des missions qui vous correspondent</h2>
+</div>
+
+<div class="container pb-5">
+  <div id="carouselHomeContent" class="carousel slide" data-ride="carousel" data-interval="0">
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active text-center p-4" style="min-height: 400px">
+          <div class="d-flex justify-content-around align-items-center pr-4 pl-4" >
+            <div class="card" style="width: 18rem;">
+              <div class="card-body" style = "position: relative">
+                <%= cl_image_tag("https://res.cloudinary.com/dzao5ujoq/image/upload/v1598519799/avatar/matheus-ferrero-W7b3eDUb_2I-unsplash_sklten.jpg", gravity: :face, width: 40, height: 40, style: "position: absolute; top:10px; left:10px", class: "avatar")%>
+                <h5 style = "text-align: left; padding-left:40px"><strong>Elisa</strong></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Professeur de Yoga à Paris</h6>
+                <p class="card-text"> <i class="fas fa-quote-left"></i> Professeur de yoga spécialisée dans le Yin & le Vinyasa sur Paris. Dynamique et patient, j'ai à coeur le bien-être et la progression des participants à mes séances.<i class="fas fa-quote-right"></i></p>
+              </div>
+            </div>
+            <div style = "height: 230px">
+            <img src="https://www.doitinparis.com/files/2019/beaute/sport/yoga/04/cours-yoga/thumbs_facebook/cours-de-yoga-a-paris.jpg" alt="" height="300" width="500px">
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item text-center p-4" style="min-height: 400px">
+          <div class="d-flex justify-content-around align-items-center pr-4 pl-4">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body" style = "position: relative">
+                <%= cl_image_tag("https://res.cloudinary.com/dzao5ujoq/image/upload/v1598531621/avatar/gabriel-silverio-u3WmDyKGsrY-unsplash_indtbr.jpg", gravity: :face, height: 40, width: 40, style: "position: absolute; top:10px; left:10px", class: "avatar")%>
+                <h5 style = "text-align: left; padding-left:40px"><strong>Alanna</strong></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Masseuse thérapeutique à Paris</h6>
+                <p class="card-text"> <i class="fas fa-quote-left"></i> Masseuse spécialisée dans les massages du monde et les massages detox sur Paris. Professionnelle, j'ai à coeur de comprendre les tensions ressenties par mes clients et de choisir la meilleure technique.<i class="fas fa-quote-right"></i></p>
+              </div>
+            </div>
+            <div style = "height: 230px">
+              <img src="https://resize-elle.ladmedia.fr/rcrop/638,,forcex/img/var/plain_site/storage/images/beaute/massage/massage-pas-cher-paris/84831665-1-fre-FR/7-massages-pas-chers-a-Paris-pour-deconnecter.jpg" alt="" height="300" width="500px">
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item text-center p-4" style="min-height: 400px">
+          <div class="d-flex justify-content-around align-items-center pr-4 pl-4">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body" style = "position: relative">
+                <%= cl_image_tag("https://res.cloudinary.com/dzao5ujoq/image/upload/v1598519799/avatar/craig-mckay-jmURdhtm7Ng-unsplash_y4ydjf.jpg", gravity: :face, height: 40, width: 40, style: "position: absolute; top:10px; left:10px", class: "avatar")%>
+                <h5 style = "text-align: left; padding-left:40px"><strong>Leandro</strong></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Barbier à Paris</h6>
+                <p class="card-text"> <i class="fas fa-quote-left"></i> Babier et Hair stylist spécialisé dans l'art de la barbe longue. Professionnel rompu aux traitements naturels à base d'huiles naturelles et huiles essentielles, mon objectif est que mes clients se sentent au top.<i class="fas fa-quote-right"></i></p>
+              </div>
+            </div>
+            <div style = "height: 230px">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQrkubO8QXbHcZyGDFfFASpc-QrEF9pgIB9WA&usqp=CAU" alt="" height="300" width="500px">
+            </div>
+          </div>
+        </div>
+        <div></div>
+        <a class="carousel-control-prev" href="#carouselHomeContent" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselHomeContent" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div style = "background-color: white; padding-top:50px">
   <h2 style = "text-align: center; font-weight:bold; padding-top:15px">Des missions qui vous correspondent</h2>
   <div class="container pb-5">
     <div id="carouselHomeContent" class="carousel slide" data-ride="carousel" data-interval="0">
@@ -102,7 +170,7 @@
   </div>
 </div>
 
-
+ -->
 <div  style = "background-color: #F9F9FC">
   <h2 style = "text-align: center; font-weight:bold; padding-top:15px">Trouvez votre catégorie de métier</h2>
   <div class = "container d-flex justify-content-around pb-5 pt-3 category_jobs">
