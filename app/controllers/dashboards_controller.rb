@@ -2,8 +2,8 @@ class DashboardsController < ApplicationController
   def dashboard
     authorize :dashboard, :dashboard?
     @user = current_user
-    @current_bookings = current_user.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "accepted" }
-    @past_bookings = current_user.bookings.select { |booking| booking.mission.end_date_time < Date.today &&  booking.mission.end_date_time >= Date.today-7 && booking.status == "accepted" }
+    @current_bookings = current_user.bookings.select { |booking| booking.mission.start_date_time <= Date.today && booking.mission.end_date_time <= Date.today && booking.status == "accepted" }
+    @future_bookings = current_user.bookings.select { |booking| booking.mission.start_date_time >= Date.today && booking.status == "accepted" }
   end
 
   def freelancer
@@ -22,12 +22,11 @@ class DashboardsController < ApplicationController
     authorize :dashboard, :company?
     @params = params[:status]
     if @params == "currently" || @params.nil?
-      @bookings = current_user.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "accepted" }
+      @missions = current_user.missions.joins(:bookings).where(bookings: { status: "accepted" }).where("end_date_time::date >=  '#{Date.today}'" ).distinct
     elsif @params == "history"
-      @bookings = current_user.bookings.select { |booking| booking.mission.end_date_time < Date.today }
+      @missions = current_user.missions.joins(:bookings).where("end_date_time::date <  '#{Date.today}'").distinct
     elsif @params == "pending"
-      @bookings = current_user.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "pending" }
+      @missions = current_user.missions.joins(:bookings).where(bookings: { status: "pending" }).where("start_date_time::date >=  '#{Date.today}'" ).distinct
     end
   end
-
 end

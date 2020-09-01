@@ -17,6 +17,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def update_status?
+    true if user.role == "company"
+  end
+
   private
 
   def user_is_owner_or_admin?
