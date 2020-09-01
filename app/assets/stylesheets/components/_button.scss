@@ -52,10 +52,15 @@
 
 }
 
-.ghost_active {
+.ghost-active {
   opacity: 1;
   color: black;
   background-color: #AED5D4;
+}
+
+.ghost-active {
+  opacity: 1;
+  color: black;
 }
 
 .btn-dark {
@@ -72,7 +77,7 @@ padding: 8px 24px!important;
 }
 
 .btn-danger {
-  color: white;
+  color: white !important;
   padding: 0px 24px;
   border-radius: 4px;
   background: #EC8384;
@@ -82,7 +87,7 @@ padding: 8px 24px!important;
 
 .btn-danger:hover {
   background: white;
-  color: #EC8384;
+  color: #EC8384 !important;;
 }
 
 

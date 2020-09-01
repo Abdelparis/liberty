@@ -3,17 +3,17 @@
     <div class="col-8">
       <div class = "d-flex justify-content-left dashboard-buttons">
         <% if params[:status]== "currently" %>
-            <a href="freelancer?status=currently" class="btn btn-ghost ghost_active"><%="En cours "%><i class="far fa-calendar"></i></a>
+            <a href="freelancer?status=currently" class="btn btn-ghost ghost-active"><%="En cours "%><i class="far fa-calendar"></i></a>
           <% else %>
             <a href="freelancer?status=currently" class="btn btn-ghost"><%="En cours "%><i class="far fa-calendar"></i></a>
           <% end %>
           <% if params[:status]== "pending" %>
-            <a href="freelancer?status=pending" class="btn btn-ghost ghost_active"><%="En attente "%><i class="fas fa-history"></i></a>
+            <a href="freelancer?status=pending" class="btn btn-ghost ghost-active"><%="En attente "%><i class="fas fa-history"></i></a>
           <% else %>
             <a href="freelancer?status=pending" class="btn btn-ghost"><%="En attente "%><i class="fas fa-history"></i></a>
           <% end %>
           <% if params[:status]== "history" %>
-            <a href="freelancer?status=history" class="btn btn-ghost ghost_active"><%="Passées "%><i class="fas fa-history"></i></a>
+            <a href="freelancer?status=history" class="btn btn-ghost ghost-active"><%="Passées "%><i class="fas fa-history"></i></a>
           <% else %>
             <a href="freelancer?status=history" class="btn btn-ghost"><%="Passées "%><i class="fas fa-history"></i></a>
           <% end %>
