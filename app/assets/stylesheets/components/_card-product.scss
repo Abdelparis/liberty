@@ -66,7 +66,7 @@
 }
 
 .card-user-infos p {
-  margin-left: 14px
+  margin-left: 0px
 }
 
 .card-user_description {
@@ -74,20 +74,24 @@
   font-size : 14px;
 }
 
-.card-user-price {
+.card-user-time{
   display :flex;
   margin-bottom: 10px;
   justify-content: space-between;
   color: #15353D;
   font-size: 14px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
 }
 
-.card-validation {
-  margin-top: 20px;
-  margin_bottom: 10px;
+.card-user-price {
+  display :flex;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  color: #15353D;
+  font-size: 20px;
+  font-weight: bold;
 }
+
 
 #date {
   margin-top: 15px;
@@ -100,6 +104,12 @@
   position: sticky;
   top: 0;
   margin-bottom: 30px;
+}
+
+#price {
+  padding-top: 18px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .card-description img {

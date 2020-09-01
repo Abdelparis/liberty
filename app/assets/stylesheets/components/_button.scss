@@ -89,8 +89,8 @@ padding: 8px 24px!important;
   padding: 8px 15px;
   margin: 5px;
   border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
+  font-weight: 300;
+  opacity: 0.85;
   width:200px;
   background-color:#73A3A5;
 
@@ -100,6 +100,9 @@ padding: 8px 24px!important;
   color: #15353D;
   background: white;
   border: 1px solid #73A3A5;
+  a{
+    color:#15353D!important;
+  }
 }
 
 .btn-ghost:hover {
