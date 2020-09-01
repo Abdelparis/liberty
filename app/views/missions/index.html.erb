@@ -10,7 +10,7 @@
     <div class="col-7">
       <div class="card_container">
         <% @missions.each do |mission| %>
-          <div class="card-product">
+          <div class="card-product" data-mission-id="<%= mission.id %>">
              <h2><%= mission.name %></h2>
             <div class="card-information" >
               <div class="card-description">
