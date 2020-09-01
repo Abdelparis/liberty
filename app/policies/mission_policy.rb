@@ -10,7 +10,7 @@ class MissionPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    user
   end
 
   def new?
