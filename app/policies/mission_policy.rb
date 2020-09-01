@@ -13,6 +13,10 @@ class MissionPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true if user.role == "company"
+  end
+
   def create?
     user_is_owner_or_admin?
   end
@@ -21,9 +25,9 @@ class MissionPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
-    private
+  private
 
   def user_is_owner_or_admin?
-    record.mission.user == user
+    record.user == user
   end
 end
