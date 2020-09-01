@@ -1,28 +1,28 @@
-<div class="small-container pt-5">
+<div class="dashboard-company-container pt-5">
   <div class="row">
     <div class="col-8">
       <div class = "d-flex justify-content-left dashboard-buttons">
         <% if params[:status]== "currently" %>
-            <a href="company?status=currently" class="btn btn-ghost active"><%="En cours "%><i class="far fa-calendar"></i></a>
+            <a href="company?status=currently" class="btn btn-ghost ghost-active"><%="En cours "%><i class="far fa-calendar"></i></a>
           <% else %>
             <a href="company?status=currently" class="btn btn-ghost"><%="En cours "%><i class="far fa-calendar"></i></a>
           <% end %>
           <% if params[:status]== "pending" %>
-            <a href="company?status=pending" class="btn btn-ghost active"><%="En attente "%><i class="fas fa-history"></i></a>
+            <a href="company?status=pending" class="btn btn-ghost ghost-active"><%="En attente "%><i class="fas fa-history"></i></a>
           <% else %>
             <a href="company?status=pending" class="btn btn-ghost"><%="En attente "%><i class="fas fa-history"></i></a>
           <% end %>
           <% if params[:status]== "history" %>
-            <a href="company?status=history" class="btn btn-ghost active"><%="Passées "%><i class="fas fa-history"></i></a>
+            <a href="company?status=history" class="btn btn-ghost ghost-active"><%="Passées "%><i class="fas fa-history"></i></a>
           <% else %>
             <a href="company?status=history" class="btn btn-ghost"><%="Passées "%><i class="fas fa-history"></i></a>
           <% end %>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 float-container">
       <div class = "container d-flex justify-content-center pb-5">
         <%= simple_form_for(:query, method: "GET", html: { class: 'inline d-flex align-content-center rounded' }) do |f| %>
-        <%= f.input "", required: false, wrapper_html: { class: 'float-container', style:"width:300px" }, input_html: {value: "", placeholder: "Ex : nom de la mission, du client...", id: "left-corner-input"} %>
+        <%= f.input "", required: false, wrapper_html: { class: 'float-container', style:"width:300px"}, input_html: {value: "", placeholder: "Ex : nom de la mission, du client...", id: "left-corner-input"} %>
         <button type="submit" id="search-btn" title="" class="float-container">
           <i class="fas fa-search"></i>
         </button>
