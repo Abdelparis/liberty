@@ -9,6 +9,10 @@ class ChatroomPolicy < ApplicationPolicy
     true if record.booking.user == user || record.booking.mission.user == user
   end
 
+  def create?
+    true
+  end
+
   def imbox?
    true if user
   end

@@ -1,4 +1,3 @@
-// app/javascript/channels/chatroom_channel.js
 import consumer from "./consumer";
 
 const initChatroomCable = () => {
@@ -6,9 +5,11 @@ const initChatroomCable = () => {
   if (messagesContainer) {
     const id = messagesContainer.dataset.chatroomId;
 
+
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
         console.log(data); // called when data is broadcast in the cable
+        messagesContainer.insertAdjacentHTML('beforeend', data);
       },
     });
   }

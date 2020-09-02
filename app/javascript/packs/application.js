@@ -40,10 +40,11 @@ document.addEventListener('turbolinks:load', () => {
     setTimeout(initMapbox, 300)
     // initMapbox();
   }
+  initChatroomCable();
   initNavbar();
   initAutocomplete();
   if (document.querySelector('.body-missions-index')) {
   initMapMarkersOnOver();
-  initChatroomCable();
+
   }
 })

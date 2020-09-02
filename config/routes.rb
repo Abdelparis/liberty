@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update]
   resources :bookings, only: [:show, :update]
-  resources :chatrooms, only: [:show] do
+  resources :chatrooms, only: [:show, :create] do
     resources :messages, only: :create
   end
 end

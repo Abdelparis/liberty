@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  # skip_before_action :verify_authenticity_token
+   # skip_before_action :verify_authenticity_token
 
   def create
     @chatroom = Chatroom.find(params[:chatroom_id])
@@ -14,9 +14,10 @@ class MessagesController < ApplicationController
       )
       redirect_to "/imbox?chatroom_id=#{@chatroom.id}#message-#{anchor(@message.id)}"
     else
-      render "chatrooms/show"
+      render "imbox"
     end
   end
+
 
   def anchor(element)
     if element == 1
