@@ -28,10 +28,24 @@
   border-left-color: black;
 }
 
-.float-container input, .float-container select {
+.float-container input {
   background-color: #F9F9FC !important;
   font-size: 13px;
   padding: 35px 10px 15px;
+  width: 100%;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  height:55px !important;
+  border-right-style: none;
+  color:grey;
+}
+
+
+.float-container select {
+  background-color: #F9F9FC !important;
+  font-size: 13px;
+  // padding: 0px 10px 15px;
+  padding-top: 20px;
   width: 100%;
   margin-left: 0px !important;
   margin-right: 0px !important;
