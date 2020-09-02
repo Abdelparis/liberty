@@ -9,9 +9,9 @@
           <%= image_tag("mission.jpg") %>
         <% end %>
       </div>
-      <div class="card-user_description" style ="margin-right: 80px;width:300px">
+      <div class="card-user_description" style ="width:300px">
         <ul style="list-style-type:none;" >
-          <li><strong>Client :</strong></li>
+          <li class="pt-4"><strong>Client :</strong></li>
           <li><%= link_to mission.user.company_name, "#" %></li>
           <li>Mail : <%= mission.user.email %></li>
           <li>Tél : <%= mission.user.phone_number %></li>
@@ -20,7 +20,7 @@
       </div>
       <div class="card-user_description">
         <ul style="list-style-type:none;">
-          <li><strong>Détails :</strong></li>
+          <li class="pt-4"><strong>Détails :</strong></li>
           <li>Date de début de mission : <%= mission.start_date_time %></li>
           <li>Date de fin de mission : <%= mission.end_date_time %></li>
           <li>Solde TTC : <strong>EUR</strong></li>
@@ -28,8 +28,8 @@
       </div>
       <ul style="list-style-type:none; margin-top:10px">
         <% if  @params != "pending"%>
-           <li><%= link_to "Détails", mission_path(mission), class:"btn btn-second", style:"margin-bottom:20px" %></li>
-          <li><a href="#" class="btn btn-ok" style="margin-bottom:10px">Facture</a></li>
+           <li><%= link_to "Détails", mission_path(mission), class:"btn btn-second", style:"margin-bottom:20px; width:140px" %></li>
+          <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:140px">Facture</a></li>
         <% else %>
           <li><%= link_to "Détails", mission_path(mission), class:"btn btn-second", style:"margin-bottom:20px; width:140px" %></li>
           <li><a class="btn btn-ok" style="margin-bottom:10px; width:140px" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Candidats</a></li>
