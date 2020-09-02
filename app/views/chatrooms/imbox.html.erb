@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-3">
+    <div class="border-right">
+      <h4 class="border-bottom pt-4 pb-4 pl-3" > Messages </h4>
+      <% if current_user.role == "company" %>
+          <%= render "companyimbox"  %>
+        <% elsif current_user.role == "freelancer" %>
+          <%= render "freelancerimbox"  %>
+      <% end %>
+      <div style = "height:100em"></div>
+    </div>
+  </div>
+  <div class="col-9">
+    <% if params[:chatroom_id].present? %>
+    <h4 class="border-bottom pt-4 pb-4" >
+      <% if current_user.role == "company" %>
+        <%=@chatroom.booking.user.first_name%></h4>
+      <% elsif current_user.role == "freelancer" %>
+        <%=@chatroom.booking.mission.user.company_name%></h4>
+      <% end %>
+      <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+        <%= render "messages/message" %>
+    </div>
+     <h1><%= @chatroom.name %></h1>
+      <%= simple_form_for [@chatroom, @message ], remote: true do |f| %>
+        <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+      <% end %>
+    </div>
+  <% end %>
+ </div>

@@ -1,0 +1,15 @@
+<% @chatrooms.each do |chatroom| %>
+  <div class="card-message">
+    <% if chatroom.booking.mission.user.avatar.attached? %>
+        <%= cl_image_tag chatroom.booking.mission.user.avatar.key, class:"avatar-nav", style:"margin-top: 15px"%>
+      <% else %>
+        <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" class="avatar-nav" style="margin-top: 15px">
+    <% end %>
+    <%= link_to imbox_path(chatroom_id: chatroom.id) do %>
+      <%= chatroom.booking.mission.user.company_name%>
+    <% end %>
+    <% if !chatroom.messages == [] %>
+      <p class="small-text"><%= chatroom.messages.last.content %> <%= chatroom.messages.last.created_at %></p>
+    <% end %>
+  </div>
+<% end %>

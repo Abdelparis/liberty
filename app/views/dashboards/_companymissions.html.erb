@@ -33,40 +33,52 @@
         <% else %>
           <li><%= link_to "Détails", mission_path(mission), class:"btn btn-second", style:"margin-bottom:20px; width:140px" %></li>
           <li><a class="btn btn-ok" style="margin-bottom:10px; width:140px" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Candidats</a></li>
-        <% end %>
       </ul>
     </div>
-    <% bookings = mission.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "pending" } %>
-    <%  bookings.each do |booking| %>
-    <div id = <%= "mission_#{mission.id}" %> >
-      <div class="collapse <%= 'show' if params[:mission_id].to_i == mission.id %>" id="collapseExample ">
-        <div class="card card-body mb-2" style="padding-bottom: 0px">
-          <div class="d-flex ">
-            <% if booking.user.avatar.attached? %>
-              <%= cl_image_tag booking.user.avatar.key, class:"avatar-large", style:"margin-top: 15px"%>
-            <% else %>
-              <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-nav">
-            <% end %>
-            <div class="pl-2 ml-2" style="width: 10%; margin-top: 20px">
-              <h7 style=""><%="#{booking.user.first_name} #{booking.user.last_name}"%></h7>
-              <p >Prof de yoga</p>
+          <% bookings = mission.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "pending" } %>
+          <%  bookings.each do |booking| %>
+            <div id = <%= "mission_#{mission.id}" %> >
+              <% if  params[:mission_id].present?%>
+                  <div class="collapse show" id="collapseExample" style="">
+                <% else %>
+                  <div class="collapse" id="collapseExample" style="">
+              <% end %>
+
+                <div class="card card-body mb-2" style="padding-bottom: 0px">
+                  <div class="d-flex ">
+                    <% if booking.user.avatar.attached? %>
+                      <%= cl_image_tag booking.user.avatar.key, class:"avatar-large", style:"margin-top: 15px"%>
+                    <% else %>
+                      <img src="https://d2mp1cia79qmhd.cloudfront.net/prod/assets/default-avatar-58953c9e3461a05e47397bef0ad1e1967f9be436996e40fc7a84147336fd23e6.png" style="position:absolute; left:0" class="avatar-nav">
+                    <% end %>
+                    <div class="pl-2 ml-2" style="width: 10%; margin-top: 20px">
+                      <h7 style=""><%="#{booking.user.first_name} #{booking.user.last_name}"%></h7>
+                      <p >Prof de yoga</p>
+                    </div>
+                    <div class="card-product" style="width: 75%; margin-left: 80px">
+                      <h7>Motivations :</h7>
+                      <p class="pb-3"><%= booking.freelancer_description%> ... </p>
+                      <%= link_to "#" do %>
+                        <h8><i class="fas fa-eye"></i> Détails de candidature</h8>
+                      <% end %>
+                      <%= link_to chatrooms_path(booking_id: booking.id), method: :post do %>
+                        <h8 style="margin-left:20px"><i class="far fa-envelope"></i>  Contacter</h7>
+                      <% end %>
+                    </div>
+                    <div style="width:30%; padding-left:120px;padding-top: 2em;margin-left:10px">
+                      <%= simple_form_for(booking, :url => update_status_path(booking)) do |f| %>
+                        <%= f.submit value: "Accepter", class:"btn btn-success", style:"color:white; font-weight:bold; width:100px" %>
+                        <%= f.submit value: "Refuser", class:"btn btn-danger", style:"color:white; font-weight:bold; width:100px" %>
+                      <%end%>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="card-product" style="width:50% ">
-              <h7>Motivations :</h7>
-              <p class="pb-3"><%= booking.freelancer_description%> ... </p>
-              <h4><i class="fas fa-eye"></i>  <%= link_to "Détails de candidature", "#" %></h4>
-            </div>
-            <div style="width:30%; padding-left:120px;padding-top: 2em;margin-left:10px">
-              <%= simple_form_for(booking, :url => update_status_path(booking)) do |f| %>
-                <%= f.submit value: "Accepter", class:"btn btn-success", style:"color:white; font-weight:bold; width:100px" %>
-                <%= f.submit value: "Refuser", class:"btn btn-danger", style:"color:white; font-weight:bold; width:100px" %>
-              <%end%>
-            </div>
-          </div>
-        </div>
+          <% end %>
+        <% end %>
+         </ul>
       </div>
-    </div>
-    <% end %>
-  </div>
 </div>
 <% end %>

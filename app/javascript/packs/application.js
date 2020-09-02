@@ -32,6 +32,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initNavbar } from '../plugins/navbar';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapMarkersOnOver } from '../plugins/map_markers';
+import { initChatroomCable } from '../channels/chatroom_channel';
 import "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
@@ -39,9 +40,11 @@ document.addEventListener('turbolinks:load', () => {
     setTimeout(initMapbox, 300)
     // initMapbox();
   }
+  initChatroomCable();
   initNavbar();
   initAutocomplete();
   if (document.querySelector('.body-missions-index')) {
   initMapMarkersOnOver();
+
   }
 })

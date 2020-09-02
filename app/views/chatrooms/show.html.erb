@@ -1,0 +1,7 @@
+<div class="row">
+  <%= render "messages/message" %>
+  <h1>#<%= @chatroom.name %></h1>
+  <%= simple_form_for [@booking, @chatroom, @message ], remote: true do |f| %>
+    <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.name}" %>
+  <% end %>
+</div>
