@@ -24,7 +24,7 @@
           <li>Date de début de mission : <br> <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.start_date_time.strftime("%k:%Mh") %></li>
           <li>Date de fin de mission : <br> <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %> à <%= booking.mission.end_date_time.strftime("%k:%Mh") %></li>
 <!--           <li>Statut de la mission : <%= booking.status %></li> -->
-          <li>Solde TTC : <strong><%= booking.total_price %>EUR</strong></li>
+          <li>Solde TTC : <strong><%= booking.mission.price_by_hour %>EUR</strong></li>
         </ul>
       </div>
       <ul style="list-style-type:none; margin-top:10px">
