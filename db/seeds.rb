@@ -10,6 +10,8 @@ require "open-uri"
 puts "Cleaning database..."
 
 Skill.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 Booking.destroy_all
 Mission.destroy_all
 User.destroy_all
