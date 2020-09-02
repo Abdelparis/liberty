@@ -465,7 +465,7 @@ yoga_6 = Mission.create!(
 yoga_7 = Mission.create!(
   name: "Cours de Yoga",
   description: "La société Health&Sens est un cabinet de professionnels dans le domaine du sport et du bien-être en entreprise depuis plus de 10 ans, sur Paris et la région parisienne. Nous recherchons des professeurs de yoga sur Paris et la région Parisienne ( 77-78-91-92-93-94-95), afin de dispenser des cours auprès de nos clients le vendredi de 12h30 à 13h30. Vous êtes diplômé en Yoga? N’hésitez pas à nous contacter.",
-  address: "46 rue des vignolles, 75020 paris",
+  address: "46 rue des Envierges, 75020 paris",
   price_by_hour: 30,
   start_date_time: "20200918123000",
   end_date_time: "20200918133000",
