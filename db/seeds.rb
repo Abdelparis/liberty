@@ -457,7 +457,7 @@ yoga_6 = Mission.create!(
   job_category_id: JobCategory.minimum(:id),
   user_id: health_sens.id
   )
-  file_40 = URI.open("https://www.luxebytrendy.com/wp-content/uploads/2019/03/yoga-factory-studio-photo-interieure.jpg")
+  file_40 = URI.open("https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80")
   yoga_6.photos.attach(io: file_40, filename: 'mission-yoga-40.jpeg', content_type: 'image/jpeg')
   file_41 = URI.open("https://yogafactory.fr/wp-content/uploads/2018/04/yoga-factory-evenement-etam.jpg")
   yoga_6.photos.attach(io: file_41, filename: 'mission-yoga-41.jpeg', content_type: 'image/jpeg')
@@ -472,7 +472,7 @@ yoga_7 = Mission.create!(
   job_category_id: JobCategory.minimum(:id),
   user_id: health_sens.id
   )
-  file_42 = URI.open("https://elisayogastudio.com/wp-content/uploads/2019/08/IMG_9282-_PS1_1080p-comp.jpg")
+  file_42 = URI.open("https://www.anousparis.fr/app/uploads/2018/02/yay-yoga-paris-17-studio-cardinet-7-1024x681.jpg")
   yoga_7.photos.attach(io: file_42, filename: 'mission-yoga-42.jpeg', content_type: 'image/jpeg')
   file_43 = URI.open("https://www.yoga-brest.fr/images/salle-yoga-brest-espace-vivre-mieux.jpg")
   yoga_7.photos.attach(io: file_43, filename: 'mission-yoga-43.jpeg', content_type: 'image/jpeg')
