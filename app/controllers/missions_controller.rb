@@ -100,9 +100,8 @@ class MissionsController < ApplicationController
   end
 
   def mission_params
-    params.require(:mission).permit(
-      :first_name, :last_name, :email, :phone_number, :address, :description, :photos, :role, :avatar, :portfolio_url, :price_by_hour
-    )
+    params.require(:mission).permit(:name, :description, :address, :price_by_hour, :start_date_time, :end_date_time, :job_category_id, :photos, :user_id, :longitude, :latitude)
+
   end
 
   def total_price(price, start_time, end_time)
