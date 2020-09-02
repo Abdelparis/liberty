@@ -3,7 +3,6 @@ const initMapMarkersOnOver = () => {
   mapmarkers.forEach( (card) => {
     card.addEventListener('mouseover', () => {
     const missionId = card.dataset.missionId;
-    console.log(missionId)
     const marker = document.querySelector(`[data-marker-id="${missionId}"]`);
     const cardnew = document.querySelector(`[data-mission-id="${missionId}"]`);
       cardnew.style.borderStyle = "groove";

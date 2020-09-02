@@ -18,30 +18,32 @@
     <div class="col-7">
       <div class="card_container">
         <% @missions.each do |mission| %>
-          <div class="card-product" data-mission-id="<%= mission.id %>">
-             <h2><%= mission.name %></h2>
-            <div class="card-information" >
-              <div class="card-description">
-                <% if mission.photos.attached? %>
-                  <%= cl_image_tag mission.photos.first.key %>
-                <% else %>
-                  <%= image_tag("mission.jpg") %>
-                <% end %>
-              </div>
-              <div class="card-user">
-                <div class="card-user-infos">
-                  <div class="card-user_description">
-                  <h4> Mission :</h4>
-                  <p class="text_mission"><%= mission.description.truncate(220) %></p>
-                    <div class="card-user-price">
-                    <p id="date"> Du <%= mission.start_date_time.strftime("%d/%m/%Y/") %> au <%= mission.end_date_time.strftime("%d/%m/%Y") %> de <%= mission.start_date_time.strftime("%k:%Mh") %> à <%= mission.end_date_time.strftime("%k:%Mh") %></p>
-                    <p id="price"><%= mission.price_by_hour%> €</p>
+          <%= link_to mission_path(mission.id) do %>
+            <div class="card-product" data-mission-id="<%= mission.id %>">
+               <h2><%= mission.name %></h2>
+              <div class="card-information" >
+                <div class="card-description">
+                  <% if mission.photos.attached? %>
+                    <%= cl_image_tag mission.photos.first.key %>
+                  <% else %>
+                    <%= image_tag("mission.jpg") %>
+                  <% end %>
+                </div>
+                <div class="card-user">
+                  <div class="card-user-infos">
+                    <div class="card-user_description">
+                    <h4> Mission :</h4>
+                    <p class="text_mission"><%= mission.description.truncate(220) %></p>
+                      <div class="card-user-price">
+                      <p id="date"> Du <%= mission.start_date_time.strftime("%d/%m/%Y/") %> au <%= mission.end_date_time.strftime("%d/%m/%Y") %> de <%= mission.start_date_time.strftime("%k:%Mh") %> à <%= mission.end_date_time.strftime("%k:%Mh") %></p>
+                      <p id="price"><%= mission.price_by_hour%> €</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          <% end  %>
         <% end %>
       </div>
     </div>
