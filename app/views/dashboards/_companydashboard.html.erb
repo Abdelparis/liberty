@@ -73,7 +73,7 @@
                 <% end%>
                 </div>
                 <%= link_to dashboard_company_path(status: "pending", mission_id: mission.id, anchor: "mission_#{mission.id}") do %>
-                  <%= bookings.size%> personnes attendent une réponse à votre offre !
+                  <%= bookings.size%> personne(s) attende(nt) une réponse à votre offre !
                 <% end %>
               </div>
               </div>
@@ -83,7 +83,7 @@
       <div class = "card-product">
         <div class = "d-flex justify-content-between">
           <h2 class="pb-4">Missions validées</h2>
-          <%= link_to "Toutes mes missions", dashboard_freelancer_path  %>
+          <%= link_to "Toutes mes missions", dashboard_company_path  %>
         </div>
         <h4 style="font-size:18px; font-weight: lighter" class="border-bottom pb-2">Missions en cours</h4>
         <% if @current_missions.size == 0 %>
