@@ -2,16 +2,16 @@
   <div class="card-product">
     <div class="card-information" >
       <div class="card-description">
+        <h5 class="center-item"><%=booking.mission.name %></h5>
         <% if booking.mission.photos.attached? %>
           <%= cl_image_tag booking.mission.photos.first.key, widht: "100%" %>
         <% else %>
           <%= image_tag("mission.jpg") %>
         <% end %>
-        <h5 class="center-item"><%=booking.mission.name %></h5>
       </div>
       <div class="card-user_description" style ="margin-right: 80px;width:300px">
         <ul style="list-style-type:none;" >
-          <li><strong>Client :</strong></li>
+          <li class="pt-4"><strong>Client :</strong></li>
           <li><%= link_to booking.mission.user.company_name, "#" %></li>
           <li>Mail : <%= booking.mission.user.email %></li>
           <li>Tél : <%= booking.mission.user.phone_number %></li>
@@ -20,7 +20,7 @@
       </div>
       <div class="card-user_description" style ="margin-right: 80px;width:300px">
         <ul style="list-style-type:none;">
-          <li><strong>Détails :</strong></li>
+          <li class="pt-4"><strong>Détails :</strong></li>
           <li>Date de début de mission : <br> <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.start_date_time.strftime("%k:%Mh") %></li>
           <li>Date de fin de mission : <br> <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %> à <%= booking.mission.end_date_time.strftime("%k:%Mh") %></li>
 <!--           <li>Statut de la mission : <%= booking.status %></li> -->
