@@ -14,7 +14,7 @@ class MissionPolicy < ApplicationPolicy
   end
 
   def new?
-    true if user.role == "company"
+    true
   end
 
   def create?

@@ -2,8 +2,8 @@
     <%= simple_form_for(:search, url: missions_path, method: "GET", html: { class: 'inline d-flex align-content-center rounded' }) do |f| %>
       <%= f.input :name, required: false, wrapper_html: { class: 'float-container' }, input_html: {value: "", placeholder: " Yoga, Massage, Coiffeur...", id: "left-corner-input"}, :label => "Métiers" %>
       <%= f.input :address, required: false, wrapper_html: { class: 'float-container' }, input_html: {value: "", placeholder: "Paris, Lyon, Nantes...", id: "address-input" }, :label => "Adresse" %>
-      <%= f.input :start_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container'}, :label => "Date de début" %>
-      <%= f.input :end_date_time, as: :date, html5: true, required: false, wrapper_html: { class: 'float-container' }, :label => "Date de fin" %>
+      <%= f.input :start_date_time, as: :string, required: false, input_html: {class: 'datepicker'}, wrapper_html: { class: 'float-container' }, :label => "Date de début" %>
+      <%= f.input :end_date_time, as: :string, required: false, input_html: {class: 'datepicker'}, wrapper_html: { class: 'float-container' }, :label => "Date de début" %>
       <%= f.input :category, as: :select, collection: JobCategory::CATEGORY, required: false, html5: true, required: false, wrapper_html: { class: 'float-container' }, :label => "Catégorie"%>
       <div class="search-submit">
         <button type="submit" id="search-btn" title="" class="float-container">
@@ -12,3 +12,7 @@
       </div>
     <% end %>
 </div>
+
+
+
+

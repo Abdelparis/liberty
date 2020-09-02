@@ -25,6 +25,7 @@ require("channels")
 // External imports
 import "bootstrap";
 
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
@@ -32,6 +33,7 @@ import { initNavbar } from '../plugins/navbar';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapMarkersOnOver } from '../plugins/map_markers';
 import { initChatroomCable } from '../channels/chatroom_channel';
+import "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('map')) {

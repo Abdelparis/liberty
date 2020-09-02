@@ -9,7 +9,7 @@ class UserPolicy < ApplicationPolicy
     true
   end
 
-    def edit?
+  def edit?
     true
   end
 
