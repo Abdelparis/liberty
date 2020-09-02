@@ -5,7 +5,15 @@
 </div>
 <div class="container_card">
   <h1 class="title">Missions trouvées</h1>
-  <p><%= @missions.ids.length %> mission(s) de <%= @params[:name].capitalize %> à <%= @params[:address].capitalize %></p>
+  <% if @params[:name].present? %>
+    <p><%= @missions.ids.length %> mission(s) de <%= @params[:name].capitalize %></p>
+  <% elsif @params[:address].present? && @params[:name].empty? %>
+    <p><%= @missions.ids.length %> mission(s) à <%= @params[:address].capitalize %></p>
+  <% elsif @params[:address].present? && @params[:name].present? %>
+    <p><%= @missions.ids.length %> mission(s) de <%= @params[:name].capitalize %> à <%= @params[:address].capitalize %></p>
+  <% else %>
+    <p><%= @missions.ids.length %> mission(s)</p>
+  <% end  %>
   <div class="row">
     <div class="col-7">
       <div class="card_container">

@@ -8,7 +8,7 @@ class MissionsController < ApplicationController
     # @missions = Mission.geocoded
 
     @params = params[:search]
-    if !@params.present?
+    if !@params.empty?
       @missions = Mission.all
     elsif @params[:name] && @params[:address] && @params[:start_date_time] && @params[:end_date_time]
       @missions = Mission.where("name ILIKE ?", "%#{@params[:name]}%")
