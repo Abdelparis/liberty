@@ -9,7 +9,8 @@
     <%= f.input :start_date_time,  as: :datetime, required: false, label: "Date de début de la mission" %>
     <%= f.input :end_date_time,  as: :datetime, required: false, label: "Date de fin de la mission" %>
     <%= f.input :price_by_hour,  as: :float, required: false, label: "Tarif à lheure de la mission" %>
-    <%= f.input :job_category, as: :select, collection: JobCategory::SUB_CATEGORY, required: false, label: "Catégorie de la mission" %>
+    <%= f.input :job_category_id, as: :select, collection: JobCategory.all, required: false, label: "Catégorie de la mission" %>
+    <%= f.input :photos, as: :file, required: false, label: "Ajouter une photo" %>
     <%= f.submit "Créer la mission", class: "btn btn-danger", style:"float: right", onclick:"return confirm('Êtes-vous sûr ?')"%>
   <% end %>
     </div>
