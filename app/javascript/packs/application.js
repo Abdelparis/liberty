@@ -42,6 +42,8 @@ document.addEventListener('turbolinks:load', () => {
   }
   initNavbar();
   initAutocomplete();
+  if (document.querySelector('.body-missions-index')) {
   initMapMarkersOnOver();
   initChatroomCable();
+  }
 })

@@ -10,10 +10,9 @@ Rails.application.routes.draw do
   resources :missions, only: [:index, :show, :new, :create, :update] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, only: [:show, :update] do
-  end
   resources :users, only: [:show, :edit, :update]
+  resources :bookings, only: [:show, :update]
   resources :chatrooms, only: [:show] do
-      resources :messages, only: :create
-    end
+    resources :messages, only: :create
+  end
 end
