@@ -13,6 +13,13 @@
       <% if user_signed_in? %>
         <li class="nav-item active">
           <div class="d-flex">
+            <% if current_user.role == "company" && params[:action] == "home"%>
+              <%= link_to "Nouvelle mission", new_mission_path, class: "btn-new-mission" %>
+            <% elsif current_user.role == "company" && params[:action] == "new" %>
+              <%= link_to "Nouvelle mission", new_mission_path, class: "nav-link #{'barnav_active' if params[:action] == "new"}", style:"padding-top:17px" %>
+            <% elsif current_user.role == "company" %>
+              <%= link_to "Nouvelle mission", new_mission_path, style:"padding-top:17px; margin-right:10px" %>
+            <% end %>
             <%= link_to "Tableau de bord", dashboard_path, class: "nav-link #{'barnav_active' if params[:action] == 'dashboard'}", style:"padding-top:17px" %>
             <% if current_user.role == "freelancer" %>
                 <%= link_to "Mes missions", dashboard_freelancer_path, class: "nav-link #{'barnav_active' if params[:controller] == "dashboards" && params[:action] == "freelancer"}", style:"padding-top:17px" %>
