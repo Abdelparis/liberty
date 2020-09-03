@@ -1,14 +1,12 @@
-<div class="row">
-  <div class="col-3">
-    <div class="border-right">
+<div class="row long-border">
+  <div class="col-3 border-right">
       <h4 class="border-bottom pt-4 pb-4 pl-3" > Messages </h4>
       <% if current_user.role == "company" %>
           <%= render "companyimbox"  %>
         <% elsif current_user.role == "freelancer" %>
           <%= render "freelancerimbox"  %>
       <% end %>
-      <div style = "height:100em"></div>
-    </div>
+      <div style = ""></div>
   </div>
   <div class="col-9">
     <% if params[:chatroom_id].present? %>
@@ -19,6 +17,7 @@
         <%=@chatroom.booking.mission.user.company_name%></h4>
       <% end %>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+
         <%= render "messages/message" %>
     </div>
      <h1><%= @chatroom.name %></h1>

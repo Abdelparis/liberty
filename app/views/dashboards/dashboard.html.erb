@@ -1,6 +1,6 @@
 <div class="dashboard-container">
   <% if @user.role == "freelancer" %>
-    <%= render 'freelanceerdashboard'%>
+    <%= render 'freelancerdashboard'%>
   <% elsif @user.role == "company" %>
     <%= render 'companydashboard'%>
   <% end %>

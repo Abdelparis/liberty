@@ -13,7 +13,7 @@ class BookingPolicy < ApplicationPolicy
     user_is_owner_or_admin?
   end
 
-  def update?
+  def update_review?
     true
   end
 
