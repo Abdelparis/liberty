@@ -7,9 +7,9 @@
       <%= f.input :name, as: :string, required: false, placeholder: "Cours de yoga", label: "Nom de la mission"  %>
       <%= f.input :job_category_id, as: :select, collection: JobCategory.all, required: false, placeholder: "Yoga", label: "Catégorie de la mission" %>
       </div>
-      <%= f.input :description,  as: :text, required: false, input_html: {value: "", placeholder: "Recherche professeur de yoga pour un créneau horaire précis le vendredi", id:"description-input-new-mission"}, label: "Description de la mission" %>
+      <%= f.input :description,  as: :text, required: false, input_html: {value: "", placeholder: "Recherche professeur de yoga pour un créneau horaire précis le vendredi", id:"description-input-new-mission", label: "Description de la mission" } %>
       <div class="form-inline" id="price-new-mission-form">
-      <%= f.input :address, required: false, input_html: { class: 'float-container' }, placeholder: "Adresse de la mission", id: "address-input-new-mission", :label => "Adresse" %>
+      <%= f.input :address, required: false, wrapper_html: { class: 'float-container' }, input_html: { placeholder: "Adresse de la mission", id: 'address-input' }, :label => "Adresse"  %>
       <%= f.input :price_by_hour,  as: :float, required: false, input_html: {value: "", placeholder: "30", id: "price-input-new-mission"}, label: "Tarif horaire de la mission" %>
       </div>
       <div class="form-inline" id="new-date-form">
