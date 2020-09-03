@@ -30,7 +30,7 @@
       <ul style="list-style-type:none; margin-top:5px">
         <li><a href="#" class="btn btn-ok" style="margin-top: 30px; margin-bottom:30px; width:140px">Facture</a></li>
         <li><%= link_to "Détails", booking_path(booking), class:"btn btn-second", style:"margin-top: 60px margin-bottom:20px; width:140px" %></li>
-        <% if booking.mission.end_date_time <= Date.today  && booking.freelancer_review.nil? || booking.freelancer_review != ""%>
+        <% if booking.mission.end_date_time < Date.today  && (booking.freelancer_review.nil? || booking.freelancer_review != "")%>
            <li><button type="button" class="btn btn-success greening candidat-buttons text-center mt-2 mb-4" style="width:140px" data-toggle="modal" data-target="#exampleModal">Donner un avis</button></li>            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
