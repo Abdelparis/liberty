@@ -8,16 +8,19 @@
       <%= f.input :job_category_id, as: :select, collection: JobCategory.all, required: false, placeholder: "Yoga", label: "Catégorie de la mission" %>
       </div>
       <%= f.input :description,  as: :text, required: false, input_html: {value: "", placeholder: "Recherche professeur de yoga pour un créneau horaire précis le vendredi", id:"description-input-new-mission", label: "Description de la mission" } %>
-      <div class="form-inline" id="price-new-mission-form">
-      <%= f.input :address, required: false, wrapper_html: { class: 'float-container' }, input_html: { placeholder: "Adresse de la mission", id: 'address-input' }, :label => "Adresse"  %>
+      <div class="form-inline float-container-mission" id="price-new-mission-form">
+      <%= f.input :address, required: false, wrapper_html: { class: 'float-container-mission' }, input_html: { placeholder: "Adresse de la mission", id: 'address-input' }, :label => "Adresse"  %>
       <%= f.input :price_by_hour,  as: :float, required: false, input_html: {value: "", placeholder: "30", id: "price-input-new-mission"}, label: "Tarif horaire de la mission" %>
       </div>
       <div class="form-inline" id="new-date-form">
       <%= f.input :start_date_time, as: :string, required: false, input_html: {class: 'datepicker'}, placeholder: "Choix date de début", :label => "Date de début" %>
       <%= f.input :end_date_time, as: :string, required: false, input_html: {class: 'datepicker'}, placeholder: "Choix date de fin", :label => " Date de fin" %>
       </div>
-    <%= f.input :photos, as: :file, required: false, label: "Ajouter une photo" %>
-    <%= f.submit "Créer la mission", class: "btn btn-danger", style:"float: right"%>
+    <div id="photos-form">
+      <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      <%= f.input :photos, as: :file, required: false, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo' %>
+     </div>
+     <%= f.submit "Créer la mission", class: "btn btn-danger", style:"float: right"%>
   <% end %>
     </div>
   </div>
