@@ -1,4 +1,11 @@
 
+  input {
+    margin-top: 0px;
+  }
+
+  submit {
+  border-radius: 0px !important;
+}
 
 .card-product-new-mission {
   overflow: hidden;
@@ -8,7 +15,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 10px;
   margin-bottom: 30px;
-  padding: 10px;
+  padding: 30px;
   color : rgb(30, 30, 30);
   margin-left: auto;
   margin-right: auto;
@@ -69,6 +76,14 @@
   }
 }
 
+
+#mission_photos{
+  display: flex;
+  margin-bottom: 35px;
+color : rgb(30, 30, 30);
+float:left;
+}
+
 #name-input-new-mission {
   width:49%;
   height: 50px;
@@ -80,7 +95,7 @@
   height: 50px;
   float: right;
   margin-left: 30px;
-  }
+}
 
 
 #address-input-new-mission {
@@ -103,42 +118,45 @@
   align-items: flex-start;
 
 label {
-    margin-right : 30px;
-  margin-left : 30px;}
+  margin-right : 30px;
+}
 
-
-
+.mission_end_date_time {
+  label {
+    margin-left: 30px;
+  }
+}
 
 input {
     margin-top: 0px;
   }
 
-
 #search_start_date_time {
   width: 60%;
   height: 55px;
   }
+
 #search_end_date_time {
   width: 60%;
   height: 55px;
   }
 }
 
-
-
 #description-input-new-mission {
   height: 50px;
   width: 60%;
+ }
+
+.float-container-mission#address-input {
+    width: 269px;
+    height: 55px;
+    border: 1px solid grey;
 }
 
-
-@media (max-width: 800px) {
-  .inline input {
-    margin: 5px 0;
-    border-radius: 15px 15px 15px 15px !important;
-    height: 48px;
-  }
+  #address-input {
+    width: 269px;
+    height: 55px;
+    border: 1px solid #D3D8DE;
+    border-color: #D3D8DE;
+    border-radius: 5px;
 }
-
-
-
