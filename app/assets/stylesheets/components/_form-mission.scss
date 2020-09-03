@@ -1,0 +1,144 @@
+
+
+.card-product-new-mission {
+  overflow: hidden;
+  height: 75%;
+  width: 100%;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 10px;
+  color : rgb(30, 30, 30);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-product-new-mission h2 {
+  font-size: 21px;
+  font-weight: bold;
+  margin: 0;
+  color: #73A3A5;
+}
+
+.card-product p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+
+.form-inline#new-mission-form {
+  display: flex;
+  margin-bottom: 35px;
+  .mission_name {
+    margin-right: 35px;
+  }
+
+  label {
+    margin-right : 30px;
+  }
+  input {
+    margin-top: 0px;
+  }
+}
+
+
+.form-inline#price-new-mission-form {
+  display: flex;
+  margin-bottom: 35px;
+  .mission_name {
+    margin-right: 60px;
+  }
+
+  #mission_address {
+    width: 300px;
+  }
+
+.mission_price_by_hour{
+  margin-left: 60px;
+}
+
+  label {
+    margin-right : 30px;
+  }
+  input {
+    margin-top: 0px;
+  }
+}
+
+#name-input-new-mission {
+  width:49%;
+  height: 50px;
+  float: left;
+}
+
+#job_category_id-input-new-mission {
+  width: 49%;
+  height: 50px;
+  float: right;
+  margin-left: 30px;
+  }
+
+
+#address-input-new-mission {
+  width: 60%;
+  height: 50px;
+  // border: 1px solid #F9F9FC;
+  border-radius: 0px 0px 0px 0px;
+}
+
+#price-input-new-mission {
+  width: 30%;
+  height: 50px;
+  // border: 1px solid #F9F9FC;
+
+}
+
+.form-inline#new-date-form {
+  display: flex;
+  margin-bottom: 50px;
+  align-items: flex-start;
+
+label {
+    margin-right : 30px;
+  margin-left : 30px;}
+
+
+
+
+input {
+    margin-top: 0px;
+  }
+
+
+#search_start_date_time {
+  width: 60%;
+  height: 55px;
+  }
+#search_end_date_time {
+  width: 60%;
+  height: 55px;
+  }
+}
+
+
+
+#description-input-new-mission {
+  height: 50px;
+  width: 60%;
+}
+
+
+@media (max-width: 800px) {
+  .inline input {
+    margin: 5px 0;
+    border-radius: 15px 15px 15px 15px !important;
+    height: 48px;
+  }
+}
+
+
+
