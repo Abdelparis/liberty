@@ -1,6 +1,5 @@
-<div class="row chat">
-  <div class="col-3">
-    <div class="border-right">
+<div class="row long-border">
+  <div class="col-3 border-right">
       <h4 class="border-bottom pt-4 pb-4 pl-3" > Messages </h4>
       <% if current_user.role == "company" %>
           <%= render "companyimbox"  %>
@@ -8,7 +7,6 @@
           <%= render "freelancerimbox"  %>
       <% end %>
       <div style = ""></div>
-    </div>
   </div>
   <div class="col-9">
     <% if params[:chatroom_id].present? %>

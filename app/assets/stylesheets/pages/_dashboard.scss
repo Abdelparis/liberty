@@ -6,3 +6,34 @@
 .dashboard-buttons {
   margin-top: 12px
 }
+
+.card-canditates {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-candidat {
+  padding : 0 0 1em 1em;
+  margin-top: 20px;
+  flex: 0 0 120px;
+}
+
+.candidat-description {
+ box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ padding : 10px;
+ flex: 1;
+ margin-right: 5em;
+ margin-left: 2em;
+}
+
+.candidat-buttons {
+  color:white !important;
+  font-weight:bold;
+  width:100px
+}
+
+.greening:hover{
+ color:rgb(122, 193, 148) !important;
+ background-color: white !important;
+}
+
