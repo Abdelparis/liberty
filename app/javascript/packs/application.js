@@ -33,7 +33,7 @@ import { initNavbar } from '../plugins/navbar';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapMarkersOnOver } from '../plugins/map_markers';
 import { initChatroomCable } from '../channels/chatroom_channel';
-import "../plugins/flatpickr";
+import { initFlatpickr } from "../plugins/flatpickr";
 
 document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('map')) {
@@ -44,7 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   initNavbar();
   initAutocomplete();
   if (document.querySelector('.body-missions-index')) {
-  initMapMarkersOnOver();
-
+    initMapMarkersOnOver();
   }
+  initFlatpickr();
 })
