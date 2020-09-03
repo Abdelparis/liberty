@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row chat">
   <div class="col-3">
     <div class="border-right">
       <h4 class="border-bottom pt-4 pb-4 pl-3" > Messages </h4>
@@ -7,7 +7,7 @@
         <% elsif current_user.role == "freelancer" %>
           <%= render "freelancerimbox"  %>
       <% end %>
-      <div style = "height:100em"></div>
+      <div style = ""></div>
     </div>
   </div>
   <div class="col-9">
@@ -19,6 +19,7 @@
         <%=@chatroom.booking.mission.user.company_name%></h4>
       <% end %>
       <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+
         <%= render "messages/message" %>
     </div>
      <h1><%= @chatroom.name %></h1>

@@ -1,5 +1,4 @@
 <!-- app/views/messages/_message.html.erb -->
-  <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">
         <div class="d-flex justify-content-center">
@@ -18,4 +17,3 @@
       </div>
     </div>
     <% end %>
-</div>
