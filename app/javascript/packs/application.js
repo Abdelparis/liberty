@@ -34,6 +34,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapMarkersOnOver } from '../plugins/map_markers';
 import { initChatroomCable } from '../channels/chatroom_channel';
 import { initFlatpickr } from "../plugins/flatpickr";
+import { initSelect2 } from '../plugins/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   if (document.getElementById('map')) {
@@ -43,6 +44,7 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   initNavbar();
   initAutocomplete();
+  initSelect2();
   if (document.querySelector('.body-missions-index')) {
     initMapMarkersOnOver();
   }
