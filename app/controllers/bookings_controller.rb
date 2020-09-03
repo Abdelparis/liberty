@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
       @booking.update(status: "rejected")
     end
     # @booking.save
-    redirect_to dashboard_company_path, notice: 'Le statut de la mission a bien été updaté'
+    redirect_to dashboard_company_path(status: "pending", notice: 'Le statut de la mission a bien été updaté')
   end
 
   private
