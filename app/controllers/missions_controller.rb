@@ -11,17 +11,8 @@ class MissionsController < ApplicationController
     missions_free = @missions.includes(:bookings).where(bookings: { status: ["rejected", "pending"]})
 
     @missions = mission_no_booking.or(missions_free).where("start_date_time::date >= '#{Date.today}'").distinct.order(created_at: :desc)
-    # raise
-    # .where("start_date_time::date >=  '#{Date.today}'").order(created_at: :desc)
-    # #test = @missions.includes(:bookings).where(bookings: {id: nil})
-    # #@missions = missions_free + mission_no_booking
-
-    # @missions = @missions.includes(:bookings).where(bookings: {id: nil}).or(@missions.includes(:bookings).where.not(bookings: { status: ["accepted", "canceled"]}).where("start_date_time::date >=  '#{Date.today}'")).distinct.order(created_at: :desc)
-    # @missions = @missions.joins(:bookings).where("(bookings.id IS NULL OR bookings.status IN ('pending', 'rejected')) AND start_date_time::date >=  '#{Date.today}'").distinct.order(created_at: :desc)
-
-    # @missions = @missions.joins(:bookings).where("(COUNT(missions.bookings) = 0 OR bookings.status IN ('pending', 'rejected')) AND start_date_time::date >=  '#{Date.today}'").distinct.order(created_at: :desc)
-    # raise
     @params = params[:search]
+
     if @params.empty?
       @missions
     elsif @params[:name] && @params[:address] && @params[:start_date_time] && @params[:end_date_time]

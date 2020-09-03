@@ -53,8 +53,11 @@
         <h2 class="pb-4">Notifications</h2>
       </div> -->
 
-      <div class = "card-product" style="padding-bottom:0">
-        <h2 class="">Candidatures</h2>
+      <div class = "card-product">
+        <h2 class="pb-2">Candidatures</h2>
+          <% if @pending_missions.size == 0 %>
+            <h7 class="mb-3">Vous n'avez aucune candidature en cours</h7>
+          <% end %>
         <% @pending_missions.each do |mission| %>
           <div class="card-user_description pb-4" style ="margin-right: 80px;width:80%">
             <div class=d-flex justify-content-between>
