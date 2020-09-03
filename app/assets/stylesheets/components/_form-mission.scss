@@ -106,10 +106,7 @@ float:left;
 }
 
 #price-input-new-mission {
-  width: 30%;
-  height: 50px;
-  // border: 1px solid #F9F9FC;
-
+  height: 55px;
 }
 
 .form-inline#new-date-form {
@@ -142,21 +139,73 @@ input {
   }
 }
 
-#description-input-new-mission {
-  height: 50px;
-  width: 60%;
- }
-
-.float-container-mission#address-input {
-    width: 269px;
-    height: 55px;
-    border: 1px solid grey;
+.address-price-form {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  #address-input {
+    width: 100% !important;
+    border-left-color: #D3D8DE !important;
+    border-radius: 5px !important;
+  }
+  .mission_price_by_hour {
+    flex: 0 0 30%;
+    margin-left: 2em;
+  }
+  .mission_address {
+    flex: 1;
+  }
 }
 
+
+// .float-container-mission#address-input {
+//     width: 269px;
+//     height: 55px;
+//     border: 1px solid grey;
+// }
+
   #address-input {
-    width: 269px;
     height: 55px;
     border: 1px solid #D3D8DE;
     border-color: #D3D8DE;
     border-radius: 5px;
+}
+
+#description-input-new-mission {
+  padding: 1em;
+}
+
+form#new_mission {
+  select,
+  input {
+    height: 55px;
+  }
+  textarea::placeholder,
+  select::placeholder,
+  input::placeholder {
+    opacity: 0.4;
+  }
+}
+
+.form-inline-mission {
+  display: flex;
+  padding-bottom: 10px;
+
+  .mission_start_date_time,
+  .mission_name {flex: 1}
+
+  .mission_end_date_time,
+  .mission_job_category_id {
+    flex: 1;
+    margin-left: 2em;
+  }
+}
+
+.upload-photo {
+  border: 1px solid #d3d3d3;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
 }

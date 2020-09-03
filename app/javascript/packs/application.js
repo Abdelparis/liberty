@@ -46,7 +46,6 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initSelect2();
   if (document.querySelector('.body-missions-index')) {
-  initMapMarkersOnOver();
-
+    initMapMarkersOnOver();
   }
 })
