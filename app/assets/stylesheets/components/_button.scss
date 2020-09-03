@@ -26,6 +26,26 @@
   color: white;
 }
 
+
+.btn-new-mission{
+  color: white;
+  padding: 10px 24px;
+  // margin: 20px;
+  border-radius: 4px;
+  background: #73A3A5;
+  transition: background 0.3s ease;
+  padding: 8px 24px!important;
+  // float: right;
+  position: absolute;
+  right: 15px;
+}
+
+.btn-new-mission:hover {
+  background: #15353D;;
+  color: white;
+}
+
+
 .btn-no {
   color: white;
   padding: 0px 24px;
@@ -116,4 +136,10 @@ padding: 8px 24px!important;
 .btn-ghost:hover {
   opacity: 1;
   color: black;
+}
+
+.custom-btn-row {
+  position: relative;
+  height: 40px;
+  padding-top: 20px;
 }
