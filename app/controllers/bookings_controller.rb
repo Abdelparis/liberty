@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
+  def update_review
     set_booking
     authorize @booking
     @booking.update(booking_params)

@@ -3,16 +3,31 @@ class MissionsController < ApplicationController
   before_action :set_mission, only: [:show]
 
   def index
-    @missions = policy_scope(Mission).order(created_at: :desc)
+    @missions = policy_scope(Mission)
+    missions_free = @missions.includes(:bookings).where.not(bookings: { status: ["accepted", "canceled"]}).where("start_date_time::date >=  '#{Date.today}'" ).distinct.order(created_at: :desc)
+    mission_no_booking = @missions.where("missions.id not in (select mission_id from bookings)")
 
-    # @missions = Mission.geocoded
+    mission_no_booking = @missions.includes(:bookings).where(bookings: {id: nil})
+    missions_free = @missions.includes(:bookings).where(bookings: { status: ["rejected", "pending"]})
 
+    @missions = mission_no_booking.or(missions_free).where("start_date_time::date >= '#{Date.today}'").distinct.order(created_at: :desc)
+    # raise
+    # .where("start_date_time::date >=  '#{Date.today}'").order(created_at: :desc)
+    # #test = @missions.includes(:bookings).where(bookings: {id: nil})
+    # #@missions = missions_free + mission_no_booking
+
+    # @missions = @missions.includes(:bookings).where(bookings: {id: nil}).or(@missions.includes(:bookings).where.not(bookings: { status: ["accepted", "canceled"]}).where("start_date_time::date >=  '#{Date.today}'")).distinct.order(created_at: :desc)
+    # @missions = @missions.joins(:bookings).where("(bookings.id IS NULL OR bookings.status IN ('pending', 'rejected')) AND start_date_time::date >=  '#{Date.today}'").distinct.order(created_at: :desc)
+
+    # @missions = @missions.joins(:bookings).where("(COUNT(missions.bookings) = 0 OR bookings.status IN ('pending', 'rejected')) AND start_date_time::date >=  '#{Date.today}'").distinct.order(created_at: :desc)
+    # raise
     @params = params[:search]
-    if !@params.empty?
-      @missions = Mission.all
+    if @params.empty?
+      @missions
     elsif @params[:name] && @params[:address] && @params[:start_date_time] && @params[:end_date_time]
-      @missions = Mission.where("name ILIKE ?", "%#{@params[:name]}%")
-      @missions = @missions.near("%#{@params[:address]}%")
+      @missions = @missions.where("name ILIKE ?", "%#{@params[:name]}%") if @params[:name].present?
+      @missions = @missions.near("%#{@params[:address]}%") if @params[:address].present?
+
       if @params[:start_date_time].present? && @params[:end_date_time].present?
         @missions = @missions.where("start_date_time > ?", "%#{@params[:start_date_time]}%")
         @missions = @missions.where("end_date_time < ?", "%#{@params[:end_date_time]}%")

@@ -51,7 +51,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <%= simple_form_for(booking) do |f| %>
+                    <%= simple_form_for(booking, url: update_review_path(booking)) do |f| %>
                       <%= f.input :freelancer_rating, collection: 1..5 %>
                       <%= f.input :freelancer_review %>
                       <%= f.submit "Voter!", class:"btn btn-flat"%>
