@@ -69,7 +69,7 @@
                 <li>Mail : <%= booking.mission.user.email %></li>
                 <li>Tél : <%= booking.mission.user.phone_number %></li>
                 <li> Adresse : <%= booking.mission.address %></li>
-                <li>Du <%= booking.mission.start_date_time%> au <%= booking.mission.end_date_time %></li>
+                <li>Date : <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %> de : <%= booking.mission.start_date_time.strftime("%k:%Mh") %> à <%= booking.mission.end_date_time.strftime("%k:%Mh") %></li>
               </ul>
             </div>
           </div>
@@ -93,7 +93,7 @@
                   <li>Mail : <%= booking.mission.user.email %></li>
                   <li>Tél : <%= booking.mission.user.phone_number %></li>
                   <li> Adresse : <%= booking.mission.address %></li>
-                  <li>Du <%= booking.mission.start_date_time%> au <%= booking.mission.end_date_time %></li>
+                  <li>Date : <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %> de : <%= booking.mission.start_date_time.strftime("%k:%Mh") %> à <%= booking.mission.end_date_time.strftime("%k:%Mh") %></li>
                 </ul>
               </div>
             </div>
