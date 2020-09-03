@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Liberty</title>
+    <title><%= Liberty %></title>
+    <meta name="description" content="<%= 'La plateforme pour tous les freelances' %>">
+
+    <!-- Facebook Open Graph data -->
+    <meta property="og:title" content="<%= 'Liberty' %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%= request.original_url %>" />
+    <meta property="og:image" content="<%= 'logo.png' %>" />
+    <meta property="og:description" content="<%= 'La plateforme pour tous les freelances' %>" />
+    <meta property="og:site_name" content="<%= 'Liberty App' %>" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag %>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
