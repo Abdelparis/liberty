@@ -1,18 +1,27 @@
 <div class="new-mission-container">
-  <div class="card-product">
+  <div class="card-product-new-mission">
     <h2  class="pb-3">Ajouter une mission</h2>
     <div class="form-inputs-new-missions">
   <%= simple_form_for(@mission) do |f| %>
-    <%= f.input :name, as: :string, required: false, label: "Nom de la mission"  %>
-    <%= f.input :description,  as: :text, required: false, label: "Description de la mission" %>
-    <%= f.input :address,  as: :string, required: false, label: "Adresse de la mission" %>
-    <%= f.input :start_date_time,  as: :datetime, required: false, label: "Date de début de la mission" %>
-    <%= f.input :end_date_time,  as: :datetime, required: false, label: "Date de fin de la mission" %>
-    <%= f.input :price_by_hour,  as: :float, required: false, label: "Tarif horaire de la mission" %>
-    <%= f.input :job_category_id, as: :select, collection: JobCategory.all, required: false, label: "Catégorie de la mission" %>
+      <div class="form-inline" id="new-mission-form">
+      <%= f.input :name, as: :string, required: false, placeholder: "Cours de yoga", label: "Nom de la mission"  %>
+      <%= f.input :job_category_id, as: :select, collection: JobCategory.all, required: false, placeholder: "Yoga", label: "Catégorie de la mission" %>
+      </div>
+      <%= f.input :description,  as: :text, required: false, input_html: {value: "", placeholder: "Recherche professeur de yoga pour un créneau horaire précis le vendredi", id:"description-input-new-mission", label: "Description de la mission" } %>
+      <div class="form-inline" id="price-new-mission-form">
+      <%= f.input :address, required: false, wrapper_html: { class: 'float-container' }, input_html: { placeholder: "Adresse de la mission", id: 'address-input' }, :label => "Adresse"  %>
+      <%= f.input :price_by_hour,  as: :float, required: false, input_html: {value: "", placeholder: "30", id: "price-input-new-mission"}, label: "Tarif horaire de la mission" %>
+      </div>
+      <div class="form-inline" id="new-date-form">
+      <%= f.input :start_date_time, as: :string, required: false, input_html: {class: 'datepicker'}, placeholder: "Choix date de début", :label => "Date de début" %>
+      <%= f.input :end_date_time, as: :string, required: false, input_html: {class: 'datepicker'}, placeholder: "Choix date de fin", :label => " Date de fin" %>
+      </div>
     <%= f.input :photos, as: :file, required: false, label: "Ajouter une photo" %>
-    <%= f.submit "Créer la mission", class: "btn btn-danger", style:"float: right", onclick:"return confirm('Êtes-vous sûr ?')"%>
+    <%= f.submit "Créer la mission", class: "btn btn-danger", style:"float: right"%>
   <% end %>
     </div>
   </div>
 </div>
+
+
+
