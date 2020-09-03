@@ -22,7 +22,7 @@
         <ul style="list-style-type:none;">
           <li class="pt-4"><strong>Détails de la mission :</strong></li>
           <li>Dates : <%= "#{mission.start_date_time.strftime("%d/%m/%Y")} au #{mission.end_date_time.strftime("%d/%m/%Y")} "%></li>
-          <li><%= "De #{mission.start_date_time.strftime("%k:%M")}h à #{mission.end_date_time.strftime("%k:%M")}h "%></li>
+          <li><%= "De #{mission.start_date_time.strftime("%kh%M")} à #{mission.end_date_time.strftime("%kh%M")} "%></li>
           <li>Solde TTC : <%= mission.price_by_hour %><strong>EUR</strong></li>
         </ul>
       </div>

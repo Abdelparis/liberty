@@ -569,8 +569,8 @@ yoga_1 = Mission.create!(
   description: "Inspiré des enseignements de plus célèbres yogis européens, Health&Sens propose une nouvelle approche moderne et urbaine du yoga dans sa nouvelle salle du 17e. Salle chauffée à 30 degré, professeurs dynamiques et attentifs, salle à la décoration soignée, hygène impeccable et musique actuelle inspirante. Noous cherchons de nouveaux professeurs, venez rejoindre notre équipe",
   address: "56 Boulevard Pereire, 75017 Paris",
   price_by_hour: 38,
-  start_date_time: Date.today-6.25,
-  end_date_time: Date.today-6.5,
+  start_date_time: Time.now + 6.days + 1.hours,
+  end_date_time: Time.now + 6.days + 2.hours,
   job_category_id: JobCategory.minimum(:id),
   user_id: health_sens.id
   )
@@ -585,8 +585,8 @@ yoga_1 = Mission.create!(
   description: "Dédiée au bien-être de l’enfant et de la mère, notre maison de maternité souhaite mettre en place un cours de yoga pour femmes enceintes dans le cadre de la préparation à la naissance. Nous aimerions leur offrir un temps de sérénité pour relâcher leurs angoisses et leurs craintes. Nous disposons d’un joli local au calme avec tout le matériel adéquat : matelas, briques de mousse... Il ne nous manque plus qu’un professeur de yoga ! ",
   address: "43 Rue Saint-Maur, 75011 Paris",
   price_by_hour: 40,
-  start_date_time: Date.today-7.5,
-  end_date_time: Date.today-8.5,
+  start_date_time: Time.now + 12.days + 8.hours,
+  end_date_time: Time.now + 12.days + 9.hours,
   job_category_id: JobCategory.minimum(:id),
   user_id: mamanforever.id
   )
@@ -601,8 +601,8 @@ yoga_1 = Mission.create!(
   description: "Le wagon est une école de code qui a pour ambition de former des développeurs en 9 semaines. Pour accompagner cette formation intensive, nous cherchons un professeur de yoga pour proposer des ateliers de yoga. Nous disposons d’une belle salle en sous-sol extrêmement bien équipée pouvant accueillir une quinzaine de participants. Envie de rencontrer de jeunes amateurs motivés et à la recherche de détente et d’évasion mentale, joignez-nous à nous !",
   address: "16 Villa Gaudelet, 75011 Paris",
   price_by_hour: 36,
-  start_date_time: Date.today+5.8,
-  end_date_time: Date.today+5.9,
+  start_date_time: Time.now + 4.days + 2.hours,
+  end_date_time: Time.now + 4.days + 3.hours,
   job_category_id: JobCategory.minimum(:id),
   user_id: le_wagon.id
   )
@@ -616,8 +616,8 @@ yoga_1 = Mission.create!(
   description: "Llamaste est un havre urban calme et serein offrant des cours de yoga. Nous avons pensé nos salles comme de vrais refuges inspirants. Pour notre salle dans le 9e, nous sommes à la recherche d'un professeur de yoga expérimenté et très calme pour des séances de Yin Soft. Une sensibilité à la musique apaisante contemporaine serait un plus.",
   address: "46 Rue Lamartine, 75009 Paris",
   price_by_hour: 32,
-  start_date_time: Date.today+8.6,
-  end_date_time: Date.today+10.7,
+  start_date_time: Time.now + 8.days + 5.hours,
+  end_date_time: Time.now + 8.days + 6.hours,
   job_category_id: JobCategory.minimum(:id),
   user_id: llamaste.id
   )
@@ -631,8 +631,8 @@ yoga_1 = Mission.create!(
   description: "Yoga Ohm est une entreprise spécialisée dans le yoga urban et tendance. Nous possédons de nombreuses salles dans Paris et nous avons pensé chaque adresse comme de vrais ilôts de paix. Pour notre salle dans le 14e, nous cherchons un professeur de yoga polyvalent et fiable. ",
   address: "74 rue du Moulin Vert, 75014 Paris",
   price_by_hour: 37,
-  start_date_time: Date.today+10.5,
-  end_date_time: Date.today+13.6,
+  start_date_time: Time.now + 10.days + 2.hours,
+  end_date_time: Time.now + 10.days + 3.hours,
   job_category_id: JobCategory.minimum(:id),
   user_id: yoga_ohm.id
   )
