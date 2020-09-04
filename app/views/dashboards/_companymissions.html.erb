@@ -11,11 +11,11 @@
       </div>
       <div class="card-user_description" style ="width:300px">
         <ul style="list-style-type:none;" >
-          <li class="pt-4"><strong>Client :</strong></li>
-          <li><%= link_to mission.user.company_name, "#" %></li>
-          <li>Mail : <%= mission.user.email %></li>
+          <li class="pt-4"><strong>Fournisseur :</strong></li>
+          <li><%= link_to "#{mission.bookings.first.user.first_name} #{mission.bookings.first.user.last_name}", "#" %></li>
+          <li>Mail : <%= mission.bookings.first.user.email %></li>
           <li>Tél : <%= mission.user.phone_number %></li>
-          <li> Adresse : <%= mission.address %></li>
+          <li>Adresse : <%= mission.user.address %></li>
         </ul>
       </div>
       <div class="card-user_description">
@@ -30,6 +30,8 @@
         <% if  @params != "pending"%>
            <li><%= link_to "Détails", mission_path(mission), class:"btn btn-second", style:"margin-bottom:20px; width:140px" %></li>
           <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:140px">Facture</a></li>
+        </ul>
+        </div>
         <% else %>
           <li><%= link_to "Détails", mission_path(mission), class:"btn btn-second", style:"margin-bottom:20px; width:140px" %></li>
           <li><a class="btn btn-ok" style="margin-bottom:10px; width:140px" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Candidats</a></li>
@@ -57,8 +59,15 @@
                     <div class="candidat-description">
                       <p><strong>Motivations :</strong></p>
                       <p class="pb-3"><%= booking.freelancer_description%> ... </p>
-                      <%= link_to chatrooms_path(booking_id: booking.id), method: :post do %>
-                        <h8><i class="far fa-envelope"></i>  Contacter</h7>
+                      <% if Chatroom.select {|chatroom| chatroom.booking == booking && chatroom.booking.mission.user == current_user} == [] %>
+                        <%= link_to chatrooms_path(booking_id: booking.id), method: :post do %>
+                        <h8><i class="far fa-envelope"></i>  Contacter</h8>
+                      <% end %>
+                      <% end %>
+                      <% if Chatroom.select {|chatroom| chatroom.booking == booking && chatroom.booking.mission.user == current_user} != []%>
+                        <%= link_to imbox_path(chatroom_id: booking.chatrooms.first.id) do %>
+                          <h8><i class="far fa-envelope"></i>  Contacter</h8>
+                        <% end %>
                       <% end %>
                     </div>
                     <div class="info-candidat">
@@ -71,10 +80,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
-  </div>
-</div>
+      </div>
 <% end %>

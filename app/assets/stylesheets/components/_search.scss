@@ -171,3 +171,13 @@
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 }
+
+.select2-container--default .select2-selection--single {
+    background-color: #fff !important;
+    border: 1px solid #fff !important;
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+    height: 55px !important;
+}
+
+
