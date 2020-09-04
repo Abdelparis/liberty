@@ -23,7 +23,7 @@
             <li>Tél : <%= booking.user.phone_number %></li>
             <li>Adresse : <%= booking.user.address %></li>
             <% if params[:status] == "currently" || params[:status] == "history" %>
-              <% chatroom = Chatroom.select {|chatroom| chatroom.booking.mission == mission && chatroom.booking.mission.user == current_user }.first %>
+              <% chatroom = Chatroom.select {|chatroom| chatroom.booking.mission == mission && chatroom.booking.mission.user == current_user }.last %>
               <% if chatroom.nil?%>
                 <%= link_to chatrooms_path(booking_id: booking), method: :post do %>
                   <h8><i class="far fa-envelope"></i> Contacter</h8>
