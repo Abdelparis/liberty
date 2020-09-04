@@ -9,30 +9,29 @@
           <%= image_tag("mission.jpg") %>
         <% end %>
       </div>
-      <div class="card-user_description" style ="margin-right: 80px;width:300px">
+      <div class="card-user_description" style ="margin-right: 15px;width:450px">
         <ul style="list-style-type:none;" >
-          <li class="pt-4"><strong>Client :</strong></li>
-          <li><%= link_to booking.mission.user.company_name, "#" %></li>
+          <li class="pt-5"><strong>Client :</strong> <%= link_to booking.mission.user.company_name, "#" %> </li>
           <li>Mail : <%= booking.mission.user.email %></li>
           <li>Tél : <%= booking.mission.user.phone_number %></li>
           <li> Adresse : <%= booking.mission.address %></li>
         </ul>
       </div>
-      <div class="card-user_description" style ="margin-right: 80px;width:300px">
+      <div class="card-user_description" style ="margin-right: 15px;width:400px">
         <ul style="list-style-type:none;">
-          <li class="pt-4"><strong>Détails :</strong></li>
-          <li>Date de début de mission : <br> <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.start_date_time.strftime("%k:%Mh") %></li>
-          <li>Date de fin de mission : <br> <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %> à <%= booking.mission.end_date_time.strftime("%k:%Mh") %></li>
+          <li class="pt-5"><strong>Détails de la mission :</strong></li>
+          <li>Date : <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %></li>
+          <li>Horaire : <%= booking.mission.start_date_time.strftime("%kh%M") %> à <%= booking.mission.end_date_time.strftime("%kh%M") %></li>
 <!--           <li>Statut de la mission : <%= booking.status %></li> -->
           <li>Solde TTC : <strong><%= booking.mission.price_by_hour %>EUR</strong></li>
         </ul>
       </div>
-      <ul style="list-style-type:none; margin-top:10px">
-        <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:140px">Facture</a></li>
-        <li><%= link_to "Détails", booking_path(booking), class:"btn btn-second", style:"margin-bottom:20px; width:140px" %></li>
-        <% if booking.mission.end_date_time <= Date.today %>
-          <li><button type="button" class="btn btn-success text-center mt-2 mb-4 center-item" style="margin-right: 10px; width:140px" data-toggle="modal" data-target="#exampleModal">Donner un avis !</button></li><!-- Conditional Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div>
+      <ul style="list-style-type:none; margin-top:5px">
+        <li><a href="#" class="btn btn-ok" style="margin-top: 30px; margin-bottom:30px; width:140px">Facture</a></li>
+        <li><%= link_to "Détails", booking_path(booking), class:"btn btn-second", style:"margin-top: 60px margin-bottom:20px; width:140px" %></li>
+        <% if booking.mission.end_date_time < Date.today  && (booking.freelancer_review.nil? || booking.freelancer_review != "")%>
+           <li><button type="button" class="btn btn-success greening candidat-buttons text-center mt-2 mb-4" style="width:140px" data-toggle="modal" data-target="#exampleModal">Donner un avis</button></li>            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -51,20 +50,20 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <%= simple_form_for(booking) do |f| %>
+                    <%= simple_form_for(booking, url: update_review_path(booking)) do |f| %>
                       <%= f.input :freelancer_rating, collection: 1..5 %>
                       <%= f.input :freelancer_review %>
-                      <%= f.submit "Voter!", class:"btn btn-flat"%>
+                      <%= f.submit "Voter!", class:"btn btn-danger"%>
                     <% end %>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Enregistrer</button>
                   </div>
                 </div>
               </div>
             </div>
         <% end %>
       </ul>            <!-- End of conditional Modal -->
+      </div>
     </div>
   </div>
 <% end %>

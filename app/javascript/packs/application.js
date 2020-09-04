@@ -33,7 +33,7 @@ import { initNavbar } from '../plugins/navbar';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMapMarkersOnOver } from '../plugins/map_markers';
 import { initChatroomCable } from '../channels/chatroom_channel';
-import "../plugins/flatpickr";
+import { initFlatpickr } from "../plugins/flatpickr";
 import { initSelect2 } from '../plugins/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
@@ -46,7 +46,7 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initSelect2();
   if (document.querySelector('.body-missions-index')) {
-  initMapMarkersOnOver();
-
+    initMapMarkersOnOver();
   }
+  initFlatpickr();
 })

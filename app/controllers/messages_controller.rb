@@ -12,12 +12,11 @@ class MessagesController < ApplicationController
       @chatroom,
       render_to_string(partial: "message", locals: { message: @message })
       )
-      redirect_to "/imbox?chatroom_id=#{@chatroom.id}#message-#{anchor(@message.id)}"
+      # redirect_to imbox_path(chatroom_id: @chatroom.id, anchor: "message-#{@message.id}")
     else
       render "imbox"
     end
   end
-
 
   def anchor(element)
     if element == 1
@@ -31,3 +30,5 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content)
   end
 end
+
+# "/imbox?chatroom_id=#{@chatroom.id}#message-#{anchor(@message.id)}"

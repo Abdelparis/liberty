@@ -26,6 +26,30 @@
   color: white;
 }
 
+
+.btn-new-mission{
+  color: white !important;
+  padding: 10px 20px;
+  margin-top:10px;
+  border-radius: 4px;
+  background-color: rgba(115, 163, 165,0.8);
+  transition: background 0.3s ease;
+  padding: 8px 20px!important;
+  font-weight:bold;
+  // float: right;
+}
+
+.btn-new-mission:hover {
+  color: white;
+  background-color: rgba(115, 163, 165,1);
+}
+
+.activebutton {
+  color: white;
+  background-color: rgba(115, 163, 165,1);
+}
+
+
 .btn-no {
   color: white;
   padding: 0px 24px;
@@ -92,12 +116,12 @@ padding: 8px 24px!important;
 
 
 .btn-category {
-  color: #15353D;
+  color: #white !important;
   border: 1px solid #73A3A5;
   padding: 8px 15px;
   margin: 5px;
   border-radius: 50px;
-  font-weight: 300;
+  font-weight: bold;
   opacity: 0.85;
   width:200px;
   background-color:#73A3A5;
@@ -105,15 +129,18 @@ padding: 8px 24px!important;
 }
 
 .btn-category:hover {
-  color: #15353D;
   background: white;
+  color : #73A3A5;
   border: 1px solid #73A3A5;
-  a{
-    color:#15353D!important;
-  }
 }
 
 .btn-ghost:hover {
   opacity: 1;
   color: black;
+}
+
+.custom-btn-row {
+  position: relative;
+  height: 40px;
+  padding-top: 20px;
 }

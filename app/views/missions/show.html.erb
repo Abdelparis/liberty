@@ -52,10 +52,13 @@
           <h6><%= "Salaire horaire : #{@mission.price_by_hour} €/heure" %></h6>
           <h6 class="pb-3 border-bottom"><%= "Salaire TTC : #{@price} €" %></h6>
 
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-flat text-center mt-2 mb-4 center-item" data-toggle="modal" data-target="#exampleModal">Je postule !</button>
 
+          <!-- Button trigger modal -->
+          <% if current_user.role == "freelancer"%>
+            <button type="button" class="btn btn-flat text-center mt-2 mb-4 center-item" data-toggle="modal" data-target="#exampleModal">Je postule !</button>
+          <% end %>
           <!-- Modal -->
+
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
@@ -101,7 +104,7 @@
                     </div>
                     <%= simple_form_for [@mission, @booking] do |f| %>
                       <%= f.input :freelancer_description, as: :text , :label => "Vos motivations",  :input_html => { :rows => 10}%>
-                      <%= f.submit "Postulez", class: "btn btn-danger", style:"float: right", onclick:"return confirm('Êtes-vous sûr ?')"%>
+                      <%= f.submit "Postulez", class: "btn btn-danger", style:"float: right" %>
                     <%end%>
                   </div>
                 </div>

@@ -47,9 +47,6 @@
   <div class="col-9">
     <div class="card_container">
       <div class = "card-product">
-        <h2 class="pb-4">Notifications</h2>
-      </div>
-      <div class = "card-product">
         <div class = "d-flex justify-content-between">
           <h2 class="pb-4">Missions actuelles</h2>
           <%= link_to "Toutes mes missions", dashboard_freelancer_path  %>
@@ -72,7 +69,7 @@
                 <li>Mail : <%= booking.mission.user.email %></li>
                 <li>Tél : <%= booking.mission.user.phone_number %></li>
                 <li> Adresse : <%= booking.mission.address %></li>
-                <li>Du <%= booking.mission.start_date_time%> au <%= booking.mission.end_date_time %></li>
+                <li>Date : <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %> de : <%= booking.mission.start_date_time.strftime("%kh%M") %> à <%= booking.mission.end_date_time.strftime("%kh%M") %></li>
               </ul>
             </div>
           </div>
@@ -96,7 +93,7 @@
                   <li>Mail : <%= booking.mission.user.email %></li>
                   <li>Tél : <%= booking.mission.user.phone_number %></li>
                   <li> Adresse : <%= booking.mission.address %></li>
-                  <li>Du <%= booking.mission.start_date_time%> au <%= booking.mission.end_date_time %></li>
+                  <li>Date : <%= booking.mission.start_date_time.strftime("%d/%m/%Y/") %> à <%= booking.mission.end_date_time.strftime("%d/%m/%Y") %> de : <%= booking.mission.start_date_time.strftime("%kh%M") %> à <%= booking.mission.end_date_time.strftime("%kh%M") %></li>
                 </ul>
               </div>
             </div>

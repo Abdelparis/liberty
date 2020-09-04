@@ -1,3 +1,8 @@
+<!-- <div class="row custom-btn-row">
+  <%#= link_to "Nouvelle mission", new_mission_path, class: "btn-new-mission", style:"padding-top:17px" %>
+</div> -->
+
+<div class="big_container">
 <div class="row pt-5">
   <div class="col-3">
     <div class="card_container">
@@ -38,16 +43,21 @@
         <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="fas fa-search"></i>  0 apparitions</div>
         <div class="card-product bg-light" style="box-shadow: 0 1px 2px rgba(0,0,0,0.1)"><i class="fas fa-heart"></i>  0 favoris</div>
       </div>
+
     </div>
   </div>
   <div class="col-9">
     <div class="card_container">
-      <div class = "card-product">
-        <h2 class="pb-4">Notifications</h2>
-      </div>
 
-      <div class = "card-product" style="padding-bottom:0">
-        <h2 class="">Candidatures</h2>
+      <!-- <div class = "card-product">
+        <h2 class="pb-4">Notifications</h2>
+      </div> -->
+
+      <div class = "card-product">
+        <h2 class="pb-2">Candidatures</h2>
+          <% if @pending_missions.size == 0 %>
+            <h7 class="mb-3">Vous n'avez aucune candidature en cours</h7>
+          <% end %>
         <% @pending_missions.each do |mission| %>
           <div class="card-user_description pb-4" style ="margin-right: 80px;width:80%">
             <div class=d-flex justify-content-between>
@@ -60,7 +70,7 @@
               <% end %>
               </div>
               <div class="mt-4 ml-3">
-                <h8 class="pt-5"><strong>Dates :</strong> du <%= mission.start_date_time%> au <%= mission.end_date_time %></h8>
+                <h8 class="pt-5"><strong>Dates</strong><%=" : du #{mission.start_date_time.strftime("%d/%m/%Y")} au #{mission.end_date_time.strftime("%d/%m/%Y")} de #{mission.start_date_time.strftime("%kh%M")} à #{mission.end_date_time.strftime("%kh%M")} "%></h8>
                 <div class="d-flex">
                   <% bookings = mission.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "pending" } %>
                 <% if bookings.size == 0%>
@@ -93,16 +103,17 @@
           <div class="card-user_description pb-4" style ="margin-right: 80px;width:80%">
             <div class=d-flex>
               <% if mission.photos.attached? %>
-                <%= cl_image_tag mission.photos.first.key, width: "150px", height:"100px"%>
+                <%= cl_image_tag mission.photos.first.key, width: "150px", height:"100px", class:"pt-2"%>
               <% else %>
                 <%= image_tag "mission.jpg", width: "150px", height:"100px" %>
               <% end %>
               <ul style="list-style-type:none;" >
-                <li><h6><%= mission.user.company_name%></h6></li>
-                <li>Mail : <%= mission.user.email %></li>
+                <li><h6><%=mission.name%></h6></li>
+                <li>Avec <strong><%= mission.bookings.first.user.first_name %></strong></li>
                 <li>Tél : <%= mission.user.phone_number %></li>
                 <li> Adresse : <%= mission.address %></li>
-                <li>Du <%= mission.start_date_time%> au <%= mission.end_date_time %></li>
+                <li>Dates : <%= "#{mission.start_date_time.strftime("%d/%m/%Y")} au #{mission.end_date_time.strftime("%d/%m/%Y")} "%></li>
+                <li><%="De #{mission.start_date_time.strftime("%kh%M")} à #{mission.end_date_time.strftime("%kh%M")} "%></li>
               </ul>
             </div>
           </div>
@@ -115,19 +126,17 @@
           <div class="card-user_description pb-4" style ="margin-right: 80px;width:100%">
             <div class=d-flex>
               <% if mission.photos.attached? %>
-                <%= cl_image_tag mission.photos.first.key, width: "150px", height:"100px"%>
+                <%= cl_image_tag mission.photos.first.key, width: "150px", height:"100px", class:"pt-2"%>
               <% else %>
                 <%= image_tag "mission.jpg", width: "150px", height:"100px" %>
               <% end %>
-              <div class="d-flex justify-content-between">
-                <ul style="list-style-type:none;" >
-                  <li><h6><%=mission.user.company_name%></h6></li>
-                  <li>Mail : <%= mission.user.email %></li>
-                  <li>Tél : <%= mission.user.phone_number %></li>
-                  <li> Adresse : <%= mission.address %></li>
-                  <li>Du <%= mission.start_date_time%> au <%= mission.end_date_time %></li>
-                </ul>
-              </div>
+              <ul style="list-style-type:none;" >
+                <li><h6><%=mission.name%></h6></li>
+                <li>Avec <strong><%= mission.bookings.first.user.first_name %></strong></li>
+                <li>Tél : <%= mission.user.phone_number %></li>
+                <li>Dates : <%= "#{mission.start_date_time.strftime("%d/%m/%Y")} au #{mission.end_date_time.strftime("%d/%m/%Y")} "%></li>
+                <li><%="De #{mission.start_date_time.strftime("%kh%M")} à #{mission.end_date_time.strftime("%kh%M")} "%></li>
+              </ul>
             </div>
           </div>
         <% end %>
@@ -140,4 +149,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

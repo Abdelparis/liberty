@@ -1,4 +1,11 @@
 
+  input {
+    margin-top: 0px;
+  }
+
+  submit {
+  border-radius: 0px !important;
+}
 
 .card-product-new-mission {
   overflow: hidden;
@@ -8,7 +15,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 10px;
   margin-bottom: 30px;
-  padding: 10px;
+  padding: 30px;
   color : rgb(30, 30, 30);
   margin-left: auto;
   margin-right: auto;
@@ -69,6 +76,14 @@
   }
 }
 
+
+#mission_photos{
+  display: flex;
+  margin-bottom: 35px;
+color : rgb(30, 30, 30);
+float:left;
+}
+
 #name-input-new-mission {
   width:49%;
   height: 50px;
@@ -80,7 +95,7 @@
   height: 50px;
   float: right;
   margin-left: 30px;
-  }
+}
 
 
 #address-input-new-mission {
@@ -91,10 +106,7 @@
 }
 
 #price-input-new-mission {
-  width: 30%;
-  height: 50px;
-  // border: 1px solid #F9F9FC;
-
+  height: 55px;
 }
 
 .form-inline#new-date-form {
@@ -103,42 +115,97 @@
   align-items: flex-start;
 
 label {
-    margin-right : 30px;
-  margin-left : 30px;}
+  margin-right : 30px;
+}
 
-
-
+.mission_end_date_time {
+  label {
+    margin-left: 30px;
+  }
+}
 
 input {
     margin-top: 0px;
   }
 
-
 #search_start_date_time {
   width: 60%;
   height: 55px;
   }
+
 #search_end_date_time {
   width: 60%;
   height: 55px;
   }
 }
 
-
-
-#description-input-new-mission {
-  height: 50px;
-  width: 60%;
-}
-
-
-@media (max-width: 800px) {
-  .inline input {
-    margin: 5px 0;
-    border-radius: 15px 15px 15px 15px !important;
-    height: 48px;
+.address-price-form {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  #address-input {
+    width: 100% !important;
+    border-left-color: #D3D8DE !important;
+    border-radius: 5px !important;
+  }
+  .mission_price_by_hour {
+    flex: 0 0 30%;
+    margin-left: 2em;
+  }
+  .mission_address {
+    flex: 1;
   }
 }
 
 
+// .float-container-mission#address-input {
+//     width: 269px;
+//     height: 55px;
+//     border: 1px solid grey;
+// }
 
+  #address-input {
+    height: 55px;
+    border: 1px solid #D3D8DE;
+    border-color: #D3D8DE;
+    border-radius: 5px;
+}
+
+#description-input-new-mission {
+  padding: 1em;
+}
+
+form#new_mission {
+  select,
+  input {
+    height: 55px;
+  }
+  textarea::placeholder,
+  select::placeholder,
+  input::placeholder {
+    opacity: 0.4;
+  }
+}
+
+.form-inline-mission {
+  display: flex;
+  padding-bottom: 10px;
+
+  .mission_start_date_time,
+  .mission_name {flex: 1}
+
+  .mission_end_date_time,
+  .mission_job_category_id {
+    flex: 1;
+    margin-left: 2em;
+  }
+}
+
+.upload-photo {
+  border: 1px solid #d3d3d3;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
+}
