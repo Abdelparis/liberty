@@ -731,7 +731,6 @@ Booking.create!(
   )
 puts "Ending creating 5 fake skills..."
 
-
 chatroom = Chatroom.new
 chatroom.booking = Booking.minimum(:id)
 chatroom.save
