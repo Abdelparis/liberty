@@ -144,7 +144,7 @@ alexandre = User.create!(
   )
 
 file_36 = URI.open("https://image.freepik.com/photos-gratuite/jeune-homme-barbu-t-shirt-blanc_273609-7187.jpg")
-  alexandre.avatar.attach(io: file_36, filename: "avatar-#{alexandre.first_name}.jpeg", content_type: 'image/jpeg')
+alexandre.avatar.attach(io: file_36, filename: "avatar-#{alexandre.first_name}.jpeg", content_type: 'image/jpeg')
 
 
 laura = User.create!(
@@ -731,6 +731,6 @@ Booking.create!(
   )
 puts "Ending creating 5 fake skills..."
 
-chatroom = Chatroom.new
-chatroom.booking = Booking.minimum(:id)
-chatroom.save
+# chatroom = Chatroom.new
+# chatroom.booking = Booking.minimum(:id)
+# chatroom.save
