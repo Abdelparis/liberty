@@ -1,4 +1,9 @@
 <% @missions.each do |mission|%>
+  <% if params[:status] == "currently"|| params[:status] == "history" || params[:status].nil?%>
+    <% booking = Booking.select {|booking| (booking.status == "accepted" || booking.mission.end_date_time <= Date.today) && booking.mission == mission}.first %>
+  <% else %>
+    <% booking = mission.bookings.select { |booking| booking.mission.end_date_time >= Date.today && booking.status == "pending" }.first %>
+  <% end %>
   <div class="card-product">
     <div class="card-information" >
       <div class="card-description">
@@ -11,25 +16,39 @@
       </div>
       <div class="card-user_description" style ="width:300px">
         <ul style="list-style-type:none;" >
-          <li class="pt-4"><strong>Fournisseur :</strong></li>
-          <li><%= link_to "#{mission.bookings.first.user.first_name} #{mission.bookings.first.user.last_name}", "#" %></li>
-          <li>Mail : <%= mission.bookings.first.user.email %></li>
-          <li>Tél : <%= mission.user.phone_number %></li>
-          <li>Adresse : <%= mission.user.address %></li>
+          <li class="pt-4"><strong>Freelance :</strong></li>
+          <% if !booking.nil? %>
+            <li><% link_to "Name #{booking.user.first_name} #{booking.user.last_name}", "#" %></li>
+            <li>Mail : <%= booking.user.email %></li>
+            <li>Tél : <%= booking.user.phone_number %></li>
+            <li>Adresse : <%= booking.user.address %></li>
+            <% if params[:status] == "currently" || params[:status] == "history" %>
+              <% chatroom = Chatroom.select {|chatroom| chatroom.booking.mission == mission && chatroom.booking.mission.user == current_user }.first %>
+              <% if chatroom.nil?%>
+                <%= link_to chatrooms_path(booking_id: booking), method: :post do %>
+                  <h8><i class="far fa-envelope"></i> Contacter</h8>
+                <% end %>
+              <% elsif !chatroom.nil?%>
+                <%= link_to imbox_path(chatroom_id: chatroom.id) do %>
+                  <h8><i class="far fa-envelope"></i>  Contacter</h8>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
         </ul>
       </div>
       <div class="card-user_description">
         <ul style="list-style-type:none;">
           <li class="pt-4"><strong>Détails :</strong></li>
-          <li>Date de début de mission : <%= mission.start_date_time %></li>
-          <li>Date de fin de mission : <%= mission.end_date_time %></li>
+          <li>Dates : <%= "#{mission.start_date_time.strftime("%d/%m/%Y")} au #{mission.end_date_time.strftime("%d/%m/%Y")} "%></li>
+          <li><%= "De #{mission.start_date_time.strftime("%k:%M")}h à #{mission.end_date_time.strftime("%kh%M")} "%></li>
           <li>Solde TTC : <%= mission.price_by_hour %><strong>EUR</strong></li>
         </ul>
       </div>
       <ul style="list-style-type:none; margin-top:10px">
         <% if  @params != "pending"%>
            <li><%= link_to "Détails", mission_path(mission), class:"btn btn-second", style:"margin-bottom:20px; width:140px" %></li>
-          <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:140px">Facture</a></li>
+           <li><a href="#" class="btn btn-ok" style="margin-bottom:10px; width:140px">Facture</a></li>
         </ul>
         </div>
         <% else %>
@@ -41,9 +60,9 @@
           <%  bookings.each do |booking| %>
             <div id = <%= "mission_#{mission.id}" %> >
               <% if  params[:mission_id].present?%>
-                  <div class="collapse show" id="collapseExample" style="">
+                  <div class="collapse show" id="collapseExample">
                 <% else %>
-                  <div class="collapse" id="collapseExample" style="">
+                  <div class="collapse" id="collapseExample">
               <% end %>
                 <div class="card card-body">
                   <div class="card-canditates ">

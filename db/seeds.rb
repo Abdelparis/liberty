@@ -449,7 +449,7 @@ puts "Creating 10 fake missions..."
   file_13 = URI.open("https://image.freepik.com/photos-gratuite/deux-femmes-forme-effectuant-pilate-ballon-exercice_107420-87774.jpg")
   pilate.photos.attach(io: file_13, filename: 'mission-pilate-2.jpeg', content_type: 'image/jpeg')
 
-yoga_6 = Mission.create!(
+yoga_health_sens_6 = Mission.create!(
   name: "Cours de Yoga",
   description: "La société Health&Sens est un cabinet de professionnels dans le domaine du sport et du bien-être en entreprise depuis plus de 10 ans, sur Paris et la région parisienne. Nous recherchons des professeurs de yoga sur Paris et la région Parisienne ( 77-78-91-92-93-94-95), afin de dispenser des cours auprès de nos clients le vendredi de 12h30 à 13h30. Vous êtes diplômé en Yoga? N’hésitez pas à nous contacter.",
   address: "14 rue Crespin du Gast, 75011 paris",
@@ -460,11 +460,11 @@ yoga_6 = Mission.create!(
   user_id: health_sens.id
   )
   file_40 = URI.open("https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80")
-  yoga_6.photos.attach(io: file_40, filename: 'mission-yoga-40.jpeg', content_type: 'image/jpeg')
+  yoga_health_sens_6.photos.attach(io: file_40, filename: 'mission-yoga-40.jpeg', content_type: 'image/jpeg')
   file_41 = URI.open("https://yogafactory.fr/wp-content/uploads/2018/04/yoga-factory-evenement-etam.jpg")
-  yoga_6.photos.attach(io: file_41, filename: 'mission-yoga-41.jpeg', content_type: 'image/jpeg')
+  yoga_health_sens_6.photos.attach(io: file_41, filename: 'mission-yoga-41.jpeg', content_type: 'image/jpeg')
 
-yoga_7 = Mission.create!(
+yoga_health_sens_7 = Mission.create!(
   name: "Cours de Yoga",
   description: "La société Health&Sens est un cabinet de professionnels dans le domaine du sport et du bien-être en entreprise depuis plus de 10 ans, sur Paris et la région parisienne. Nous recherchons des professeurs de yoga sur Paris et la région Parisienne ( 77-78-91-92-93-94-95), afin de dispenser des cours auprès de nos clients le vendredi de 12h30 à 13h30. Vous êtes diplômé en Yoga? N’hésitez pas à nous contacter.",
   address: "46 rue des Envierges, 75020 paris",
@@ -475,11 +475,11 @@ yoga_7 = Mission.create!(
   user_id: health_sens.id
   )
   file_42 = URI.open("https://www.anousparis.fr/app/uploads/2018/02/yay-yoga-paris-17-studio-cardinet-7-1024x681.jpg")
-  yoga_7.photos.attach(io: file_42, filename: 'mission-yoga-42.jpeg', content_type: 'image/jpeg')
+  yoga_health_sens_7.photos.attach(io: file_42, filename: 'mission-yoga-42.jpeg', content_type: 'image/jpeg')
   file_43 = URI.open("https://www.yoga-brest.fr/images/salle-yoga-brest-espace-vivre-mieux.jpg")
-  yoga_7.photos.attach(io: file_43, filename: 'mission-yoga-43.jpeg', content_type: 'image/jpeg')
+  yoga_health_sens_7.photos.attach(io: file_43, filename: 'mission-yoga-43.jpeg', content_type: 'image/jpeg')
 
-yoga_8 = Mission.create!(
+yoga_health_sens_8 = Mission.create!(
   name: "Cours de Yoga",
   description: "La société Health&Sens est un cabinet de professionnels dans le domaine du sport et du bien-être en entreprise depuis plus de 10 ans, sur Paris et la région parisienne. Nous recherchons des professeurs de yoga sur Paris et la région Parisienne ( 77-78-91-92-93-94-95), afin de dispenser des cours auprès de nos clients le vendredi de 12h30 à 13h30. Vous êtes diplômé en Yoga? N’hésitez pas à nous contacter.",
   address: "14 rue Crespin du Gast, 75011 paris",
@@ -490,9 +490,9 @@ yoga_8 = Mission.create!(
   user_id: health_sens.id
   )
   file_44 = URI.open("https://www.luxebytrendy.com/wp-content/uploads/2019/03/yoga-factory-studio-photo-interieure.jpg")
-  yoga_8.photos.attach(io: file_44, filename: 'mission-yoga-44.jpeg', content_type: 'image/jpeg')
+  yoga_health_sens_8.photos.attach(io: file_44, filename: 'mission-yoga-44.jpeg', content_type: 'image/jpeg')
   file_45 = URI.open("https://yogafactory.fr/wp-content/uploads/2018/04/yoga-factory-evenement-etam.jpg")
-  yoga_8.photos.attach(io: file_45, filename: 'mission-yoga-45.jpeg', content_type: 'image/jpeg')
+  yoga_health_sens_8.photos.attach(io: file_45, filename: 'mission-yoga-45.jpeg', content_type: 'image/jpeg')
 
 yoga = Mission.create!(
   name: "Cours de Yoga",
@@ -588,7 +588,7 @@ yoga_1 = Mission.create!(
   start_date_time: Time.now + 12.days + 8.hours,
   end_date_time: Time.now + 12.days + 9.hours,
   job_category_id: JobCategory.minimum(:id),
-  user_id: mamanforever.id
+  user_id: health_sens.id
   )
 
   file_24 = URI.open("https://images.unsplash.com/photo-1535571393765-ea44927160be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80")
@@ -604,7 +604,7 @@ yoga_1 = Mission.create!(
   start_date_time: Time.now + 4.days + 2.hours,
   end_date_time: Time.now + 4.days + 3.hours,
   job_category_id: JobCategory.minimum(:id),
-  user_id: le_wagon.id
+  user_id: health_sens.id
   )
 
   file_26= URI.open("https://images.unsplash.com/photo-1552058461-dc1828d58bf6?ixlib=rb-1.2.1&auto=format&fit=crop&w=747&q=80")
@@ -646,19 +646,15 @@ yoga_1 = Mission.create!(
 puts "Creating 5 fake bookings..."
 
 Booking.create!(
-  mission_id: yoga_1.id,
-  user_id: User.minimum(:id),
+  mission_id: yoga_health_sens_8.id,
+  user_id: User.minimum(:id) + 2,
   total_price: 100,
-  freelancer_review: "",
-  freelancer_rating: 4,
-  company_review: "Très bonne expérience chez Health Sens, j'ai adoré le personnel",
-  company_rating: 5,
   status: "accepted"
   )
 
 Booking.create!(
   mission_id: Mission.maximum(:id) - 3,
-  user_id: User.minimum(:id),
+  user_id: User.minimum(:id) + 3,
   total_price: 100,
   freelancer_review: "",
   freelancer_rating: 5,
@@ -680,7 +676,7 @@ Booking.create!(
 
 Booking.create!(
   mission_id: Mission.maximum(:id) - 1,
-  user_id: User.minimum(:id) ,
+  user_id: User.minimum(:id),
   total_price: 60,
   freelancer_review: "",
   freelancer_rating: 5,
@@ -701,8 +697,8 @@ Booking.create!(
   )
 
 Booking.create!(
-  mission_id: yoga_6.id,
-  user_id: User.minimum(:id),
+  mission_id: yoga_health_sens_6.id,
+  user_id: User.minimum(:id) + 2 ,
   total_price: 100,
   freelancer_review: "",
   freelancer_rating: 4,
@@ -713,8 +709,8 @@ Booking.create!(
 
 
 Booking.create!(
-  mission_id: yoga_7.id,
-  user_id: User.minimum(:id),
+  mission_id: yoga_health_sens_7.id,
+  user_id: User.minimum(:id) + 3,
   total_price: 100,
   freelancer_review: "",
   freelancer_rating: 4,
@@ -724,13 +720,18 @@ Booking.create!(
   )
 
 Booking.create!(
-  mission_id: yoga_8.id,
-  user_id: User.minimum(:id),
+  mission_id: yoga_2.id,
+  user_id: User.minimum(:id) + 4,
   total_price: 100,
   freelancer_review: "",
-  freelancer_rating: ,
+  freelancer_rating: "",
   company_review: "",
-  company_rating: ,
+  company_rating: "",
   status: "accepted"
   )
 puts "Ending creating 5 fake skills..."
+
+
+chatroom = Chatroom.new
+chatrooom.booking = booking.find(1)
+charoom.save
