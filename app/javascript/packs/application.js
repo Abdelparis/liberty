@@ -36,7 +36,13 @@ import { initChatroomCable } from '../channels/chatroom_channel';
 import { initFlatpickr } from "../plugins/flatpickr";
 import { initSelect2 } from '../plugins/init_select2';
 
+// destroy select2 before caching
+// document.addEventListener('turbolinks:before-cache', () => {
+//   document.querySelector('.select2').innerText = "";
+// })
+
 document.addEventListener('turbolinks:load', () => {
+  Turbolinks.clearCache();
   if (document.getElementById('map')) {
     setTimeout(initMapbox, 300)
     // initMapbox();
@@ -45,8 +51,7 @@ document.addEventListener('turbolinks:load', () => {
   initNavbar();
   initAutocomplete();
   initSelect2();
-  if (document.querySelector('.body-missions-index')) {
-    initMapMarkersOnOver();
-  }
+  console.log(document.querySelector('.body-missions-index'))
+  initMapMarkersOnOver();
   initFlatpickr();
 })
