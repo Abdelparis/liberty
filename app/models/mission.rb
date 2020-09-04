@@ -6,4 +6,8 @@ class Mission < ApplicationRecord
   has_many_attached :photos
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def sameday?
+    start_date_time.to_date == end_date_time.to_date
+  end
 end

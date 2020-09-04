@@ -135,15 +135,19 @@
   margin-right: 200px;
   margin-top: 7px;
   z-index : 1;
-
 }
 
 .select2-container--default .select2-selection--single {
-    background-color: #fff !important;
-    border: 1px solid #fff !important;
+    background-color: #F9F9FC !important;
+    border: 1px solid #F9F9FC !important;
     border-top-left-radius: 10px !important;
     border-bottom-left-radius: 10px !important;
     height: 55px !important;
+    border-top-left-radius:10px;
+    border-bottom-left-radius:10px;
+    padding-top: 20px;
+    font-size:14px;
+    color: #495057;
 }
 
 @media (max-width: 800px) {
@@ -172,12 +176,5 @@
     box-shadow: none !important;
 }
 
-.select2-container--default .select2-selection--single {
-    background-color: #fff !important;
-    border: 1px solid #fff !important;
-    border-top-left-radius: 10px !important;
-    border-bottom-left-radius: 10px !important;
-    height: 55px !important;
-}
 
 

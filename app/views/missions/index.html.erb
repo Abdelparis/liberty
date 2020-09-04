@@ -35,7 +35,7 @@
                     <h4> Mission :</h4>
                     <p class="text_mission"><%= mission.description.truncate(220) %></p>
                       <div class="card-user-price">
-                      <p id="date"> Du <%= mission.start_date_time.strftime("%d/%m/%Y/") %> au <%= mission.end_date_time.strftime("%d/%m/%Y") %> de <%= mission.start_date_time.strftime("%k:%Mh") %> à <%= mission.end_date_time.strftime("%k:%Mh") %></p>
+                      <p id="date"><%= mission.sameday? ? "Le #{mission.start_date_time.strftime("%d/%m/%Y")} " : "Du #{mission.start_date_time.strftime("%d/%m/%Y")} au #{mission.end_date_time.strftime("%d/%m/%Y")} " %>de <%= mission.start_date_time.strftime("%kh%M") %> à <%= mission.end_date_time.strftime("%kh%M") %></p>
                       <p id="price"><%= mission.price_by_hour%> €</p>
                       </div>
                     </div>

@@ -111,6 +111,6 @@ class MissionsController < ApplicationController
   end
 
   def total_price(price, start_time, end_time)
-    price * (end_time - start_time) / 3600
+    (price * (end_time - start_time) / 3600).round
   end
 end
