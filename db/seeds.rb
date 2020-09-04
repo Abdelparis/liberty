@@ -733,5 +733,5 @@ puts "Ending creating 5 fake skills..."
 
 
 chatroom = Chatroom.new
-chatrooom.booking = booking.find(1)
-charoom.save
+chatroom.booking = Booking.minimum(:id)
+chatroom.save
