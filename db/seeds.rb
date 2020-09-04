@@ -728,9 +728,9 @@ Booking.create!(
   user_id: User.minimum(:id),
   total_price: 100,
   freelancer_review: "",
-  freelancer_rating: 4,
-  company_review: "Expérience excellente chez Health Sens, on se sent directement intégré au lieu et à l'équipe",
-  company_rating: 5,
+  freelancer_rating: ,
+  company_review: "",
+  company_rating: ,
   status: "accepted"
   )
 puts "Ending creating 5 fake skills..."
